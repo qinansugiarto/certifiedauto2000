@@ -1,0 +1,1536 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<title>Digiroom Certified</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f4f4; --white:#fff; --ink:#110d0e; --ink2:#3d3d3d; --muted:#666;
+  --line:#e3e3e3; --rule:#8a8a8a;
+  --red:#d4111b; --red-dark:#b40d14; --red-soft:#fdecec;
+  --hero:#141e28; --hero2:#0f1a26;
+  --nav:#231f20; --nav-off:#9a9898;
+  --green:#18753a; --green-soft:#e7f4ea; --amber:#8a5a00; --amber-soft:#fff3d6;
+  --gold:#b98a1e; --silver:#8b939c; --bronze:#a8683a; --reg:#6b6b6b;
+  --t-fast:120ms; --t-med:220ms;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:#d9d9d9;-webkit-font-smoothing:antialiased;line-height:1.5}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity var(--t-fast)}
+button:active{opacity:.65}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+input,select,textarea{font:inherit;color:inherit}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* iPhone 15: 393 x 852 pt. Full screen on a phone, framed on desktop. */
+.phone{position:relative;width:100%;max-width:393px;height:100vh;height:100dvh;padding-top:env(safe-area-inset-top);margin:0 auto;background:var(--bg);overflow:hidden;display:flex;flex-direction:column}
+.island,.statusbar,.homebar{display:none}
+@media (min-width:500px){
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px 16px}
+  .phone{padding-top:54px;height:852px;max-height:calc(100vh - 48px);border-radius:48px;box-shadow:0 0 0 11px #1b1b1b,0 0 0 13px #3a3a3a,0 30px 60px rgba(0,0,0,.35)}
+  .island{display:block;position:absolute;top:11px;left:50%;transform:translateX(-50%);width:124px;height:36px;border-radius:20px;background:#000;z-index:20}
+  .statusbar{display:flex;position:absolute;top:0;left:0;right:0;height:54px;padding:4px 34px 0;align-items:center;justify-content:space-between;font-size:15px;font-weight:600;z-index:19;pointer-events:none}
+  .statusbar svg{height:12px;width:auto;fill:#111}
+  .statusbar .r{display:flex;gap:6px;align-items:center}
+  .homebar{display:block;position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#8c8c8c;z-index:20;pointer-events:none}
+}
+
+.appbar{flex:none;height:60px;padding:0 6px 0 17px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:relative;z-index:3}
+.appbar.white{background:var(--white)}
+.wordmark{display:flex;flex-direction:column;line-height:1}
+.wordmark b{font-weight:800;font-size:20px;letter-spacing:-.04em;color:#111}
+.wordmark small{font-size:8px;font-weight:700;color:var(--red);margin-top:3px;letter-spacing:.14em}
+.appbar .acts{display:flex}
+.appbar .acts button{width:44px;height:44px;display:grid;place-items:center;position:relative}
+.appbar .acts svg{width:22px;height:22px;stroke:#333;stroke-width:2;fill:none}
+.dot{position:absolute;top:6px;right:5px;min-width:16px;height:16px;border-radius:8px;background:var(--red);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;padding:0 4px}
+
+.subbar{flex:none;height:56px;padding:0 8px;display:flex;align-items:center;gap:4px;background:var(--white);border-bottom:1px solid var(--line);position:relative;z-index:3}
+.subbar .back{width:44px;height:44px;display:grid;place-items:center}
+.subbar .back svg{width:22px;height:22px;stroke:#222;stroke-width:2.2;fill:none}
+.subbar h1{font-size:16px;font-weight:700;flex:1}
+
+.screen{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.phone.notab .screen{padding-bottom:max(34px,env(safe-area-inset-bottom))}
+
+.tabbar{flex:none;height:calc(64px + max(20px,env(safe-area-inset-bottom)));padding-bottom:max(20px,env(safe-area-inset-bottom));background:var(--nav);display:grid;grid-template-columns:repeat(5,1fr);position:relative;z-index:3}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--nav-off);font-size:11px;font-weight:500;min-height:48px}
+.tab svg{width:24px;height:24px}
+.tab.on{color:#fff;font-weight:700}
+
+/* Home */
+.hero{margin:0 17px;border-radius:24px 24px 0 0;background:radial-gradient(160px 100px at 90% 100%,rgba(212,17,27,.5),transparent 70%),linear-gradient(180deg,var(--hero),var(--hero2));color:#fff;padding:20px 17px 30px}
+.hero h2{font-size:16px;font-weight:600}
+.hero .sub{font-size:12px;color:#c9d0d8;margin-top:2px}
+.tierrow{display:flex;align-items:center;gap:12px;margin-top:16px}
+.shield{flex:none;width:46px;height:52px}
+.tierrow .col{flex:1}
+.tierrow .col span{display:block;font-size:11px;color:#c9d0d8}
+.tierrow .col strong{display:block;font-size:17px;font-weight:700}
+.tierrow .cr{text-align:right}
+.herobtn{margin-top:16px;width:100%;min-height:44px;border-radius:10px;background:#fff;color:var(--hero);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+.herobtn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.4;fill:none}
+.sheet{background:var(--white);border-radius:24px 24px 0 0;margin-top:-14px;position:relative;z-index:2;padding:20px 0 24px;box-shadow:0 -6px 14px rgba(0,0,0,.06)}
+.sec-h{padding:0 17px;margin-top:24px}
+.sec-h:first-child{margin-top:0}
+.sec-h h3{font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.sec-h p{font-size:12px;color:var(--ink2);margin-top:2px}
+.hscroll{display:flex;gap:12px;overflow-x:auto;padding:12px 17px 4px;scrollbar-width:none}
+.hscroll::-webkit-scrollbar{display:none}
+.qtile{flex:none;width:72px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.qtile .box{width:68px;height:68px;border-radius:10px;background:#f6f6f6;border:1px solid #e8e8e8;display:grid;place-items:center}
+.qtile .box svg{width:42px;height:42px}
+.qtile span{display:block;font-size:11px;line-height:1.35;color:var(--ink2);margin-top:8px}
+.todo{margin:12px 17px 0;border-radius:12px;border:1.5px solid var(--red);background:var(--red-soft);padding:14px;display:block;width:calc(100% - 34px);text-align:left}
+.todo .k{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+.todo b{display:block;font-size:14px;margin-top:4px;line-height:1.4}
+.todo p{font-size:12px;color:var(--ink2);margin-top:4px}
+.todo .go{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--red)}
+.todo .go svg{width:12px;height:12px;stroke:var(--red);stroke-width:2.6;fill:none}
+.veh{margin:12px 17px 0;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+.veh .top{display:flex;gap:12px;align-items:center}
+.veh .pic{width:92px;height:62px;border-radius:8px;background:linear-gradient(180deg,#f7f7f7,#ececec);display:grid;place-items:center;flex:none}
+.veh .pic svg{width:84px;height:56px}
+.veh h4{font-size:14px;font-weight:700;line-height:1.35}
+.veh .pl{font-size:12px;color:var(--muted);margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.stat{background:#f6f6f6;border-radius:8px;padding:8px 6px;text-align:center}
+.stat span{display:block;font-size:10.5px;color:var(--muted)}
+.stat b{display:block;font-size:12px;font-weight:700;margin-top:2px}
+
+/* Kategori */
+.cat-sec{padding:20px 17px 0}
+.cat-h{display:flex;align-items:center;gap:12px}
+.cat-h h3{font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
+.cat-h i{flex:1;height:1.5px;background:var(--rule)}
+.grid4{display:grid;grid-template-columns:repeat(4,75px);justify-content:space-between;row-gap:14px;margin-top:14px}
+.ctile{text-align:center;display:flex;flex-direction:column;align-items:center}
+.ctile .box{width:75px;height:75px;background:#fff;border-radius:12px;display:grid;place-items:center}
+.ctile .box svg{width:52px;height:52px}
+.ctile span{display:block;font-size:11px;line-height:1.35;color:#222;margin-top:8px}
+
+/* Shared */
+.pad{padding:16px 17px 28px}
+.card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card+.card,.card+.coupon,.coupon+.card{margin-top:10px}
+.lbl{font-size:12px;font-weight:700;color:var(--ink2);margin:16px 0 6px;display:block}
+.lbl:first-child{margin-top:0}
+.field{width:100%;border:1px solid #cfcfcf;border-radius:8px;padding:12px;font-size:14px;background:#fff;appearance:none;min-height:44px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid #c9c9c9;border-radius:20px;padding:9px 14px;font-size:12px;font-weight:500;background:#fff;min-height:38px}
+.chip.on{border-color:var(--red);color:var(--red-dark);background:var(--red-soft);font-weight:700}
+.chip.off{color:#9a9a9a;border-color:#e6e6e6;background:#fafafa;text-decoration:line-through}
+.btn{display:block;width:100%;min-height:48px;background:var(--red);color:#fff;border-radius:10px;padding:13px;font-size:14px;font-weight:700;text-align:center;margin-top:16px}
+.btn.ghost{background:#fff;color:var(--red-dark);border:1.5px solid var(--red);margin-top:10px}
+.btn.dark{background:var(--hero)}
+.btn[disabled]{background:#cfcfcf;color:#fff;cursor:not-allowed;opacity:1}
+.row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;min-height:44px}
+.row .ico{width:44px;height:44px;border-radius:10px;background:#f6f6f6;display:grid;place-items:center;flex:none}
+.row .ico svg{width:30px;height:30px}
+.row .tx{flex:1;min-width:0}
+.row .tx b{display:block;font-size:13px;font-weight:600;line-height:1.35}
+.row .tx span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.chev{width:14px;height:14px;stroke:#999;stroke-width:2;fill:none;flex:none}
+.price{font-size:14px;font-weight:700;color:var(--red-dark);margin-top:4px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;background:var(--red-soft);color:var(--red-dark)}
+.tag.g{background:var(--green-soft);color:var(--green)}.tag.k{background:#ececec;color:#4a4a4a}.tag.a{background:var(--amber-soft);color:var(--amber)}
+.tag svg{width:11px;height:11px;stroke:currentColor;stroke-width:3;fill:none}
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prod .card{padding:10px;display:flex;flex-direction:column;margin-top:0}
+.prod .img{height:92px;border-radius:8px;background:#f6f6f6;display:grid;place-items:center}
+.prod .img svg{width:60px;height:60px}
+.prod b{display:block;font-size:12.5px;font-weight:600;margin-top:8px;line-height:1.35}
+.prod .btn{margin-top:auto;min-height:40px;padding:8px;font-size:12px}
+.carimg{height:120px;border-radius:8px;background:linear-gradient(180deg,#f7f7f7,#ececec);display:grid;place-items:center}
+.carimg svg{width:150px;height:90px}
+.tabs{display:flex;background:#fff;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;min-height:46px;font-size:13px;font-weight:600;color:#6b6b6b;border-bottom:2.5px solid transparent}
+.tabs button.on{color:var(--red-dark);border-color:var(--red)}
+.empty{text-align:center;padding:50px 30px;color:var(--muted);font-size:13px}
+.empty svg{width:70px;height:70px;margin-bottom:10px}
+.profile{background:var(--hero);color:#fff;padding:22px 17px;display:flex;align-items:center;gap:14px}
+.avatar{width:54px;height:54px;border-radius:50%;background:#2c3a49;display:grid;place-items:center;font-weight:700;font-size:20px}
+.menu .row{padding:8px 0;border-bottom:1px solid #eee}
+.menu .row:last-child{border-bottom:0}
+.menu .row .ico{width:36px;height:36px;border-radius:8px;background:var(--red-soft)}
+.menu .row .ico svg{width:18px;height:18px;stroke:var(--red);stroke-width:2;fill:none}
+.coupon{display:flex;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.coupon+.coupon{margin-top:10px}
+.coupon .l{width:84px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;text-align:center}
+.coupon .r{flex:1;padding:12px 14px}
+.coupon .r b{font-size:13px;font-weight:600;display:block}.coupon .r span{font-size:12px;color:var(--muted)}
+.note{font-size:12px;color:var(--muted);margin-top:12px}
+.toast{position:absolute;left:50%;bottom:110px;transform:translateX(-50%) translateY(16px);background:#222;color:#fff;font-size:12.5px;padding:10px 16px;border-radius:20px;opacity:0;transition:opacity var(--t-med),transform var(--t-med);pointer-events:none;z-index:9;max-width:340px;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.search{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #cfcfcf;border-radius:8px;padding:0 12px}
+.search input{border:0;outline:0;flex:1;padding:12px 0;font-size:14px;background:none}
+.search svg{width:16px;height:16px;stroke:#777;stroke-width:2;fill:none}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slots .chip{text-align:center;padding:9px 0}
+.sum{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:7px 0}
+.sum span{color:var(--ink2)}.sum b{font-weight:700;text-align:right}
+.sum.total{border-top:1px solid var(--line);margin-top:6px;padding-top:12px;font-size:15px}
+.ok{width:64px;height:64px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;margin:14px auto 12px}
+.ok svg{width:30px;height:30px;stroke:var(--green);stroke-width:3;fill:none}
+.sos{background:linear-gradient(135deg,#d4111b,#8f0a10);color:#fff;border-radius:14px;padding:20px;text-align:center}
+.sos b{font-size:17px;display:block}.sos p{font-size:13px;margin-top:6px}
+.sos .btn{background:#fff;color:var(--red-dark)}
+
+/* Certified */
+.pp-head{background:linear-gradient(180deg,var(--hero),var(--hero2));color:#fff;padding:18px 17px 22px}
+.pp-head .tierrow{margin-top:0}
+.pp-head .car{font-size:12px;color:#c9d0d8;margin-top:12px}
+.meter{margin-top:12px}
+.meter .top{display:flex;justify-content:space-between;font-size:12px}
+.meter .top b{font-weight:700}
+.bar{height:8px;border-radius:4px;background:#e6e6e6;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);border-radius:4px;transition:width var(--t-med)}
+.pp-head .bar{background:#2c3a49}
+.segs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px}
+.segs i{height:8px;border-radius:4px;background:#e6e6e6}
+.segs i.on{background:var(--red)}
+.tl{position:relative;padding-left:26px}
+.tl:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:#e0e0e0}
+.ev{position:relative;padding-bottom:16px}
+.ev:last-child{padding-bottom:0}
+.ev:before{content:"";position:absolute;left:-24px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #c4c4c4}
+.ev.done:before{background:var(--green);border-color:var(--green)}
+.ev.rep:before{background:var(--amber-soft);border-color:var(--amber)}
+.ev.next:before{background:#fff;border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
+.ev b{display:block;font-size:13px;font-weight:600}
+.ev span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.ev .tag{margin-top:6px}
+.ev button.lnk{margin-top:6px}
+.lnk{font-size:12px;font-weight:700;color:var(--red-dark);text-decoration:underline;min-height:32px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.act{background:#fff;border-radius:12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:left;min-height:84px;display:flex;flex-direction:column;gap:6px}
+.act svg{width:22px;height:22px;stroke:var(--red);stroke-width:2;fill:none}
+.act b{font-size:13px;font-weight:700;line-height:1.3}
+.act span{font-size:11.5px;color:var(--muted);line-height:1.35}
+.item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eee}
+.item:last-of-type{border-bottom:0}
+.item .tx{flex:1}
+.item b{font-size:13px;font-weight:600;display:block}
+.item .tx>span{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+.item .tx>span.tag{display:inline-flex;color:#4a4a4a}
+.item .amt{font-size:13px;font-weight:700;white-space:nowrap}
+.sw{flex:none;width:46px;height:28px;border-radius:14px;background:#c9c9c9;position:relative;transition:background var(--t-med)}
+.sw:after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform var(--t-med)}
+.sw[aria-checked=true]{background:var(--green)}
+.sw[aria-checked=true]:after{transform:translateX(18px)}
+.info{border-radius:10px;background:#eef3f8;color:#1f3a56;padding:12px;font-size:12px;margin-top:12px}
+.info.warn{background:var(--amber-soft);color:#5c3c00}
+.info b{font-weight:700}
+.cert{border:2px solid var(--green);border-radius:14px;background:#fff;padding:18px;text-align:center}
+.cert h2{font-size:15px;font-weight:700}
+.cert .res{font-size:30px;font-weight:800;color:var(--green);margin-top:6px}
+.tiercard{border-left:5px solid var(--c);}
+.tiercard h4{font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tiercard p{font-size:12px;color:var(--ink2);margin-top:4px}
+.qr{width:168px;height:168px;margin:6px auto 0;display:block}
+.center{text-align:center}
+.h2{font-size:15px;font-weight:700}
+.p{font-size:13px;color:var(--ink2);margin-top:6px}
+.steps{counter-reset:s}
+.steps li{list-style:none;position:relative;padding:0 0 12px 32px;font-size:13px;color:var(--ink2)}
+.steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--red-soft);color:var(--red-dark);font-size:12px;font-weight:700;display:grid;place-items:center}
+.steps li b{color:var(--ink)}
+
+/* ===== v2: modern layer ===== */
+:root{--r-lg:20px;--r-md:14px;--shadow:0 6px 20px rgba(17,13,14,.07),0 1px 3px rgba(17,13,14,.06);--ease:cubic-bezier(.2,.8,.2,1)}
+.screen>*{animation:rise .32s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.appbar{height:62px;padding:0 10px 0 12px;gap:8px;background:var(--white)}
+.appbar .logo{height:30px;width:auto;display:block}
+.carpill{display:flex;align-items:center;gap:8px;min-height:44px;padding:4px 10px 4px 4px;border-radius:24px;background:#f2f2f3;max-width:190px}
+.carpill .th{width:40px;height:30px;border-radius:15px;overflow:hidden;background:#e4e4e6;flex:none;position:relative}
+.carpill .th img,.carpill .th svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.carpill b{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.carpill small{font-size:10.5px;color:var(--muted);display:block;line-height:1.2}
+.carpill .cv{width:14px;height:14px;stroke:#555;stroke-width:2.4;fill:none;flex:none;transform:rotate(90deg)}
+.appbar .right{display:flex;align-items:center;gap:6px}
+.iconbtn{width:44px;height:44px;display:grid;place-items:center;position:relative;border-radius:22px}
+.iconbtn svg{width:22px;height:22px;stroke:#333;stroke-width:2;fill:none}
+.new{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:9px;background:var(--red);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.08em;vertical-align:middle;box-shadow:0 0 0 3px rgba(212,17,27,.14);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(212,17,27,.14)}50%{box-shadow:0 0 0 6px rgba(212,17,27,.06)}}
+.new.abs{position:absolute;top:-7px;right:-6px;z-index:2}
+.new,.opt span.new,.act span.new,.svc span.new{color:#fff!important;font-size:9.5px!important;opacity:1!important}
+.rapban .new.abs{top:10px;right:10px}
+.hidenew .new,.hidenew .ndot{display:none!important}
+.ndot{position:absolute;top:8px;right:calc(50% - 18px);width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--nav)}
+.tab{position:relative}
+
+.hero2{margin:6px 14px 0;border-radius:24px;overflow:hidden;position:relative;color:#fff;background:linear-gradient(160deg,#1c2a38 0%,#0f1a26 60%,#2a0d10 100%);box-shadow:var(--shadow)}
+.hero2 .ph{position:relative;height:178px}
+.hero2 .ph img,.hero2 .ph svg.fb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero2 .ph svg.fb{padding:30px 60px;background:#1c2a38}
+.hero2 .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,38,.15) 0%,rgba(15,26,38,0) 40%,rgba(15,26,38,.92) 100%)}
+.hero2 .top{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.glass{background:rgba(20,30,40,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:5px 10px;font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.hero2 .name{position:absolute;left:16px;right:16px;bottom:10px;z-index:2}
+.hero2 .name span{font-size:12px;color:#d6dce3}
+.hero2 .name b{display:block;font-size:19px;font-weight:700;line-height:1.25}
+.hero2 .body{padding:12px 16px 16px}
+.kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.kpi{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:9px 10px}
+.kpi span{display:block;font-size:10.5px;color:#c9d0d8}
+.kpi b{display:flex;align-items:center;gap:5px;font-size:13.5px;font-weight:700;margin-top:2px}
+.hero2 .herobtn{border-radius:14px;margin-top:12px}
+.sec{padding:22px 16px 0}
+.sec .hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.sec .hd h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sec .hd .more{font-size:12.5px;font-weight:700;color:var(--red-dark);min-height:36px}
+.card2{background:#fff;border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow);position:relative}
+.card2+.card2{margin-top:12px}
+.newrail{display:flex;gap:10px;overflow-x:auto;padding:4px 16px 8px;margin:0 -16px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.newrail::-webkit-scrollbar{display:none}
+.ncard{flex:none;width:150px;scroll-snap-align:start;border-radius:18px;padding:14px;text-align:left;color:#fff;position:relative;overflow:hidden;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.ncard b{font-size:13.5px;font-weight:700;line-height:1.3;position:relative}
+.ncard span{font-size:11.5px;opacity:.9;position:relative}
+.ncard svg.ic{width:26px;height:26px;stroke:#fff;stroke-width:2;fill:none;position:relative}
+.ncard:after{content:"";position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.1)}
+.g1{background:linear-gradient(140deg,#d4111b,#8f0a10)}.g2{background:linear-gradient(140deg,#1c2a38,#0f1a26)}.g3{background:linear-gradient(140deg,#3a3a3a,#141414)}.g4{background:linear-gradient(140deg,#b40d14,#141e28)}
+.todo2{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%}
+.todo2 .badge{flex:none;width:46px;height:46px;border-radius:14px;background:var(--red-soft);display:grid;place-items:center}
+.todo2 .badge svg{width:24px;height:24px;stroke:var(--red);stroke-width:2;fill:none}
+.todo2 .k{font-size:11px;font-weight:700;color:var(--red-dark);letter-spacing:.04em}
+.todo2 b{display:block;font-size:14.5px;margin-top:1px;line-height:1.35}
+.todo2 p{font-size:12.5px;color:var(--ink2);margin-top:3px}
+.todo2 .go{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--red-dark)}
+.todo2 .go svg{width:12px;height:12px;stroke:var(--red-dark);stroke-width:2.6;fill:none}
+.chart{width:100%;height:auto;display:block;margin-top:6px;overflow:visible}
+.chart text{font-family:'Plus Jakarta Sans',sans-serif}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin-top:8px}
+.legend i{display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.legend i.d{background:repeating-linear-gradient(90deg,#8a8a8a 0 5px,transparent 5px 8px)}
+.yrs{display:flex;gap:6px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
+.yrs button{flex:none;min-width:44px;min-height:36px;border-radius:18px;border:1px solid #d8d8d8;font-size:12px;font-weight:600;padding:0 10px}
+.yrs button.on{background:var(--hero);border-color:var(--hero);color:#fff}
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.readout div{border-radius:12px;padding:10px;background:#f6f6f7}
+.readout div.a{background:var(--red-soft)}
+.readout span{display:block;font-size:11px;color:var(--ink2)}
+.readout b{display:block;font-size:15px;font-weight:800;margin-top:2px}
+.readout div.a b{color:var(--red-dark)}
+.delta{margin-top:10px;font-size:12.5px;color:var(--ink2)}
+.delta b{color:var(--green)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px}
+.svc button{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:11px;line-height:1.3;color:var(--ink2);text-align:center;min-height:44px}
+.svc .box{width:60px;height:60px;border-radius:18px;background:#f4f4f5;display:grid;place-items:center}
+.svc .box svg{width:38px;height:38px}
+.svc .new.abs{right:2px}
+.rapban{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border-radius:var(--r-lg);padding:16px;color:#fff;background:radial-gradient(160px 120px at 100% 0%,rgba(255,255,255,.18),transparent 70%),linear-gradient(135deg,#d4111b 0%,#7d0a10 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.rapban .yr{flex:none;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.16);display:grid;place-items:center;font-weight:800;font-size:15px;line-height:1.05;text-align:center}
+.rapban b{font-size:15px;display:block}.rapban span{font-size:12px;opacity:.92}
+.certmini{display:flex;gap:12px;align-items:center;width:100%;text-align:left}
+.certmini .seal{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,#e6c66d,#b98a1e,#f3dc95,#b98a1e,#e6c66d)}
+.certmini .seal>div{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.certmini .seal svg{width:24px;height:24px;stroke:#b98a1e;stroke-width:2.2;fill:none}
+.certmini b{font-size:14px;display:block}.certmini span{font-size:12px;color:var(--muted)}
+.lock{opacity:.55;filter:grayscale(1)}
+
+/* e-certificate */
+.ecert{border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow);position:relative}
+.ecert .band{background:linear-gradient(120deg,#141e28,#1f2c3a 60%,#b40d14);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ecert .band b{font-size:15px;letter-spacing:.06em}
+.ecert .band span{font-size:11px;color:#d6dce3;display:block}
+.ecert .band .lg{background:#fff;border-radius:10px;padding:4px 8px}
+.ecert .band .lg img{height:26px;display:block}
+.ecert .bd{padding:16px;position:relative}
+.ecert .bd:before{content:"";position:absolute;inset:10px;border:1px dashed #e0d3a8;border-radius:14px;pointer-events:none}
+.ecert .wm{position:absolute;right:-20px;top:20px;width:180px;opacity:.06;pointer-events:none}
+.ecert h2{font-size:18px;font-weight:800;text-align:center;margin-top:4px}
+.ecert .sub{text-align:center;font-size:12px;color:var(--muted)}
+.ecert .idbox{margin:14px auto 0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.ecert .idbox div{background:#f6f6f7;border-radius:10px;padding:6px 10px;text-align:center}
+.ecert .idbox span{display:block;font-size:10px;color:var(--muted)}
+.ecert .idbox b{font-size:13px;font-weight:800;letter-spacing:.04em}
+.checks{margin-top:12px}
+.checks div{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;padding:5px 0}
+.checks svg{flex:none;width:16px;height:16px;stroke:var(--green);stroke-width:3;fill:none;margin-top:2px}
+.sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;gap:10px}
+.sig .s{font-size:11px;color:var(--muted)}
+.sig .s b{display:block;font-family:"Brush Script MT",cursive;font-size:20px;color:#1f3a56;font-weight:400}
+.sig .qr{width:84px;height:84px;margin:0}
+.journey{display:flex;justify-content:space-between;position:relative;margin:6px 0 4px}
+.journey:before{content:"";position:absolute;left:14px;right:14px;top:13px;height:3px;background:#e4e4e4;border-radius:2px}
+.journey .fill{position:absolute;left:14px;top:13px;height:3px;background:var(--red);border-radius:2px}
+.journey div{position:relative;z-index:1;width:20%;text-align:center;font-size:10.5px;color:var(--muted);line-height:1.25}
+.journey i{display:grid;place-items:center;margin:0 auto 6px;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid #d0d0d0;font-style:normal;font-size:11px;font-weight:800;color:#999}
+.journey div.on i{background:var(--red);border-color:var(--red);color:#fff}
+.journey div.on{color:var(--ink)}
+.journey div.now i{border-color:var(--red);color:var(--red);box-shadow:0 0 0 4px var(--red-soft)}
+.bigcode{font-size:28px;font-weight:800;letter-spacing:.18em;text-align:center;margin-top:6px}
+.seg{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;border:1.5px solid #e2e2e2;border-radius:16px;padding:14px;background:#fff;width:100%;position:relative}
+.opt.on{border-color:var(--red);background:var(--red-soft)}
+.opt .rd{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #bbb;margin-top:1px;display:grid;place-items:center}
+.opt.on .rd{border-color:var(--red)}
+.opt.on .rd:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--red)}
+.opt b{font-size:13.5px;display:block}.opt span{font-size:12px;color:var(--ink2)}
+.garage .card2{display:flex;gap:12px;align-items:center;padding:12px}
+.garage .pic{width:96px;height:64px;border-radius:12px;overflow:hidden;position:relative;background:#eee;flex:none}
+.garage .pic img,.garage .pic svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.garage .card2.on{outline:2px solid var(--red)}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{font-size:11px;font-weight:700;color:var(--ink2);text-align:right;padding:8px 4px;border-bottom:1px solid var(--line)}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl td{padding:10px 4px;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600}
+.tbl tr.me td{background:var(--red-soft)}
+.tbl td .t{display:flex;align-items:center;gap:6px;font-weight:700}
+.tbl td .t i{width:10px;height:10px;border-radius:50%}
+
+/* Rapor (story) */
+.story{position:absolute;inset:0;z-index:30;color:#fff;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top) + 8px) 0 0}
+@media (min-width:500px){.story{padding-top:54px}}
+.story .bars{display:flex;gap:4px;padding:6px 14px}
+.story .bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.story .bars i.on{background:#fff}
+.story .bars i.cur{background:rgba(255,255,255,.3)}
+.story .bars i.cur:after{content:"";display:block;height:100%;width:100%;background:#fff;animation:fillb 6s linear forwards;transform-origin:left}
+@keyframes fillb{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.story .tophd{display:flex;justify-content:space-between;align-items:center;padding:4px 8px 0 16px;font-size:12px;font-weight:600}
+.story .tophd button{width:44px;height:44px;display:grid;place-items:center}
+.story .tophd svg{width:22px;height:22px;stroke:#fff;stroke-width:2.2;fill:none}
+.story .cnt{flex:1;padding:12px 22px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;animation:rise .35s var(--ease) both}
+.story .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.story h2{font-size:26px;font-weight:800;line-height:1.2;margin-top:8px}
+.story .big{font-size:52px;font-weight:800;line-height:1;margin-top:14px;letter-spacing:-.02em}
+.story .big small{font-size:20px;font-weight:700;margin-left:6px}
+.story p{font-size:14px;line-height:1.5;margin-top:12px;opacity:.95}
+.story .est{font-size:11px;opacity:.7;margin-top:10px}
+.story .tile{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px;margin-top:10px}
+.story .tile .sum{color:#fff;font-size:13px}.story .tile .sum span{color:rgba(255,255,255,.8)}
+.story .nav{display:grid;grid-template-columns:1fr 2fr;gap:10px;padding:10px 16px calc(max(20px,env(safe-area-inset-bottom)) + 14px)}
+.story .nav button{min-height:50px;border-radius:14px;font-weight:700;font-size:14px}
+.story .nav .pv{background:rgba(255,255,255,.14);color:#fff}
+.story .nav .nx{background:#fff;color:#141e28}
+.st1{background:radial-gradient(300px 260px at 90% 10%,rgba(212,17,27,.55),transparent 70%),linear-gradient(180deg,#141e28,#0b131c)}
+.st2{background:linear-gradient(170deg,#d4111b,#6e080e)}
+.st3{background:linear-gradient(170deg,#0f4d2c,#0b2318)}
+.st4{background:linear-gradient(170deg,#2c2c2c,#111)}
+.ctaS{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px;margin-top:10px}
+.ctaS b{display:block;font-size:14px}.ctaS span{font-size:12px;color:var(--ink2)}
+.ctaS .tag{margin-top:6px}
+.sharecard{background:linear-gradient(160deg,#d4111b,#141e28);border-radius:20px;padding:18px;margin-top:12px;border:1px solid rgba(255,255,255,.2)}
+.sharecard .r{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.sharecard .r div span{display:block;font-size:11px;opacity:.8}.sharecard .r div b{font-size:16px}
+.blur{filter:blur(6px);user-select:none}
+
+/* ===== v3: tenang, mengikuti aplikasi asli ===== */
+:root{--bg:#f4f4f4;--line:#ececec}
+body{background:#e4e5e8}
+.screen>*{animation:fade .25s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.new{animation:none;box-shadow:none;height:16px;padding:0 6px;font-size:9px!important;letter-spacing:.06em;border-radius:5px}
+.new.abs{top:-6px;right:-6px}
+.ndot{width:8px;height:8px}
+@media (min-width:500px){
+ html,body{height:100%;overflow:hidden}
+ body{display:block;padding:0;background:radial-gradient(1200px 700px at 50% 40%,#f2f2f4,#d9dadf)}
+ .phone{position:fixed;left:50%;top:calc(50% - 6px);width:393px;max-width:none;min-width:393px;height:852px;max-height:none;margin:0;flex:none;transform:translate(-50%,-50%) scale(var(--k,1));transform-origin:center center}
+}
+.appbar{background:var(--white);box-shadow:0 1px 0 var(--line)}
+.carpill{background:#f4f4f4}
+/* hero */
+.hero3{margin:12px 16px 0;border-radius:22px 22px 0 0;color:#fff;padding:18px 18px 0;overflow:hidden;position:relative;background:radial-gradient(220px 140px at 100% 100%,rgba(212,17,27,.35),transparent 70%),linear-gradient(180deg,#152230,#0f1a26)}
+.hero3 .hi{font-size:15px;font-weight:600}
+.tierline{display:flex;align-items:center;gap:12px;margin-top:16px}
+.tierline span{display:block;font-size:11px;color:#c3cad3}.tierline b{font-size:14px;font-weight:700}
+.tierline i{width:1px;height:30px;background:#3e4a57;margin:0 6px}
+.hero3 .benefit{display:flex;align-items:center;gap:4px;width:calc(100% + 36px);margin:16px -18px 0;padding:12px 18px;border-top:1px solid #2c3845;font-size:12px;font-weight:600;color:#fff;min-height:44px}
+.hero3 .benefit svg{width:12px;height:12px;stroke:#fff;stroke-width:2.4;fill:none}
+.hero3 .stripes{height:18px;margin:0 -18px;background:repeating-linear-gradient(180deg,#b40d14 0 3px,#d4111b 3px 5px)}
+.sheet3{background:var(--bg);border-radius:24px 24px 0 0;margin-top:-10px;position:relative;z-index:2;padding-top:6px}
+.sec{padding:22px 16px 0}
+.sec .hd{margin-bottom:10px}
+.sec .hd h3{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.01em}
+.sec .hd .more{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;color:var(--ink);min-height:40px}
+.sec .hd .more svg{width:16px;height:16px;stroke:var(--red);stroke-width:2.4;fill:none}
+.sec .sub{font-size:12px;color:var(--ink2);margin:-8px 0 0}
+.hrow{display:flex;gap:12px;overflow-x:auto;padding:12px 16px 6px;scrollbar-width:none}
+.hrow::-webkit-scrollbar{display:none}
+.qt{flex:none;width:74px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.qt .box{width:70px;height:70px;border-radius:16px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;position:relative}
+.qt .box svg{width:56px;height:56px}
+.qt .l{font-size:11px;line-height:1.3;color:var(--ink2);text-align:center}
+.card3{background:#fff;border-radius:16px;padding:16px;border:1px solid var(--line)}
+.card3+.card3{margin-top:10px}
+.veh3{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden}
+.vtop{display:flex;align-items:center;gap:8px;padding:16px 0 0 16px}
+.vtx{flex:1;min-width:0}
+.vtx b{display:block;font-size:17px;font-weight:700;text-transform:uppercase;line-height:1.2}
+.vtx span{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
+.lnk2{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--red-dark);min-height:36px}
+.lnk2 svg{width:16px;height:16px;stroke:var(--red);stroke-width:2;fill:none}
+.vph{width:178px;height:104px;position:relative;flex:none;border-radius:14px 0 0 14px;overflow:hidden;background:#eef0f2}
+.vph img,.vph svg.fb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vph svg.fb{padding:16px 30px}
+.vst{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px 0}
+.vst div{border:1px solid var(--line);border-radius:12px;padding:9px 12px}
+.vst span{display:block;font-size:11px;color:var(--muted)}.vst b{font-size:13.5px;font-weight:700}
+.due{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 16px 16px;padding:12px 14px;border-radius:14px;background:#fafafa;border:1px solid var(--line)}
+.due .k{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.due b{display:block;font-size:12px;font-weight:500;color:var(--ink2);margin-top:2px}
+.duebtn{flex:none;min-height:40px;padding:0 14px;border-radius:10px;background:var(--red);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.predrow{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
+.predrow span{display:block;font-size:11px;color:var(--muted)}
+.predrow b{font-size:18px;font-weight:800;color:var(--red-dark)}
+.predrow b.muted{color:#8a8a8f;font-size:15px}
+.predrow .r{text-align:right}
+.trialban{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.trialban .av{display:flex;margin-bottom:10px}
+.trialban .av span{width:34px;height:34px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center;border:2px solid #fff;margin-right:-8px}
+.trialban b{font-size:16px;display:block}
+.trialban p{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.tbtn{display:flex;gap:8px}.tbtn .btn{margin-top:12px;min-height:44px;font-size:13px}
+.rap3{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#141e28;color:#fff;border-radius:18px;padding:14px;position:relative}
+.rap3 .yr{flex:none;width:56px;height:56px;border-radius:14px;background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.rap3 .yr b{font-size:16px;letter-spacing:0}
+.rap3 .t{flex:1}.rap3 .t b{font-size:14px;display:block}.rap3 .t span{font-size:12px;color:#c3cad3}
+.rap3 .chev{stroke:#fff}
+.svc .box{background:#fff;border:1px solid var(--line)}
+.svc .box svg{width:48px;height:48px}
+.card2{box-shadow:none;border:1px solid var(--line)}
+.ncard{box-shadow:none}
+/* trial */
+.trhead{background:#141e28;color:#fff;padding:20px 18px 22px}
+.trhead .av{display:flex;margin-bottom:12px}.trhead .av .ava{margin-right:-8px;border:2px solid #141e28}
+.trhead h2{font-size:20px;line-height:1.25;font-weight:800}
+.trhead p{font-size:13px;color:#c3cad3;margin-top:8px}
+.ava{border-radius:50%;color:#fff;font-weight:700;display:grid;place-items:center;flex:none}
+.duta{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+.dtop{display:flex;align-items:center;gap:12px}
+.dn{flex:1;min-width:0}.dn b{display:block;font-size:14px}.dn span{display:block;font-size:12px;color:var(--muted)}
+.dst{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.dst div{background:#f6f6f7;border-radius:10px;padding:8px 10px}.dst span{display:block;font-size:10.5px;color:var(--muted)}.dst b{font-size:13px}
+.dp{font-size:12.5px;margin-top:10px;font-style:italic;color:var(--ink2)}
+.dp span{font-style:normal;font-weight:700;color:var(--green)}
+.duta .btn{margin-top:12px;min-height:44px}
+.lv{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;font-size:11px;font-weight:700;color:#fff}
+.lv-Gold{background:#b98a1e}.lv-Silver{background:#7d858e}.lv-Bronze{background:#a8683a}
+.poin{position:relative;background:linear-gradient(135deg,#141e28,#2b0d11);color:#fff;border-radius:18px;padding:16px}
+.poin span{font-size:12px;color:#c3cad3}.poin b{display:block;font-size:30px;font-weight:800;margin-top:2px}.poin small{display:block;font-size:11.5px;color:#c3cad3;margin-top:4px}
+.poin .bar{background:#2c3a49;margin-top:12px}
+.stars{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.stars button{width:44px;height:44px;display:grid;place-items:center}
+.stars svg{width:30px;height:30px;fill:#e4e4e6}
+.stars .on svg{fill:#f2b01e}
+.kat{display:flex;align-items:center;gap:10px}
+.kat .tx{flex:1}.kat b{font-size:13.5px;display:block}.kat span{font-size:12px;color:var(--muted)}
+.chip[disabled]{opacity:.5}
+/* rapor */
+.story3{position:absolute;inset:0;z-index:30;color:#fff;overflow:hidden;transition:background .5s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+@media (min-width:500px){.story3{padding-top:50px}}
+.story3.lt{color:#141414}
+.story3 .bars{display:flex;gap:4px;padding:8px 14px 0;position:relative;z-index:3}
+.story3 .bars i{flex:1;height:3px;border-radius:2px;background:rgba(127,127,127,.35);overflow:hidden}
+.story3 .bars i.on{background:currentColor}
+.story3 .bars i.cur:after{content:"";display:block;height:100%;background:currentColor;transform-origin:left;animation:fillb 8s linear forwards}
+.story3.hold .bars i.cur:after{animation-play-state:paused}
+.story3 .tophd{display:flex;justify-content:space-between;align-items:center;padding:2px 6px 0 16px;font-size:12px;font-weight:600;position:relative;z-index:3}
+.story3 .tb{display:flex}
+.story3 .tb button{width:44px;height:44px;display:grid;place-items:center}
+.story3 .tb svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none}
+.tz{position:absolute;top:90px;bottom:0;z-index:1}
+.tz.l{left:0;width:30%}.tz.r{right:0;width:70%}
+.stage{position:relative;z-index:2;flex:1;pointer-events:none}
+.stage button,.stage .sw{pointer-events:auto}
+.rv{position:absolute;inset:0;padding:20px 22px calc(28px + env(safe-area-inset-bottom))}
+.rv .eb{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.rv h2{font-size:24px;line-height:1.2;font-weight:800}
+.rv p{font-size:14px;line-height:1.5}
+.rv .tiny{font-size:11px;opacity:.7}
+.rv .pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:22px;background:#fff;color:#141414;font-weight:700;font-size:13px;margin-top:14px}
+.story3.lt .pill{background:#141414;color:#fff}
+.rv .mega{font-size:64px;font-weight:800;line-height:.95;letter-spacing:-.03em}
+.rv .mega small{font-size:20px;margin-left:6px;letter-spacing:0}
+.rv .cap{font-size:12px;opacity:.7}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes inR{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.r-intro .tr{position:absolute;top:18px;right:22px}
+.r-intro .carx{position:absolute;right:-60px;top:110px;width:330px;height:200px;border-radius:24px;overflow:hidden;animation:inR .8s cubic-bezier(.2,.8,.2,1) both;background:#1c2a38}
+.r-intro .carx img,.r-intro .carx svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.r-intro .carx svg{padding:30px 60px}
+.r-intro h1{position:absolute;left:22px;bottom:150px;font-size:58px;line-height:.95;font-weight:800;letter-spacing:-.03em}
+.r-intro h1 span{display:block;animation:up .6s both}.r-intro h1 span+span{animation-delay:.15s;color:#ff5a60}
+.r-intro p{position:absolute;left:22px;right:80px;bottom:60px;opacity:.85}
+.r-km .vert{position:absolute;left:-6px;bottom:30px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:118px;font-weight:800;line-height:.85;letter-spacing:-.04em}
+.r-km .side{position:absolute;left:150px;right:22px;top:70px}
+.r-km .lead{font-size:20px;font-weight:700;margin-top:6px}
+.r-km .route{width:100%;margin:28px 0 10px}
+.r-km .route path{stroke-dashoffset:0;animation:up .8s .2s both}
+.r-fuel .gauge{width:220px;display:block;margin:30px 0 0 auto}
+.r-fuel .garc{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.2s .2s ease-out forwards}
+.r-fuel .needle{transform-origin:100px 100px;animation:needle 1.4s .2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes needle{from{transform:rotate(-80deg)}to{transform:rotate(62deg)}}
+.r-fuel .eb{margin-top:28px}
+.r-fuel .mega{margin-top:8px;animation:up .6s .3s both}
+.r-fuel .right{text-align:right;margin:16px 0 0 70px}
+.r-fuel .trees{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.r-fuel .trees i{width:12px;height:16px;background:#7be0a4;clip-path:polygon(50% 0,100% 70%,62% 70%,62% 100%,38% 100%,38% 70%,0 70%);animation:up .4s both}
+.r-svc h2{margin-top:50px;font-size:30px}.r-svc h2 em{font-style:normal;color:#d4111b}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:40px}
+.months div{text-align:center;font-size:10px;opacity:.6}
+.months i{display:block;height:64px;border-radius:6px;background:rgba(0,0,0,.07);margin-bottom:6px}
+.months .on{opacity:1;font-weight:800}.months .on i{background:#d4111b;animation:up .5s both}
+.spend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:28px}
+.spend div{border-top:2px solid #141414;padding-top:8px}.spend span{display:block;font-size:11px;opacity:.7}.spend b{font-size:16px}
+.r-svc .cap{position:absolute;left:22px;right:22px;bottom:40px}
+.r-perkm h2{margin-top:120px;font-size:28px}.r-perkm h2 b{color:#ff5a60}
+.r-perkm .bars{display:block;padding:0;margin-top:40px}
+.r-perkm .bars div{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:10px;margin-bottom:14px;font-size:12px}
+.r-perkm .bars i{height:26px;border-radius:6px;background:#ff5a60;width:var(--w);animation:grow 1s .3s cubic-bezier(.2,.8,.2,1) both;transform-origin:left;grid-column:2}
+.r-perkm .bars .g i{background:rgba(255,255,255,.3)}
+.r-perkm .bars b{grid-column:2;font-size:13px;margin-top:-8px}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.r-bat .ring{position:absolute;top:70px;right:-50px;width:280px;height:280px}
+.r-bat .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.r-bat .rarc{stroke-dasharray:100;stroke-dashoffset:100;animation:ring 1.4s .2s ease-out forwards}
+@keyframes ring{to{stroke-dashoffset:calc(100 - var(--p))}}
+.r-bat .ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:44px;font-weight:800}
+.r-bat .txt{position:absolute;left:22px;right:22px;bottom:50px}
+.r-bat .txt h2{margin-top:8px;font-size:28px}
+.r-price h2{margin-top:30px;max-width:260px}
+.r-price .mega{margin-top:16px;animation:up .6s both}
+.r-price .draw{width:100%;margin-top:26px}
+.r-price .draw path:first-child{stroke-dasharray:100;animation:draw 1.6s .3s ease-out both}
+.r-price .right{text-align:right;margin-left:60px}
+.r-gift .tix{position:relative;height:240px;margin-top:40px}
+.r-gift .tix div{position:absolute;left:30px;right:30px;height:84px;border-radius:14px;background:#fff;border:1px dashed #c9c9c9;padding:14px 18px;box-shadow:0 10px 24px rgba(0,0,0,.08);animation:up .6s both}
+.r-gift .tix div:nth-child(1){top:0;transform:rotate(-4deg)}.r-gift .tix div:nth-child(2){top:70px;transform:rotate(3deg);animation-delay:.12s}.r-gift .tix div:nth-child(3){top:140px;transform:rotate(-2deg);animation-delay:.24s;background:#d4111b;color:#fff;border:0}
+.r-gift .tix span{display:block;font-size:11px;opacity:.7}.r-gift .tix b{font-size:22px}
+.r-gift h2{position:absolute;left:22px;right:22px;bottom:80px;font-size:26px}.r-gift h2 b{color:#d4111b}
+.r-gift .cap{position:absolute;left:22px;bottom:50px}
+.r-persona .marq{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:4px;opacity:.12;transform:rotate(-8deg) scale(1.2)}
+.r-persona .marq div{white-space:nowrap;font-size:46px;font-weight:800;animation:slide 18s linear infinite;animation-direction:normal}
+.r-persona .marq div:nth-child(even){animation-direction:reverse}
+.r-persona .badge3{position:absolute;left:22px;right:22px;bottom:70px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:22px;padding:20px}
+.r-persona h2{font-size:30px;margin-top:6px;color:#ff5a60}
+.tog{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;font-size:12.5px}
+.r-persona .rk{font-weight:700;margin-top:10px}
+.r-moment .map{width:100%;margin-top:40px}
+.r-moment .map path{stroke-dashoffset:100;animation:draw 1.6s .2s ease-out forwards}
+.r-moment h2{position:absolute;left:22px;right:40px;bottom:110px;font-size:26px}
+.r-moment p{position:absolute;left:22px;right:22px;bottom:60px;opacity:.8}
+.r-share .sc{margin-top:16px;border-radius:22px;padding:20px;background:linear-gradient(150deg,#d4111b,#4a0a0f);animation:up .6s both}
+.r-share .sc>b{font-size:18px}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.sg2 span{display:block;font-size:11px;opacity:.75}.sg2 b{font-size:16px}
+.r-cta h2{font-size:30px;margin-top:60px}
+.r-cta .ct{display:block;width:100%;text-align:left;background:#fff;border-radius:18px;padding:18px;margin-top:16px;transform:rotate(var(--r));box-shadow:0 12px 28px rgba(0,0,0,.08);animation:up .6s both}
+.r-cta .ct b{display:block;font-size:16px}.r-cta .ct span{font-size:12.5px;opacity:.7}
+.r-cta .cap{position:absolute;left:22px;bottom:50px}
+.r-empty{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:80px}
+@media (prefers-reduced-motion:reduce){.rv *{animation:none!important}.r-fuel .garc,.r-bat .rarc,.r-price .draw path,.r-moment .map path{stroke-dashoffset:0!important}}
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+  <div class="island" aria-hidden="true"></div>
+  <div class="statusbar" aria-hidden="true"><span>9:41</span><span class="r"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".6"/><rect x="5" y="5.5" width="3" height="6.5" rx=".6"/><rect x="10" y="3" width="3" height="9" rx=".6"/><rect x="15" y="0" width="3" height="12" rx=".6"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="19" height="8" rx="1.6"/><rect x="24" y="4" width="2" height="4" rx="1"/></svg></span></div>
+  <div id="top"></div>
+  <main class="screen" id="screen"></main>
+  <nav class="tabbar" id="tabbar" aria-label="Navigasi utama"></nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="homebar" aria-hidden="true"></div>
+</div>
+<script>
+/* ---------- Icon set (original drawings in the app's red/grey style) ---------- */
+const R='#d4111b', K='#2a2a2a', G='#c9c9c9', W='#fff', L='#ececec';
+const car=(x=0,y=0,s=1,body=W)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M6 30 L10 20 Q12 16 17 15 L36 14 Q41 14 44 18 L50 24 Q55 25 56 29 L56 34 Q56 36 54 36 L8 36 Q6 36 6 34 Z" fill="${body}" stroke="${K}" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 18 L22 17 L23 24 L12 25 Z M26 17 L36 16.5 Q39 17 41 19 L45 24 L27 24 Z" fill="#9aa3ad" stroke="${K}" stroke-width="1.2"/><circle cx="16" cy="36" r="5" fill="${K}"/><circle cx="16" cy="36" r="2" fill="${G}"/><circle cx="46" cy="36" r="5" fill="${K}"/><circle cx="46" cy="36" r="2" fill="${G}"/></g>`;
+const I={
+ booking:`<svg viewBox="0 0 64 64"><path d="M14 10 L46 10 Q52 10 52 16 L52 50 L14 56 Z" fill="${W}" stroke="${K}" stroke-width="1.6"/><path d="M14 10 L14 56 L8 52 L8 14 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><path d="M52 16 L58 20 L58 54 L52 50 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><circle cx="28" cy="30" r="5" fill="${R}"/><circle cx="38" cy="36" r="5" fill="${R}"/><path d="M26 30h4M28 28v4M36 36h4" stroke="${W}" stroke-width="1.4"/></svg>`,
+ newcar:`<svg viewBox="0 0 64 64">${car(1,10)}</svg>`,
+ parts:`<svg viewBox="0 0 64 64"><path d="M10 26 L40 22 L54 30 L24 35 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><path d="M10 26 L24 35 L24 52 L10 44 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><path d="M24 35 L54 30 L54 46 L24 52 Z" fill="#a50d14" stroke="${K}" stroke-width="1.4"/><rect x="16" y="22" width="6" height="4" fill="${K}"/><rect x="34" y="20" width="6" height="4" fill="${K}"/><path d="M46 10 v26" stroke="${K}" stroke-width="3"/><circle cx="46" cy="38" r="4" fill="${R}" stroke="${K}" stroke-width="1.4"/></svg>`,
+ tracking:`<svg viewBox="0 0 64 64"><path d="M6 38 L32 26 L58 38 L32 52 Z" fill="${W}" stroke="${K}" stroke-width="1.5"/><path d="M14 40 L40 30 M24 46 L48 34" stroke="${G}" stroke-width="1.5"/><path d="M32 6 Q42 6 42 16 Q42 24 32 36 Q22 24 22 16 Q22 6 32 6 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><circle cx="32" cy="16" r="4" fill="${W}"/></svg>`,
+ tradein:`<svg viewBox="0 0 64 64">${car(18,-4,.7)}${car(2,22,.7)}<path d="M8 14 L4 22 L12 22 M56 50 L60 42 L52 42" stroke="${R}" stroke-width="2.4" fill="none"/><path d="M5 22 Q5 12 14 10 M59 42 Q59 52 50 54" stroke="${R}" stroke-width="2.4" fill="none"/></svg>`,
+ bengkel:`<svg viewBox="0 0 64 64"><rect x="40" y="6" width="5" height="52" fill="${R}" stroke="${K}" stroke-width="1.3"/><rect x="36" y="54" width="14" height="4" fill="${K}"/><path d="M22 12 h24 v4 h-24z" fill="${R}" stroke="${K}" stroke-width="1.2"/>${car(4,14,.8)}<rect x="10" y="44" width="30" height="3" fill="${R}"/></svg>`,
+ home:`<svg viewBox="0 0 64 64"><path d="M22 28 L40 14 L58 28 L58 48 L22 48 Z" fill="${W}" stroke="${K}" stroke-width="1.5"/><path d="M18 30 L40 12 L62 30" fill="none" stroke="${R}" stroke-width="4"/><rect x="44" y="34" width="8" height="14" fill="${R}"/>${car(0,24,.6,R)}</svg>`,
+ body:`<svg viewBox="0 0 64 64">${car(0,14,.85)}<path d="M8 26 L22 22 L24 30 L10 32 Z" fill="${R}"/><circle cx="48" cy="12" r="5" fill="${W}" stroke="${K}" stroke-width="1.4"/><path d="M44 18 L42 34 L54 34 L52 18 Z" fill="${W}" stroke="${K}" stroke-width="1.4"/><path d="M42 24 L32 28" stroke="${K}" stroke-width="2.2"/></svg>`,
+ battery:`<svg viewBox="0 0 64 64"><path d="M8 24 L40 20 L56 28 L24 33 Z" fill="${K}"/><path d="M8 24 L24 33 L24 52 L8 43 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><path d="M24 33 L56 28 L56 46 L24 52 Z" fill="#e8343c" stroke="${K}" stroke-width="1.4"/><rect x="14" y="20" width="6" height="5" fill="${G}" stroke="${K}"/><rect x="40" y="16" width="6" height="5" fill="${G}" stroke="${K}"/><path d="M30 40 h6 M33 37 v6 M44 38 h6" stroke="${W}" stroke-width="1.6"/></svg>`,
+ coupon:`<svg viewBox="0 0 64 64"><path d="M6 26 L44 10 L58 34 L20 50 Z" fill="${W}" stroke="${K}" stroke-width="1.5"/><path d="M6 26 L44 10 L49 18 L11 34 Z" fill="${R}"/><path d="M20 30 l2 -1 M26 27 l2-1 M32 25 l2-1" stroke="${W}" stroke-width="1.5"/><text x="34" y="38" font-size="12" font-weight="800" fill="${R}" transform="rotate(-22 40 34)">%</text></svg>`,
+ paket:`<svg viewBox="0 0 64 64"><path d="M10 30 L32 22 L54 30 L32 38 Z" fill="${L}" stroke="${K}" stroke-width="1.4"/><path d="M10 30 L32 38 L32 58 L10 50 Z" fill="${W}" stroke="${K}" stroke-width="1.4"/><path d="M32 38 L54 30 L54 50 L32 58 Z" fill="${R}" stroke="${K}" stroke-width="1.4"/><path d="M22 26 L18 6 L24 6 L27 25" fill="${G}" stroke="${K}" stroke-width="1.3"/><path d="M34 24 L40 4 L46 6 L39 26" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle cx="43" cy="5" r="3" fill="none" stroke="${K}" stroke-width="1.3"/></svg>`,
+ used:`<svg viewBox="0 0 64 64">${car(2,12,.95)}<path d="M8 50 Q32 62 56 50" fill="none" stroke="${R}" stroke-width="2.4"/><path d="M52 46 L57 50 L51 53" fill="none" stroke="${R}" stroke-width="2.4"/><path d="M12 14 Q32 2 52 14" fill="none" stroke="${R}" stroke-width="2.4"/><path d="M16 10 L11 14 L17 17" fill="none" stroke="${R}" stroke-width="2.4"/></svg>`,
+ wheel:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="${R}" stroke="${K}" stroke-width="1.6"/><circle cx="32" cy="32" r="16" fill="${W}" stroke="${K}" stroke-width="1.4"/><path d="M16 30 Q32 24 48 30 L44 36 Q32 32 20 36 Z" fill="${K}"/><path d="M28 34 L26 48 L38 48 L36 34 Z" fill="${K}"/><circle cx="32" cy="32" r="5" fill="${G}" stroke="${K}"/><path d="M10 28 A22 22 0 0 1 20 12" stroke="${K}" stroke-width="5" fill="none"/></svg>`,
+ sos:`<svg viewBox="0 0 64 64"><path d="M18 44 Q18 22 32 22 Q46 22 46 44 Z" fill="${R}" stroke="${K}" stroke-width="1.5"/><rect x="12" y="44" width="40" height="8" rx="2" fill="${K}"/><path d="M32 6 v8 M12 14 l6 6 M52 14 l-6 6 M4 32 h7 M53 32 h7" stroke="${R}" stroke-width="3"/></svg>`,
+ promo:`<svg viewBox="0 0 64 64"><path d="M8 22 L40 12 L50 42 L18 52 Z" fill="${R}" stroke="${K}" stroke-width="1.5"/><circle cx="24" cy="30" r="4" fill="${W}"/><circle cx="36" cy="38" r="4" fill="${W}"/><path d="M38 24 L22 44" stroke="${W}" stroke-width="2.5"/></svg>`,
+ doc:`<svg viewBox="0 0 64 64"><path d="M16 6 L40 6 L50 16 L50 58 L16 58 Z" fill="${W}" stroke="${K}" stroke-width="1.6"/><path d="M40 6 L40 16 L50 16" fill="${L}" stroke="${K}" stroke-width="1.4"/><path d="M22 26 h22 M22 34 h22 M22 42 h14" stroke="${G}" stroke-width="2.5"/><rect x="22" y="14" width="12" height="5" fill="${R}"/></svg>`,
+ bell:`<svg viewBox="0 0 64 64"><path d="M16 46 Q20 40 20 28 Q20 14 32 14 Q44 14 44 28 Q44 40 48 46 Z" fill="${W}" stroke="${K}" stroke-width="1.6"/><circle cx="32" cy="52" r="5" fill="${R}"/></svg>`,
+ cart:`<svg viewBox="0 0 64 64"><path d="M6 12 h8 l6 30 h30 l6 -22 H18" fill="none" stroke="${K}" stroke-width="2"/><circle cx="24" cy="50" r="4" fill="${R}"/><circle cx="46" cy="50" r="4" fill="${R}"/></svg>`,
+ oil:`<svg viewBox="0 0 64 64"><path d="M18 18 h20 l8 8 v28 h-28z" fill="${R}" stroke="${K}" stroke-width="1.5"/><rect x="22" y="10" width="10" height="8" fill="${K}"/><rect x="22" y="30" width="18" height="12" fill="${W}"/></svg>`,
+ tire:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="${K}"/><circle cx="32" cy="32" r="13" fill="${G}" stroke="${W}" stroke-width="2"/><circle cx="32" cy="32" r="4" fill="${R}"/></svg>`,
+ mat:`<svg viewBox="0 0 64 64"><path d="M14 14 L42 10 L50 50 L20 54 Z" fill="${K}"/><path d="M20 20 L40 17 L45 45 L24 48 Z" fill="none" stroke="${R}" stroke-width="2"/></svg>`,
+ cam:`<svg viewBox="0 0 64 64"><rect x="8" y="20" width="48" height="32" rx="5" fill="${W}" stroke="${K}" stroke-width="1.6"/><rect x="22" y="12" width="20" height="8" fill="${K}"/><circle cx="32" cy="36" r="9" fill="${R}" stroke="${K}" stroke-width="1.5"/></svg>`,
+ pin:`<svg viewBox="0 0 64 64"><path d="M32 6 Q48 6 48 22 Q48 34 32 56 Q16 34 16 22 Q16 6 32 6 Z" fill="${R}" stroke="${K}" stroke-width="1.5"/><circle cx="32" cy="22" r="6" fill="${W}"/></svg>`,
+};
+const ui={
+ search:'<svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg>',
+ cart:'<svg viewBox="0 0 24 24"><path d="M2 3h3l2.6 12.2h11.2L21 7H6.4"/><circle cx="9" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/><path d="M10 11h8"/></svg>',
+ bell:'<svg viewBox="0 0 24 24"><path d="M5 17h14l-1.6-2.4V10a5.4 5.4 0 0 0-10.8 0v4.6Z"/><path d="M10 20a2 2 0 0 0 4 0"/><path d="M12 4.6V3"/></svg>',
+ back:'<svg viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19"/></svg>',
+ chev:'<svg class="chev" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19"/></svg>',
+ check:'<svg viewBox="0 0 24 24"><path d="M5 12.5 L10 17.5 L19 7"/></svg>',
+ user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+ car:'<svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3zM6 18v-3M18 18v-3M3 12h18"/></svg>',
+ gift:'<svg viewBox="0 0 24 24"><path d="M4 10h16v10H4zM2 7h20v3H2zM12 7v13M12 7c-2-4-6-4-6-1s6 1 6 1 6 2 6-1-4-3-6 1"/></svg>',
+ lock:'<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+ help:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 1-1 1.7M12 17h.01"/></svg>',
+ out:'<svg viewBox="0 0 24 24"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h11"/></svg>',
+ doc:'<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7"/></svg>',
+ phone:'<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+};
+/* Bottom-nav icons (filled when active, outlined when not) */
+const nav={
+ thumb:'<svg viewBox="0 0 26 26" fill="currentColor"><path d="M3 11h4v12H3zM9 23V11l5-8c1.6 0 2.6 1.2 2.3 2.8L15.6 10H22a2 2 0 0 1 2 2.3l-1.5 8.6a2.5 2.5 0 0 1-2.5 2.1Z"/></svg>',
+ house:'<svg viewBox="0 0 26 26" fill="currentColor"><path d="M13 2.5 1.5 12.5h3.3V24h6.2v-7h4v7h6.2V12.5h3.3Z"/></svg>',
+ order:'<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M7 2.5h13.5l-1.8 4H22l-2.8 17H4.2L7 2.5Z"/><path d="M9.5 11.5h7M8.7 16h7"/></svg>',
+ grid:(on)=>on?'<svg viewBox="0 0 26 26" fill="currentColor"><rect x="3" y="3" width="8.5" height="8.5"/><rect x="3" y="14.5" width="8.5" height="8.5"/><rect x="14.5" y="14.5" width="8.5" height="8.5"/><path d="m18.75 2 5.2 5.2-5.2 5.2-5.2-5.2Z"/></svg>':'<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="7.5" height="7.5"/><rect x="3.5" y="15" width="7.5" height="7.5"/><rect x="15" y="15" width="7.5" height="7.5"/><path d="m18.75 2.8 4.4 4.4-4.4 4.4-4.4-4.4Z"/></svg>',
+ sos:'<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 19v-5a7 7 0 0 1 14 0v5"/><path d="M3.5 19h19v3.5h-19z"/><path d="M13 2.5v3M4.5 6l2 2M21.5 6l-2 2M1.5 13.5h2.5M22 13.5h2.5"/></svg>',
+ acct:'<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="13" cy="13" r="11"/><circle cx="13" cy="10.5" r="4"/><path d="M5.5 21a8.5 8.5 0 0 1 15 0"/></svg>',
+};
+/* ---------- Ikon isometrik 3D (gaya aplikasi Digiroom) ---------- */
+const PAL={red:['#ff5a60','#d4111b','#9e0c13'],white:['#ffffff','#e8e9ec','#c9cbd0'],dark:['#55565c','#2b2c30','#18181b'],grey:['#dfe0e3','#b8bac0','#989aa1'],gold:['#f7d98a','#d8a833','#a97f15'],glass:['#9fb3c6','#6f879e','#566c82']};
+const ISO={s:2.5,ox:32,oy:24};
+const P=(x,y,z)=>[ISO.ox+(x-y)*.866*ISO.s,ISO.oy+(x+y)*.5*ISO.s-z*ISO.s];
+const pts=a=>a.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ');
+const poly=(a,f)=>`<polygon points="${pts(a)}" fill="${f}" stroke="rgba(0,0,0,.12)" stroke-width=".5" stroke-linejoin="round"/>`;
+function box(x,y,z,w,d,h,c){const C=PAL[c]||c;return poly([P(x,y,z+h),P(x+w,y,z+h),P(x+w,y+d,z+h),P(x,y+d,z+h)],C[0])+poly([P(x,y+d,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x,y+d,z+h)],C[1])+poly([P(x+w,y,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x+w,y,z+h)],C[2])}
+function wheel(x,y,z,r=1.25){const[c0,c1]=P(x,y,z);return `<ellipse cx="${c0}" cy="${c1}" rx="${r*ISO.s*.8}" ry="${r*ISO.s*1.15}" transform="rotate(-28 ${c0} ${c1})" fill="#1c1c1f"/><ellipse cx="${c0}" cy="${c1}" rx="${r*ISO.s*.36}" ry="${r*ISO.s*.52}" transform="rotate(-28 ${c0} ${c1})" fill="#c9cbd0"/>`}
+function car3(x,y,z=0,body='white',acc='red'){return box(x,y,z+.9,10,4.6,2.1,body)+box(x+2.6,y+.3,z+3,4.8,4,1.9,'glass')+box(x+2.6,y+.3,z+4.9,4.8,4,.35,body)+box(x+9.6,y+.6,z+1.5,.5,3.4,.7,acc)+wheel(x+2.2,y+4.6,z+1)+wheel(x+7.8,y+4.6,z+1)}
+const shadow=(cx=32,cy=50,rx=22,ry=7)=>`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#ish)"/>`;
+const ic=(body,o={})=>{const s0=ISO.s,ox=ISO.ox,oy=ISO.oy;if(o.s)ISO.s=o.s;if(o.oy)ISO.oy=o.oy;if(o.ox)ISO.ox=o.ox;const b=typeof body==='function'?body():body;ISO.s=s0;ISO.ox=ox;ISO.oy=oy;return `<svg viewBox="0 0 64 64" class="i3">${o.noshadow?'':shadow(32,o.sy||52)}${b}</svg>`};
+const pin=(x,y,sc=1)=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M0-22c7 0 11 5 11 11 0 7-11 18-11 18S-11-4-11-11c0-6 4-11 11-11z" fill="url(#ired)"/><path d="M0-22c7 0 11 5 11 11 0 2-1 4-2 6-1-9-5-14-9-17z" fill="#ff6a70" opacity=".6"/><circle cx="0" cy="-11" r="4.2" fill="#fff"/></g>`;
+const I3={
+ booking:()=>ic(()=>box(-6,-5,0,12,10,1.6,'white')+box(-6,-5,1.6,12,3,.9,'red')+box(-4.5,-4.2,2.5,.8,.8,1.2,'dark')+box(3.7,-4.2,2.5,.8,.8,1.2,'dark')+[[-3.6,0],[-.6,0],[2.4,0],[-3.6,2.6],[-.6,2.6]].map(([a,b],i)=>box(a,b,1.6,1.8,1.6,.25,i===4?'red':'grey')).join(''),{oy:28}),
+ newcar:()=>ic(()=>car3(-5,-2.3,0,'white'),{oy:36,s:3.3,ox:31}),
+ used:()=>ic(()=>car3(-5,-2.3,0,'white')+`<path d="M8 22a24 14 0 0 1 44-4" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round"/><path d="M52 12l1 7-7-1" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`,{oy:38,s:3,ox:31}),
+ parts:()=>ic(()=>box(-5,-3,0,7,6,7,'red')+box(-5,-3,7,7,6,.6,'red')+box(-3,-1.5,7.6,2.4,2.4,1.6,'dark')+box(-4,-3.01,2,0.01,6,3,'white')+box(3,1,0,4,3,3.5,'grey')+box(3,1,3.5,4,3,.4,'dark'),{oy:30}),
+ battery:()=>ic(()=>box(-6,-4,0,12,8,5,'red')+box(-6,-4,5,12,8,.8,'dark')+box(-4,-2.5,5.8,1.6,1.6,1.2,'grey')+box(2.4,-2.5,5.8,1.6,1.6,1.2,'red')+box(-6.01,-1,1.4,0.01,5,1.6,'white'),{oy:28}),
+ tracking:()=>ic(()=>box(-8,-8,0,16,16,.8,'white')+`<path d="M${pts([P(-8,-2,.8),P(8,-2,.8)])}" />`+poly([P(-8,-2.6,.81),P(8,-2.6,.81),P(8,-1.4,.81),P(-8,-1.4,.81)],'#d9dadd')+poly([P(1.4,-8,.82),P(2.6,-8,.82),P(2.6,8,.82),P(1.4,8,.82)],'#d9dadd')+pin(...P(-1,1,1),1.05),{oy:22}),
+ pin:()=>ic(()=>box(-7,-7,0,14,14,.8,'white')+poly([P(-7,-1,.81),P(7,-1,.81),P(7,.4,.81),P(-7,.4,.81)],'#d9dadd')+pin(...P(0,0,1),1.1),{oy:22}),
+ tradein:()=>ic(()=>{ISO.s=2;ISO.ox=24;ISO.oy=24;const a=car3(-5,-2.3,0,'white');ISO.ox=40;ISO.oy=42;const b=car3(-5,-2.3,0,'grey');return a+b+`<path d="M8 24q-2-12 10-14M56 42q2 12-10 14" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round"/><path d="M5 19l3 6 5-4M59 47l-3-6-5 4" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`},{oy:14,ox:38}),
+ wheel:()=>ic(`<g transform="translate(32 30) scale(1 .82) rotate(-12)"><circle r="21" fill="#9e0c13"/><circle r="20" cy="-2" fill="url(#ired)"/><circle r="12" cy="-2" fill="#f4f4f5"/><path d="M-20-4h40v5h-40z" fill="#2b2c30"/><path d="M-4 0h8l3 17h-14z" fill="#2b2c30"/><circle r="6" cy="-1" fill="#55565c"/><circle r="2.5" cy="-1" fill="#c9cbd0"/></g>`),
+ bengkel:()=>ic(()=>box(-8,-6,0,16,12,.8,'dark')+box(-8,-6,.8,1.4,1.4,10,'red')+box(6.6,-6,.8,1.4,1.4,10,'red')+box(-6.6,-5.4,7.6,13.2,.6,.5,'red')+car3(-5,-2,3.2,'white'),{oy:30,s:2.2}),
+ home:()=>ic(()=>box(-5,-5,0,10,9,6,'white')+poly([P(-5.6,-5.6,6),P(5.6,-5.6,6),P(5.6,0,10),P(-5.6,0,10)],'#d4111b')+poly([P(-5.6,0,10),P(5.6,0,10),P(5.6,4.6,6),P(-5.6,4.6,6)],'#ff4a52')+poly([P(5.6,-5.6,6),P(5.6,0,10),P(5.6,4.6,6)],'#9e0c13')+box(2,4.01,0,2.6,.01,3.6,'red')+box(-3.5,4.01,2.4,2.4,.01,2,'glass'),{oy:34}),
+ body:()=>ic(()=>car3(-6,-2,0,'white')+box(-6.02,-.2,1.2,.02,4.6,1.8,'red')+`<g transform="translate(46 16) rotate(18)"><rect x="-4" y="-2" width="8" height="16" rx="2" fill="url(#ired)"/><rect x="-2.5" y="-6" width="5" height="4" rx="1" fill="#2b2c30"/><path d="M-4 -9h-8M-5-12l-6-3M-5-6l-6 3" stroke="#c9cbd0" stroke-width="1.6" stroke-linecap="round"/></g>`,{oy:28}),
+ coupon:()=>ic(()=>box(-7,-4,0,14,8,1.2,'white')+box(-7,-4,1.2,5,8,.3,'red')+[-2,0,2].map(k=>box(-1.5,k-.4,1.2,.3,.6,.32,'grey')).join('')+`<text x="${P(3,0,1.6)[0]}" y="${P(3,0,1.6)[1]+3}" font-size="9" font-weight="800" fill="#d4111b" text-anchor="middle" transform="skewY(-14)">%</text>`,{oy:30}),
+ paket:()=>ic(()=>box(-5,-4,0,10,8,5,'red')+poly([P(-5,4,5),P(5,4,5),P(5,7,8),P(-5,7,8)],'#ff5a60')+poly([P(5,-4,5),P(5,4,5),P(8,4,7),P(8,-4,7)],'#c40f18')+`<path d="M26 10l6 12M30 8l-1 13M38 8l-3 14" stroke="#b8bac0" stroke-width="2.4" stroke-linecap="round"/><circle cx="25" cy="9" r="3" fill="none" stroke="#b8bac0" stroke-width="2"/>`,{oy:32}),
+ doc:()=>ic(()=>box(-6,-7,0,12,14,.9,'white')+[-4,-1.8,.4].map(k=>poly([P(-4,k,.91),P(3,k,.91),P(3,k+.9,.91),P(-4,k+.9,.91)],'#d9dadd')).join('')+`<g transform="translate(${P(2.5,4,1)[0]} ${P(2.5,4,1)[1]})"><path d="M-3 3l-2 9 5-3 5 3-2-9" fill="#d4111b"/><circle r="7" fill="url(#igold)"/><circle r="4.6" fill="none" stroke="#fff" stroke-width="1.2" opacity=".8"/></g>`,{oy:24}),
+ nilai:()=>ic(()=>{ISO.s=2.1;let b=car3(-9,1,0,'white');[[1,2.5],[4,5],[7,8]].forEach(([x,h],i)=>{b+=box(x-1,-8,0,2.2,2.2,h,i===2?'red':'grey')});return b+`<path d="M14 24l12-8 8 4 14-10" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 9h7v7" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`},{oy:28}),
+ share:()=>ic(()=>box(-4,-7,0,8,14,1,'dark')+poly([P(-3.3,-6.3,1.01),P(3.3,-6.3,1.01),P(3.3,6.3,1.01),P(-3.3,6.3,1.01)],'#ffffff')+[[-2.5,-5],[1,-5],[-2.5,-1.6],[1,1.6],[-1,0],[1.5,-1.4]].map(([a,b])=>poly([P(a,b,1.02),P(a+1.4,b,1.02),P(a+1.4,b+1.4,1.02),P(a,b+1.4,1.02)],'#2b2c30')).join('')+`<circle cx="49" cy="14" r="7" fill="url(#ired)"/><path d="M46 14h6M49 11v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>`,{oy:26}),
+ shield:()=>ic(`<g transform="translate(32 30)"><path d="M0-21 16-15v11c0 12-7 20-16 25-9-5-16-13-16-25v-11z" transform="translate(2 2.5)" fill="#a97f15"/><path d="M0-21 16-15v11c0 12-7 20-16 25-9-5-16-13-16-25v-11z" fill="url(#igold)"/><path d="M0-17 12-12.5v8.5c0 9-5 15-12 19-7-4-12-10-12-19v-8.5z" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.2"/><path d="m-6 0 4.5 4.5L7-5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g>`,{sy:55}),
+ rapor:()=>ic(()=>box(-5,-6,0,10,12,.8,'dark')+box(-4.3,-5.3,.8,10,12,.8,'white')+box(-3.6,-4.6,1.6,10,12,.8,'red')+`<path d="M${P(.6,1.2,2.42)[0]-3} ${P(.6,1.2,2.42)[1]-5}l8 5-8 5z" fill="#fff"/>`,{oy:28}),
+ gauge:()=>ic(`<g transform="translate(32 34) scale(1 .78)"><circle r="21" fill="#18181b"/><circle r="19" cy="-2" fill="#2b2c30"/><path d="M-14 6a16 16 0 1 1 28 0" fill="none" stroke="#55565c" stroke-width="4"/><path d="M-14 6a16 16 0 0 1 4-21" fill="none" stroke="#d4111b" stroke-width="4"/><path d="M0 0L-9-11" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle r="3" fill="#d4111b"/></g>`),
+ key:()=>ic(()=>{ISO.s=1.8;const c=car3(-8,0,0,'white');return c+`<g transform="translate(44 18) rotate(-35)"><circle r="7" fill="url(#igold)"/><circle r="2.6" fill="#fff"/><path d="M6-1.6h16v3.2H6zM17 1.6h3v4h-3zM12 1.6h3v3h-3z" fill="#d8a833"/></g>`},{oy:32}),
+ sos:()=>ic(()=>box(-6,-6,0,12,12,2,'dark')+`<g transform="translate(32 26)"><path d="M-9 10v-9a9 9 0 0 1 18 0v9z" fill="url(#ired)"/><path d="M-5 0a5 5 0 0 1 4-5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".8"/><path d="M0-14v-5M-12-9l-4-3M12-9l4-3" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round"/></g>`,{oy:34}),
+ trial:()=>ic(()=>{ISO.s=2.6;ISO.oy=38;ISO.ox=28;return car3(-5,-2.3,0,'white')+`<g transform="translate(46 13)"><path d="M-11-8h22a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H-2l-6 5v-5h-3a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3z" fill="url(#ired)"/><circle cx="-5" cy="-.5" r="1.6" fill="#fff"/><circle cx="0" cy="-.5" r="1.6" fill="#fff"/><circle cx="5" cy="-.5" r="1.6" fill="#fff"/></g>`},{oy:30}),
+ coin:()=>ic(`<g transform="translate(32 26)">${[12,6,0].map((y,i)=>`<ellipse cx="0" cy="${y+4}" rx="15" ry="6" fill="#a97f15"/><rect x="-15" y="${y-1}" width="30" height="5" fill="#d8a833"/><ellipse cx="0" cy="${y-1}" rx="15" ry="6" fill="url(#igold)"/>`).join('')}<text x="0" y="1.5" font-size="7" font-weight="800" fill="#a97f15" text-anchor="middle">P</text></g>`),
+ promo:()=>ic(()=>box(-6,-6,0,12,12,1,'white')+box(-4,-4,1,8,8,.4,'red')+`<text x="${P(0,0,1.6)[0]}" y="${P(0,0,1.6)[1]+3}" font-size="9" font-weight="800" fill="#fff" text-anchor="middle">%</text>`,{oy:28}),
+ bell:()=>ic(`<g transform="translate(32 30)"><path d="M-14 12q4-5 4-14 0-12 10-12t10 12q0 9 4 14z" fill="url(#iwhite)" stroke="#c9cbd0"/><ellipse cy="12" rx="14" ry="3" fill="#c9cbd0"/><circle cy="17" r="4" fill="url(#ired)"/></g>`),
+ cart:()=>ic(()=>box(-6,-4,1.5,11,8,4,'white')+box(-6,-4,5.5,11,8,.3,'red')+wheel(-3.5,4,1.4,1.3)+wheel(3,4,1.4,1.3),{oy:30}),
+ oil:()=>ic(()=>box(-4,-3,0,8,6,9,'red')+box(-1.5,-1,9,3,2,1.6,'dark')+box(-4.01,-1,2.5,.01,4,3.5,'white'),{oy:34}),
+ tire:()=>ic(`<g transform="translate(32 32) scale(.85 1) rotate(-12)"><circle r="20" fill="#18181b"/><circle r="11" fill="#c9cbd0"/><circle r="4" fill="url(#ired)"/></g>`),
+ mat:()=>ic(()=>box(-6,-7,0,12,14,.6,'dark')+poly([P(-4.6,-5.6,.61),P(4.6,-5.6,.61),P(4.6,5.6,.61),P(-4.6,5.6,.61)],'#3c3d42'),{oy:26}),
+ cam:()=>ic(()=>box(-5,-3,0,10,6,5,'dark')+`<circle cx="${P(0,3,2.5)[0]}" cy="${P(0,3,2.5)[1]}" r="5" fill="#18181b"/><circle cx="${P(0,3,2.5)[0]}" cy="${P(0,3,2.5)[1]}" r="3" fill="url(#ired)"/>`,{oy:30})
+};
+const DEFS3=`<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="ish"><stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><linearGradient id="ired" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5a60"/><stop offset="1" stop-color="#b40d14"/></linearGradient><linearGradient id="igold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7d98a"/><stop offset="1" stop-color="#c39221"/></linearGradient><linearGradient id="iwhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe0e3"/></linearGradient></defs></svg>`;
+Object.keys(I3).forEach(k=>{I[k]=I3[k]()});
+ui.shield='<svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>';
+ui.share='<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.9 7.6-3.8M8.2 13.1l7.6 3.8"/></svg>';
+ui.up='<svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>';
+ui.swap='<svg viewBox="0 0 24 24"><path d="M4 8h14l-3-3M20 16H6l3 3"/></svg>';
+ui.list='<svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>';
+ui.chart='<svg viewBox="0 0 24 24"><path d="M3 20h18M5 16l4-5 4 3 6-8"/></svg>';
+ui.award='<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg>';
+ui.cal='<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+ui.gauge='<svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg>';
+ui.key='<svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/></svg>';
+ui.close='<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+ui.plus='<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>';
+ui.spark='<svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>';
+nav.shield=on=>on?'<svg viewBox="0 0 26 26" fill="currentColor"><path d="M13 2 3.5 5.5v7c0 5.4 3.9 9.4 9.5 11 5.6-1.6 9.5-5.6 9.5-11v-7Zm-1.6 15.2-4-4 1.7-1.7 2.3 2.3 5-5.2 1.7 1.7Z"/></svg>':'<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M13 2.5 4 5.8v6.7c0 5 3.6 8.7 9 10.2 5.4-1.5 9-5.2 9-10.2V5.8Z"/><path d="m9 13 3 3 5.2-5.6"/></svg>';
+const LOGO='data:image/png;base64,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';
+
+/* ---------- Foto (Wikimedia Commons, lisensi bebas) ---------- */
+const CM='https://commons.wikimedia.org/wiki/Special:FilePath/';
+const PH={
+ zenixq:'2023 Toyota Kijang Innova Zenix 2.0 Q Hybrid Modellista (front).jpg',
+ zenixg:'2022 Toyota Kijang Innova Zenix G HV (MAGH10; 11-25-2022).jpg',
+ zenixv:'2022 Toyota Kijang Innova Zenix V (front).jpg',
+ yaris:'2023 Toyota Yaris Cross S Hybrid GR Parts NYC200R (Indonesia) front view.jpg',
+ avanza:'2022 Toyota Avanza 1.5 G Toyota Safety Sense W101RE (20220403).jpg'};
+const purl=(k,w=800)=>CM+encodeURIComponent(PH[k].replace(/ /g,'_'))+'?width='+w;
+const photo=(k,alt,cls='',w=800)=>`<svg class="fb" viewBox="0 0 64 44" aria-hidden="true">${car(2,0,1)}</svg><img class="${cls}" src="${purl(k,w)}" alt="${alt}" loading="lazy" decoding="async" onerror="this.remove()">`;
+
+/* ---------- Data ---------- */
+const BLN=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const TC={Gold:'#b98a1e',Silver:'#8b939c',Bronze:'#a8683a',Tercatat:'#6b6b6b'};
+/* Sesuai tab "PR Kayla Skema Trade in" bagian 02 */
+const BONUS={Gold:[3e6,1e6,1e6],Silver:[15e5,1e6,1e6],Bronze:[0,1e6,5e5],Tercatat:[0,0,0]};
+const CREDIT=25e4;
+const DEP={Gold:.10,Silver:.115,Bronze:.13,Tercatat:.15};
+const CARKEYS=['id','car','ph','plate','year','buy','age','km','kmYear','fuel','newPrice','consent','tier','prov','sbi','svc7','hhc','hhc5','ver','rep','xtra','credit','garY','garM','nextDate','last','xstop','reentry','ontime','order','done','trade','share','appr','transfer','prev','certNo','visits','spend','city'];
+function mk(o){return Object.assign({prov:false,sbi:true,svc7:7,hhc:null,hhc5:null,ver:[],rep:[],xtra:0,credit:0,xstop:false,reentry:'none',ontime:0,order:null,done:null,trade:'none',share:false,appr:true,transfer:null,prev:false,consent:true,city:'Jakarta'},o)}
+const AVANZA=mk({id:'A2C-AVZ-3M7P',car:'Toyota Avanza 1.5 G',ph:'avanza',plate:'B 1907 ARF',year:2019,buy:'2 Agu 2019',age:7.3,km:'96.300 km',kmYear:14200,fuel:'bensin',newPrice:240,tier:'Tercatat',garY:2022,garM:7,nextDate:'14 Des 2026',last:'14 Jun 2026',certNo:null,
+  visits:[['14 Jun 2026','Servis berkala 90.000 km','Auto2000 Sunter',1150000],['10 Des 2025','Servis berkala 85.000 km','Auto2000 Sunter',980000]],spend:{servis:1430000,parts:700000,bp:0}});
+const SC={
+ arif:{label:'Tahun 3,5',desc:'Servis gratis habis, servis berbayar pertama jatuh tempo',user:'Arif',cars:[
+  mk({id:'A2C-ZNX-7K4Q',car:'Kijang Innova Zenix Q HEV',ph:'zenixq',plate:'B 1234 XYZ',year:2023,buy:'20 Mei 2023',age:3.5,km:'68.400 km',kmYear:18400,fuel:'hybrid',newPrice:522,tier:'Gold',hhc:'9 Mei 2026',garY:2027,garM:4,nextDate:'28 Nov 2026',last:'9 Mei 2026',certNo:'A2C-2026-051882',
+   visits:[['9 Mei 2026','Servis ke-7 + Hybrid Health Check','Auto2000 Sunter',0],['3 Apr 2026','Servis ke-6, saat mudik Lebaran','Auto2000 Semarang',0],['12 Nov 2025','Servis ke-5','Auto2000 Sunter',0]],spend:{servis:0,parts:650000,bp:0},city:'Jakarta'}),
+  AVANZA]},
+ baru:{label:'Hari serah terima',desc:'Pemilik hybrid baru mengaktifkan Passport bersama sales',user:'Raka',cars:[
+  mk({id:'A2C-YRC-2T9B',car:'Yaris Cross S HEV',ph:'yaris',plate:'B 2217 TRK',year:2026,buy:'15 Nov 2026',age:0,km:'12 km',kmYear:0,fuel:'hybrid',newPrice:430,consent:false,tier:'Gold',prov:true,sbi:false,svc7:0,garY:2029,garM:10,nextDate:'15 Des 2026',last:'Belum ada',certNo:null,visits:[],spend:{servis:0,parts:0,bp:0}})]},
+ jual:{label:'Tahun ke-5',desc:'Riwayat lengkap, e-Sertifikat terbit, siap tukar tambah',user:'Arif',cars:[
+  mk({id:'A2C-ZNX-7K4Q',car:'Kijang Innova Zenix Q HEV',ph:'zenixq',plate:'B 1234 XYZ',year:2023,buy:'20 Mei 2023',age:5,km:'98.900 km',kmYear:15200,fuel:'hybrid',newPrice:522,tier:'Gold',hhc:'9 Mei 2026',hhc5:'12 Mei 2028',ver:[8,9,10,11],xtra:4,credit:1e6,garY:2027,garM:4,nextDate:'-',last:'12 Mei 2028',certNo:'A2C-2028-073410',
+   visits:[['12 Mei 2028','Servis ke-11 + Certified Check','Auto2000 Sunter',1510000],['15 Nov 2027','Servis ke-10','Auto2000 Sunter',1480000]],spend:{servis:2990000,parts:900000,bp:0}}),
+  AVANZA]},
+ dimas:{label:'Sempat servis di luar',desc:'Dua servis di bengkel umum, tier turun ke Bronze',user:'Dimas',cars:[
+  mk({id:'A2C-ZNX-5D1H',car:'Kijang Innova Zenix G HEV',ph:'zenixg',plate:'D 1880 DMS',year:2022,buy:'24 Nov 2022',age:4,km:'81.200 km',kmYear:21000,fuel:'hybrid',newPrice:495,tier:'Bronze',rep:[8,9],xstop:true,garY:2026,garM:10,nextDate:'22 Mei 2027',last:'14 Nov 2025',certNo:null,city:'Bandung',
+   visits:[['14 Nov 2025','Servis ke-9 di bengkel umum (dilaporkan)','Bengkel umum, Bandung',0],['20 Mei 2025','Servis ke-8 di bengkel umum (dilaporkan)','Bengkel umum, Bandung',0]],spend:{servis:2100000,parts:0,bp:0}})]}
+};
+const USED={id:'A2C-ZNX-8F2K',code:'482913',car:mk({id:'A2C-ZNX-8F2K',car:'Kijang Innova Zenix V HEV',ph:'zenixv',plate:'B 2610 VZX',year:2022,buy:'16 Des 2022',age:3.9,km:'71.050 km',kmYear:17000,fuel:'hybrid',newPrice:522,tier:'Silver',hhc:'2 Des 2025',ver:[8],rep:[],xtra:1,credit:25e4,garY:2025,garM:11,nextDate:'5 Des 2026',last:'2 Jun 2026',certNo:'A2C-2025-049117',prev:true,visits:[],spend:{servis:0,parts:0,bp:0}})};
+const cars=[['Kijang Innova Zenix Hybrid','Hybrid'],['Yaris Cross Hybrid','Hybrid'],['Veloz Hybrid','Hybrid'],['bZ4X','BEV'],['Avanza','Bensin']];
+const branches=[['Auto2000 Sunter','Jakarta Utara','2,1 km'],['Auto2000 Kelapa Gading','Jakarta Utara','4,8 km'],['Auto2000 Cempaka Putih','Jakarta Pusat','6,3 km'],['Auto2000 Pluit','Jakarta Utara','9,0 km']];
+let s;
+const VER=4;
+function storeCar(){if(s&&s.cars){const o={};CARKEYS.forEach(k=>o[k]=s[k]);s.cars[s.ci]=o}}
+function loadCar(i){s.ci=i;Object.assign(s,JSON.parse(JSON.stringify(s.cars[i])))}
+function save(){storeCar();try{localStorage.setItem('dgr-certified',JSON.stringify(s))}catch(e){}}
+function setScn(k){const d=SC[k];s={v:VER,scn:k,user:d.user,cars:JSON.parse(JSON.stringify(d.cars)),ci:0,cart:0,notif:3,orderTab:'aktif',booking:{branch:'Auto2000 Sunter',date:'Sab, 28 Nov',slot:'09:00'},opt:true,wa:true,shownew:true,yr:5,rp:0,rank:false,sharev:false,addOpt:'baru',odo:false,duta:{st:'none',poin:0,spk:0,sesi:0,inc:'none',slots:{'Sab 09:00':true,'Sab 13:00':false,'Min 09:00':true},modeA:false},trial:{f:'Semua',d:null,mode:'B',slot:null,ktp:false,st:'none',rate:0}};loadCar(0);save()}
+(function(){try{const j=localStorage.getItem('dgr-certified');if(j){const o=JSON.parse(j);if(o.v===VER){s=o;return}}}catch(e){}setScn('arif')})();
+
+/* ---------- Helpers ---------- */
+const $=q=>document.querySelector(q);
+const h=(st,...v)=>st.reduce((a,x,i)=>a+x+(v[i]??''),'');
+const rp=n=>'Rp'+Math.round(n).toLocaleString('id-ID');
+const short=n=>!n?'Rp0':n>=1e6?'Rp'+(n/1e6).toLocaleString('id-ID')+' jt':'Rp'+(n/1e3)+' rb';
+const jt=n=>'Rp'+(Math.round(n*10)/10).toLocaleString('id-ID')+' jt';
+const NEW=(abs)=>`<span class="new${abs?' abs':''}" aria-label="Fitur baru">BARU</span>`;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300)}
+function go(r){if(r==='rapor'){openRapor();return}location.hash=r}
+const back=()=>history.length>1?history.back():go('home');
+const ice=()=>s.fuel==='bensin';
+const nextN=()=>s.svc7<7?s.svc7+1:Math.max(7,...s.ver,...s.rep)+1;
+const gar=()=>{const d=new Date(s.garY,s.garM+6*s.xtra,1);return BLN[d.getMonth()]+' '+d.getFullYear()};
+const nextName=()=>!s.sbi?'Servis bulan pertama':ice()?'Servis berkala':nextN()>11?'':'Servis ke-'+nextN();
+const paid=()=>ice()||(s.sbi&&nextN()>=8&&nextN()<=11);
+const bonus=()=>{const b=BONUS[s.tier];return{tier:b[0],credit:Math.min(s.credit,b[1]),up:b[2]}};
+const btot=()=>{const b=bonus();return b.tier+b.credit+b.up};
+const verCount=()=>(s.sbi?1:0)+s.svc7+s.ver.length;
+const hasCert=()=>!ice()&&!!s.hhc&&s.consent&&s.tier!=='Tercatat';
+function greeting(){const x=new Date().getHours();return x<11?'Selamat pagi':x<15?'Selamat siang':x<19?'Selamat sore':'Selamat malam'}
+const shield=(t,sz=46)=>`<svg class="shield" style="width:${sz}px;height:${sz*1.13}px;flex:none" viewBox="0 0 46 52" role="img" aria-label="Tier ${t}"><path d="M23 2 4 9v15c0 12 8 21 19 26 11-5 19-14 19-26V9Z" fill="${TC[t]}"/><path d="M23 7 8.5 12.5V24c0 9.5 6 16.8 14.5 21 8.5-4.2 14.5-11.5 14.5-21V12.5Z" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/><path d="m15 25 6 6 11-12" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const dotT=t=>`<i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${TC[t]}"></i>`;
+const sw=(key,label)=>`<button class="sw" role="switch" aria-checked="${!!s[key]}" aria-label="${label}" onclick="act('toggle','${key}')"></button>`;
+const row=(icon,title,sub,a='')=>a?`<button class="row" onclick="${a}"><span class="ico" aria-hidden="true">${icon}</span><span class="tx"><b>${title}</b><span>${sub}</span></span>${ui.chev}</button>`:`<div class="row"><span class="ico" aria-hidden="true">${icon}</span><span class="tx"><b>${title}</b><span>${sub}</span></span></div>`;
+const carSvg='<svg viewBox="0 0 64 44" aria-hidden="true">'+car(2,0,1)+'</svg>';
+const chevR=ui.chev.replace('class="chev"','');
+function qr(seed,cls='qr'){let x=seed,o='';const n=25,f=(r,c)=>{const a=(r<7&&c<7),b=(r<7&&c>=n-7),d=(r>=n-7&&c<7);if(a||b||d){const rr=a||b?r:r-(n-7),cc=a||d?c:c-(n-7);return (rr===0||rr===6||cc===0||cc===6||(rr>1&&rr<5&&cc>1&&cc<5))?1:0}return -1};
+ for(let r=0;r<n;r++)for(let c=0;c<n;c++){let v=f(r,c);if(v<0){x=(x*1103515245+12345)&0x7fffffff;v=(x>>16)&1}if(v)o+=`<rect x="${c}" y="${r}" width="1" height="1"/>`}
+ return `<svg class="${cls}" viewBox="-2 -2 29 29" role="img" aria-label="Kode QR verifikasi"><rect x="-2" y="-2" width="29" height="29" fill="#fff"/><g fill="#111">${o}</g></svg>`}
+const seed=()=>s.id.split('').reduce((a,c)=>a*31+c.charCodeAt(0)&0xffffff,7);
+
+function mainBar(){return h`<header class="appbar">
+  <button class="carpill" onclick="go('garasi')" aria-label="Ganti mobil. Sekarang ${s.car}"><span class="th">${photo(s.ph,'','',200)}</span><span style="min-width:0"><b>${s.car.replace('Kijang Innova ','')}</b><small>${s.cars.length} mobil di garasi</small></span>${ui.chev.replace('class="chev"','class="cv"')}</button>
+  <div class="right"><button class="iconbtn" onclick="go('notif')" aria-label="Notifikasi">${ui.bell}${s.notif?`<span class="dot">${s.notif}</span>`:''}</button><img class="logo" src="${LOGO}" alt="Digiroom by Auto2000"></div></header>`}
+const subBar=t=>`<header class="subbar"><button class="back" onclick="back()" aria-label="Kembali">${ui.back}</button><h1>${t}</h1></header>`;
+function tabbar(a){return [['home','Beranda',nav.house],['passport','Passport',nav.shield(a==='passport'),1],['kategori','Kategori',nav.grid(a==='kategori')],['orders','Order',nav.order],['akun','Akun',nav.acct]]
+  .map(([r,l,i,n])=>`<button class="tab ${a===r?'on':''}" ${a===r?'aria-current="page"':''} onclick="go('${r}')">${i}<span>${l}</span>${n?'<span class="ndot" aria-hidden="true"></span>':''}</button>`).join('')}
+
+/* ---------- Prediksi harga ---------- */
+function curve(rate,yrs){const a=[];for(let y=0;y<=yrs;y++)a.push(s.newPrice*Math.pow(1-rate,y));return a}
+function priceChart(){
+ const yrs=Math.max(6,Math.ceil(s.age)+1),A=curve(ice()?DEP.Silver:DEP.Gold,yrs),B=curve(DEP.Tercatat,yrs);
+ const W=330,H=180,L=34,R=8,T=22,Bm=26,mx=s.newPrice,mn=Math.min(...B)*.92;
+ const X=y=>L+(W-L-R)*y/yrs,Y=v=>T+(H-T-Bm)*(1-(v-mn)/(mx-mn));
+ const path=a=>a.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+ const sel=Math.min(s.yr,yrs);let g='';
+ for(let k=0;k<=3;k++){const v=mn+(mx-mn)*k/3;g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#eee"/><text x="${L-6}" y="${Y(v)+4}" font-size="9.5" text-anchor="end" fill="#777">${Math.round(v)}</text>`}
+ g+=`<text x="${L-6}" y="9" font-size="9" text-anchor="end" fill="#777">Rp jt</text>`;
+ for(let y=0;y<=yrs;y++)g+=`<text x="${X(y)}" y="${H-8}" font-size="9.5" text-anchor="middle" fill="${y===sel?'#110d0e':'#777'}" font-weight="${y===sel?700:400}">${s.year+y}</text>`;
+ const area=path(A)+` L${X(yrs)} ${Y(B[yrs])} `+B.map((v,i)=>'L'+X(yrs-i).toFixed(1)+' '+Y(B[yrs-i]).toFixed(1)).join(' ')+'Z';
+ const now=Math.min(s.age,yrs);
+ return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Grafik prediksi harga jual ${s.car} ${s.year} sampai ${s.year+yrs}">
+  ${g}<path d="${area}" fill="#d4111b" fill-opacity=".07"/>
+  <line x1="${X(now)}" x2="${X(now)}" y1="${T}" y2="${H-Bm}" stroke="#141e28" stroke-dasharray="3 3" stroke-width="1"/>
+  <text x="${X(now)+(now>yrs-1?-4:4)}" y="${T+8}" font-size="9.5" font-weight="700" fill="#141e28" text-anchor="${now>yrs-1?'end':'start'}">Sekarang</text>
+  <path d="${path(B)}" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 3"/>
+  <path d="${path(A)}" fill="none" stroke="#d4111b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="${X(sel)}" x2="${X(sel)}" y1="${Y(A[sel])}" y2="${Y(B[sel])}" stroke="#18753a" stroke-width="2"/>
+  <circle cx="${X(sel)}" cy="${Y(A[sel])}" r="5" fill="#fff" stroke="#d4111b" stroke-width="3"/>
+  <circle cx="${X(sel)}" cy="${Y(B[sel])}" r="4" fill="#fff" stroke="#8a8a8a" stroke-width="2.5"/></svg>
+ <div class="legend"><span><i style="background:#d4111b"></i>${ice()?'Servis rutin di Auto2000':'Terawat, Certified Gold'}</span><span><i class="d"></i>Riwayat tidak lengkap</span></div>
+ <div class="yrs" role="group" aria-label="Pilih tahun">${Array.from({length:yrs},(_,i)=>i+1).map(y=>`<button class="${y===sel?'on':''}" aria-pressed="${y===sel}" onclick="s.yr=${y};save();render()">${s.year+y}</button>`).join('')}</div>
+ <div class="readout"><div class="a"><span>${ice()?'Servis rutin':'Certified Gold'}, ${s.year+sel}</span><b>${jt(A[sel])}</b></div><div><span>Riwayat tidak lengkap</span><b>${jt(B[sel])}</b></div></div>
+ <p class="delta">Selisih <b>${jt(A[sel]-B[sel])}</b> di tahun ke-${sel}. Estimasi dari depresiasi mobil bensin dan hybrid 10-15% per tahun (OLXmobbi, 2025). Bukan jaminan harga.</p>`}
+
+/* ---------- Actions ---------- */
+function act(a,x){
+ if(a==='toggle'){s[x]=!s[x];if(x==='share'&&!s.share)toast('Tautan riwayat dimatikan')}
+ else if(a==='scn'){setScn(x);go('home');toast('Skenario: '+SC[x].label);return}
+ else if(a==='car'){storeCar();loadCar(+x);s.yr=Math.min(5,Math.max(1,Math.ceil(s.age)));toast(s.car+' dipilih');go('home')}
+ else if(a==='consent'){s.consent=true;toast('Passport aktif');go('passport')}
+ else if(a==='cabut'){s.wa=false;s.appr=false;s.share=false;toast('Semua izin berbagi dicabut')}
+ else if(a==='book'){s.order={name:nextName()||'Servis berkala',paid:paid()};go('booking-ok')}
+ else if(a==='selesai'){const n=nextN(),name=nextName()||'Servis berkala',p=paid();
+   if(!ice()){if(!s.sbi)s.sbi=true;else if(n<=7)s.svc7++;else if(n<=11)s.ver.push(n);
+     if(p&&n<=11){if(!s.xstop)s.xtra++;if(s.tier!=='Tercatat')s.credit+=CREDIT;s.ontime++}
+     if(n===7&&s.svc7===7&&!s.hhc){s.hhc='hari ini';s.certNo='A2C-2026-0'+(50000+seed()%9999)}}
+   let naik='';if(s.reentry==='lulus'&&s.ontime>=2&&s.tier==='Bronze'){s.tier='Silver';s.ontime=0;naik='Silver'}
+   s.prov=false;s.done={name,paid:p,naik};s.order=null;s.last='hari ini';s.nextDate='6 bulan lagi';s.notif++;go('hasil')}
+ else if(a==='nota'){const n=nextN();s.rep.push(n);s.xstop=true;s.tier=s.tier==='Gold'?'Silver':s.rep.length>=2?'Bronze':s.tier;s.order=null;s.nextDate='6 bulan lagi';toast('Nota tersimpan dengan label dilaporkan pemilik');go('passport')}
+ else if(a==='reentry'){s.reentry='booked';toast('Re-entry Inspection dijadwalkan')}
+ else if(a==='reentry-lulus'){s.reentry='lulus';s.ontime=0;if(!s.hhc)s.hhc='hari ini';s.certNo=s.certNo||'A2C-2026-0'+(60000+seed()%9999);toast('Lulus inspeksi. e-Sertifikat terbit')}
+ else if(a==='trade'){s.trade='submitted';s.appr=true;toast('Pengajuan terkirim ke appraiser')}
+ else if(a==='trade-batal'){s.trade='none';toast('Pengajuan dibatalkan')}
+ else if(a==='transfer'){s.transfer={code:String(100000+seed()%899999),until:'23 Nov 2026'};toast('Kode transfer dibuat')}
+ else if(a==='transfer-batal'){s.transfer=null;toast('Kode transfer dibatalkan')}
+ else if(a==='transfer-klaim'){const nm=s.car;s.cars.splice(s.ci,1);if(!s.cars.length){toast('Mobil dipindahkan');setScn('baru');go('home');return}loadCar(0);toast(nm+' sudah pindah ke pemilik baru');go('garasi')}
+ else if(a==='add'){storeCar();let c;
+   if(s.addOpt==='bekas'){const id=($('#aid')||{}).value||'',code=($('#acode')||{}).value||'';
+     if(id.trim().toUpperCase()!==USED.id||code.trim()!==USED.code){$('#aerr').textContent='ID Mobil atau kode transfer tidak cocok. Coba '+USED.id+' dan '+USED.code+'.';$('#aerr').hidden=false;return}
+     if(s.cars.some(c=>c.id===USED.id)){toast('Mobil ini sudah ada di garasi');return}
+     c=JSON.parse(JSON.stringify(USED.car))}
+   else{const m=($('#amodel')||{}).value||'Veloz Hybrid',pl=($('#aplate')||{}).value||'B 1 NEW';
+     c=mk({id:'A2C-NEW-'+(1000+s.cars.length*733%8999),car:m,ph:/Zenix/.test(m)?'zenixv':/Avanza/.test(m)?'avanza':'yaris',plate:pl,year:2026,buy:'Hari ini',age:0,km:'0 km',kmYear:0,fuel:/Avanza/.test(m)?'bensin':'hybrid',newPrice:/Zenix/.test(m)?522:/Avanza/.test(m)?255:350,consent:false,tier:/Avanza/.test(m)?'Tercatat':'Gold',prov:true,sbi:false,svc7:0,garY:2029,garM:10,nextDate:'Bulan depan',last:'Belum ada',certNo:null,visits:[],spend:{servis:0,parts:0,bp:0}})}
+   s.cars.push(c);loadCar(s.cars.length-1);toast(c.prev?'e-Sertifikat dan riwayat berpindah ke akun Anda':'Mobil ditambahkan');go(c.prev?'sertifikat':'home');return}
+ else if(a==='odo'){s.odo=true;toast('Odometer tercatat. +50 poin')}
+ else if(a==='rp'){s.rp=Math.max(0,Math.min(RAPOR().length-1,s.rp+(+x)));save();render();return}
+ save();render()}
+
+/* ---------- Beranda ---------- */
+const S={};
+function todoStrip(){
+ const t=(k,b,g,r)=>`<div class="due"><div><span class="k">${k}</span><b>${b}</b></div><button class="duebtn" onclick="go('${r}')">${g}</button></div>`;
+ if(!s.consent)return t('Langkah pertama','Aktifkan Passport mobil ini','Aktifkan','aktivasi');
+ if(s.transfer)return t('Pindah tangan','Kode transfer aktif s.d. '+s.transfer.until,'Lihat','pindah');
+ if(s.trade==='submitted')return t('Tukar tambah','Menunggu jadwal appraiser','Status','nilai');
+ if(s.order)return t('Terjadwal',s.order.name+', '+s.booking.date,'Status','tracking');
+ if(ice())return t('Waktunya servis berkala','Rekomendasi '+s.nextDate,'Book servis','booking');
+ if(s.tier==='Bronze'&&s.reentry!=='lulus')return t('Tier turun ke Bronze','Naik lagi lewat Re-entry Inspection','Lihat','reentry');
+ if(nextN()>11)return t('Riwayat lengkap','Benefit tukar tambah '+short(btot()),'Cek nilai','nilai');
+ if(paid())return t('Waktunya '+nextName().toLowerCase(),'Rekomendasi '+s.nextDate+'. Cek biayanya dulu','Lihat biaya','cost');
+ return t('Waktunya '+nextName().toLowerCase(),'Rekomendasi '+s.nextDate+', gratis','Book servis','booking');
+}
+const HD=(t,more,r,n)=>`<div class="hd"><h3>${t}${n?' '+NEW():''}</h3>${more?`<button class="more" onclick="go('${r}')">${more} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`:''}</div>`;
+function predMini(){
+ const yrs=Math.max(6,Math.ceil(s.age)+1),A=curve(ice()?DEP.Silver:DEP.Gold,yrs),B=curve(DEP.Tercatat,yrs),sel=Math.min(5,yrs);
+ const W=320,H=110,X=y=>8+(W-16)*y/yrs,mn=Math.min(...B)*.94,Y=v=>8+(H-24)*(1-(v-mn)/(s.newPrice-mn));
+ const path=a=>a.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+ return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Prediksi harga jual ${s.car}"><path d="${path(A)} L${X(yrs)} ${H-16} L8 ${H-16}Z" fill="url(#gArea)"/><defs><linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4111b" stop-opacity=".16"/><stop offset="1" stop-color="#d4111b" stop-opacity="0"/></linearGradient></defs><path d="${path(B)}" fill="none" stroke="#a3a3a8" stroke-width="2" stroke-dasharray="4 4"/><path d="${path(A)}" fill="none" stroke="#d4111b" stroke-width="2.6" stroke-linecap="round"/><line x1="${X(Math.min(s.age,yrs))}" x2="${X(Math.min(s.age,yrs))}" y1="6" y2="${H-16}" stroke="#110d0e" stroke-opacity=".25" stroke-dasharray="2 3"/><circle cx="${X(sel)}" cy="${Y(A[sel])}" r="4.5" fill="#fff" stroke="#d4111b" stroke-width="2.5"/><text x="8" y="${H-2}" font-size="10" fill="#777">${s.year}</text><text x="${W-8}" y="${H-2}" font-size="10" fill="#777" text-anchor="end">${s.year+yrs}</text></svg>
+ <div class="predrow"><div><span>${s.year+sel}, kalau terus terawat</span><b>${jt(A[sel])}</b></div><div class="r"><span>Riwayat tidak lengkap</span><b class="muted">${jt(B[sel])}</b></div></div>`}
+S.home=()=>{const el=dutaOK();return{bar:mainBar(),tab:'home',body:h`
+<section class="hero3">
+ <p class="hi">${greeting()}, ${s.user}</p>
+ <div class="tierline">${shield(s.consent&&!ice()?s.tier:'Tercatat',34)}<div><span>Auto2000 Certified</span><b>${!s.consent?'Belum aktif':ice()?'Tercatat':s.tier+(s.prov?' (sementara)':'')}</b></div><i></i><div><span>Certified Credit</span><b>${short(s.credit)}</b></div></div>
+ <button class="benefit" onclick="go('tier')">Lihat benefit saya ${chevR}</button>
+ <div class="stripes"></div>
+</section>
+<section class="sheet3">
+ <div class="sec">${HD('Pilihan kategori')}<p class="sub">Semua urusan mobil dalam satu aplikasi</p></div>
+ <div class="hrow">${[['booking','Booking servis','booking'],['doc','e-Sertifikat','sertifikat',1],['trial','Coba bareng owner','trial',1],['nilai','Nilai mobil','nilai',1],['tradein','Tukar tambah','nilai'],['parts','Produk purnajual','aksesoris'],['wheel','Test drive','test-drive']]
+  .map(([i,l,r,n])=>`<button class="qt" onclick="go('${r}')"><span class="box">${I[i]}${n?NEW(1):''}</span><span class="l">${l}</span></button>`).join('')}</div>
+
+ <div class="sec">${HD('Kendaraan saya','Garasi','garasi')}
+  <div class="veh3">
+   <div class="vtop"><div class="vtx"><b>${s.car.replace('Kijang Innova ','')}</b><span>${s.plate}</span><button class="lnk2" onclick="go('${s.consent?'passport':'aktivasi'}')">${ui.shield}${s.consent?'Buka Passport':'Aktifkan Passport'}</button></div><div class="vph">${photo(s.ph,'Foto '+s.car)}</div></div>
+   <div class="vst"><div><span>Garansi s.d.</span><b>${gar()}</b></div><div><span>Servis terakhir</span><b>${s.last}</b></div></div>
+   ${todoStrip()}
+  </div></div>
+
+ <div class="sec">${HD('Prediksi harga jual','Detail','nilai',1)}<div class="card3">${predMini()}</div></div>
+
+ <div class="sec">${HD('Toyota Trustworthy Trial','','',1)}
+  <div class="trialban"><div class="av">${DUTA.slice(0,3).map(d=>`<span style="background:${d.c}">${d.n[0]}</span>`).join('')}</div>
+   <b>Tanya langsung yang sudah pakai</b><p>Test drive hybrid bareng owner asli di dekatmu, didampingi sales Auto2000.</p>
+   <div class="tbtn"><button class="btn" onclick="go('trial')">Coba bareng owner</button>${el?`<button class="btn ghost" onclick="go('duta')">${s.duta.st==='active'?'Dasbor duta':'Jadi duta'}</button>`:''}</div></div></div>
+
+ <div class="sec" style="padding-bottom:28px"><button class="rap3" onclick="openRapor()"><span class="yr"><b>2026</b>rapor</span><span class="t"><b>Rapor tahunan ${s.car.replace('Kijang Innova ','')}</b><span>Jarak, hemat BBM, dan persona nyetir. Pakai musik.</span></span>${ui.chev}${NEW(1)}</button></div>
+</section>`}};
+
+/* ---------- Garasi & tambah mobil ---------- */
+S.garasi=()=>({bar:subBar('Garasi saya'),body:h`
+<div class="pad garage">${s.cars.map((c,i)=>`<button class="card2 ${i===s.ci?'on':''}" style="width:100%;text-align:left" onclick="act('car',${i})" aria-pressed="${i===s.ci}"><span class="pic">${photo(c.ph,'',' ',300)}</span><span style="flex:1;min-width:0"><b style="font-size:14px;display:block">${c.car}</b><span style="font-size:12px;color:var(--muted);display:block">${c.plate}, ${c.year}</span><span style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap"><span class="tag k">${dotT(c.tier)} ${c.fuel==='bensin'?'Tercatat':c.consent?c.tier:'Belum aktif'}</span>${c.prev?'<span class="tag a">Pemilik ke-2</span>':''}${i===s.ci?'<span class="tag">Dipilih</span>':''}</span></span></button>`).join('')}
+<button class="btn" onclick="go('tambah')">Tambah mobil</button>
+<p class="note">Tiap mobil punya Passport, tier, dan e-Sertifikat sendiri. Tier mengikuti mobil, bukan pemilik.</p></div>`});
+
+S.tambah=()=>{const o=s.addOpt,op=(k,t,d,n)=>`<button class="opt ${o===k?'on':''}" aria-pressed="${o===k}" onclick="s.addOpt='${k}';save();render()"><span class="rd"></span><span><b>${t} ${n?NEW():''}</b><span>${d}</span></span></button>`;return{bar:subBar('Tambah mobil'),body:h`
+<div class="pad"><div class="seg">
+ ${op('baru','Mobil baru dari Auto2000','Passport aktif sejak serah terima')}
+ ${op('bekas','Mobil bekas bersertifikat','Klaim e-Sertifikat dan riwayat dari pemilik sebelumnya dengan ID Mobil',1)}</div>
+ <div class="card2" style="margin-top:14px">${o==='bekas'?h`
+  <label class="lbl" for="aid">ID Mobil</label><input class="field" id="aid" value="${USED.id}" autocapitalize="characters">
+  <label class="lbl" for="acode">Kode transfer dari penjual</label><input class="field" id="acode" inputmode="numeric" value="${USED.code}">
+  <p class="note" id="aerr" role="alert" hidden style="color:var(--red-dark)"></p>
+  <div class="info">ID Mobil tertera di e-Sertifikat. Kode transfer berlaku 7 hari dan hanya bisa dipakai sekali.</div>`:h`
+  <label class="lbl" for="amodel">Model</label><select class="field" id="amodel">${cars.map(c=>`<option>${c[0]}</option>`).join('')}</select>
+  <label class="lbl" for="aplate">Nomor polisi</label><input class="field" id="aplate" value="B 1 NEW" autocapitalize="characters">
+  <label class="lbl" for="avin">Nomor rangka (lihat STNK)</label><input class="field" id="avin" placeholder="17 karakter" autocapitalize="characters">`}</div>
+ <button class="btn" onclick="act('add')">${o==='bekas'?'Klaim e-Sertifikat':'Tambahkan'}</button></div>`}};
+
+/* ---------- Passport ---------- */
+function journey(){const st=[['1','Beli',true],['2','Servis pertama',s.sbi],['3','7 servis gratis',s.svc7>=7],['4','Certified Check',!!s.hhc],['5','e-Sertifikat',hasCert()]];
+ const done=st.filter(x=>x[2]).length,cur=st.findIndex(x=>!x[2]);
+ return `<div class="journey" role="list" aria-label="Perjalanan menuju e-Sertifikat"><span class="fill" style="width:calc(${Math.max(0,done-1)/4*100}% - ${Math.max(0,done-1)/4*28}px)"></span>${st.map(([n,l,ok],i)=>`<div role="listitem" class="${ok?'on':''} ${i===cur?'now':''}"><i>${ok?'✓':n}</i>${l}</div>`).join('')}</div>`}
+function timeline(){
+ const ev=(c,t,sub,x='')=>`<div class="ev ${c}"><b>${t}</b><span>${sub}</span>${x}</div>`;
+ const ver=`<span class="tag g">${ui.check}Terverifikasi bengkel resmi</span>`, n=nextN(); let o='';
+ o+=ev('done','Serah terima',s.buy+(s.prev?', pemilik pertama':', tercatat sejak baru'),ver);
+ o+=s.sbi?ev('done','Servis bulan pertama','Mesin, sasis, dan bodi diperiksa',ver):ev('next','Servis bulan pertama','Jatuh tempo '+s.nextDate+', gratis',`<button class="lnk" onclick="go('booking')">Pilih jadwal</button>`);
+ o+=s.svc7>=7?ev('done','Servis ke-1 s.d. 7 (T-CARE)','7 dari 7 servis gratis, parts asli tercatat',ver):ev(s.sbi?'next':'','Servis ke-1 s.d. 7 (T-CARE)',s.svc7+' dari 7 selesai. Tiap 6 bulan atau 10.000 km',s.sbi?`<button class="lnk" onclick="go('booking')">Pilih jadwal servis ke-${n}</button>`:'');
+ o+=s.hhc?ev('done','Certified Check tahun ke-3','Hybrid Health Check: Good, '+s.hhc,ver+`<br><button class="lnk" onclick="go('sertifikat')">Lihat e-Sertifikat</button>`):ev('','Certified Check tahun ke-3','Cek baterai hybrid gratis, bodi, dan recall. e-Sertifikat terbit di sini');
+ if(s.prev)o+=ev('done','Pindah tangan','e-Sertifikat diklaim dengan ID Mobil '+s.id,`<span class="tag a">Pemilik ke-2</span>`);
+ for(let i=8;i<=11;i++){
+  if(s.ver.includes(i))o+=ev('done','Servis ke-'+i,'Servis berbayar di bengkel resmi',ver);
+  else if(s.rep.includes(i))o+=ev('rep','Servis ke-'+i,'Bengkel umum, nota diunggah',`<span class="tag a">Dilaporkan pemilik</span>`);
+  else if(i===n&&s.svc7>=7)o+=ev('next','Servis ke-'+i,'Jatuh tempo '+s.nextDate,`<button class="lnk" onclick="go('cost')">Lihat estimasi biaya</button>`);
+  else o+=ev('','Servis ke-'+i,'Berbayar, menambah garansi 6 bulan dan credit Rp250 rb');
+ }
+ o+=s.hhc5?ev('done','Certified Check tahun ke-5','Hybrid Health Check: Good, '+s.hhc5+'. e-Sertifikat diperbarui',ver):ev('','Certified Check tahun ke-5','Hybrid Health Check gratis terakhir');
+ o+=ev(n>11?'next':'','Jual atau tukar tambah','e-Sertifikat pindah tangan dengan ID Mobil',`<button class="lnk" onclick="go('${n>11?'nilai':'pindah'}')">${n>11?'Buka nilai mobil saya':'Cara pindah tangan'}</button>`);
+ return o}
+function icePassport(){return h`
+<div class="pp-head"><div class="tierrow" style="margin:0">${shield('Tercatat',52)}<div class="col"><span>Status</span><strong>Tercatat</strong></div></div>
+ <p class="car">${s.car}, ${s.plate}. Riwayat servis tersimpan dan bisa dibagikan saat tukar tambah.</p></div>
+<div class="pad"><div class="info" style="margin:0 0 12px">Tier dan e-Sertifikat Certified untuk tahap pilot berlaku bagi mobil hybrid dan listrik. Riwayat Avanza tetap dipakai sebagai bahan appraisal dan syarat bonus upgrade.</div>
+ <div class="card2"><div class="tl">${s.visits.map(v=>`<div class="ev done"><b>${v[1]}</b><span>${v[0]}, ${v[2]}</span><span class="tag g" style="margin-top:6px">${ui.check}Terverifikasi bengkel resmi</span></div>`).join('')}</div></div>
+ <button class="btn" onclick="go('nilai')">Cek bonus upgrade ke hybrid</button></div>`}
+S.passport=()=>!s.consent?S.aktivasi():({bar:mainBar(),tab:'passport',body:ice()?icePassport():h`
+<div class="pp-head">
+  <div class="tierrow" style="margin:0">${shield(s.tier,52)}
+    <div class="col"><span>Tier Certified</span><strong>${s.tier}${s.prov?' (sementara)':''}</strong></div>
+    <div class="col cr"><span>Certified Credit</span><strong>${rp(s.credit)}</strong></div></div>
+  <p class="car">${s.car}, ID Mobil ${s.id}. Tier mengikuti mobil, bukan pemilik.</p>
+  ${s.svc7>=7?`<div class="meter"><div class="top"><span>T-CARE XTRA: garansi s.d. ${gar()}</span><b>${s.xtra} dari 4</b></div><div class="segs">${[1,2,3,4].map(i=>`<i class="${i<=s.xtra?'on':''}" style="${i<=s.xtra?'':'background:#2c3a49'}"></i>`).join('')}</div></div>`:`<div class="meter"><div class="top"><span>Servis gratis T-CARE</span><b>${s.svc7} dari 7</b></div><div class="bar"><i style="width:${s.svc7/7*100}%"></i></div></div>`}
+</div>
+<div class="pad">
+ <div class="card2" style="padding:14px 10px 10px"><p style="font-size:12px;font-weight:700;padding:0 6px 8px">Dari beli sampai e-Sertifikat</p>${journey()}</div>
+ ${s.xstop?`<div class="info warn"><b>Progres T-CARE XTRA berhenti.</b> Ada servis ke-8 s.d. 11 yang dikerjakan di luar bengkel resmi. Riwayat tetap tersimpan.</div>`:''}
+ <div class="grid2" style="margin-top:12px">
+  <button class="act" style="position:relative" onclick="go('sertifikat')">${ui.award}<b>e-Sertifikat</b><span>${hasCert()?'Aktif, '+s.certNo:'Belum terbit'}</span>${NEW(1)}</button>
+  <button class="act" style="position:relative" onclick="go('nilai')">${ui.swap}<b>Nilai mobil saya</b><span>Benefit tukar tambah ${rp(btot())}</span>${NEW(1)}</button>
+  <button class="act" style="position:relative" onclick="go('tier')">${ui.list}<b>Tier & bonus</b><span>Syarat dan rincian bonus</span>${NEW(1)}</button>
+  <button class="act" onclick="go('nota')">${ui.up}<b>Servis di luar?</b><span>Unggah nota</span></button>
+ </div>
+ <span class="lbl" style="margin-top:20px">Riwayat kendaraan</span>
+ <div class="card2"><div class="tl">${timeline()}</div></div>
+ <p class="note">${verCount()} catatan terverifikasi, ${s.rep.length} dilaporkan pemilik.</p>
+</div>`});
+
+S.aktivasi=()=>({bar:subBar('Aktifkan Passport'),body:h`
+<div class="pad">
+ <div class="card2 center">${shield('Gold',56)}<p class="h2" style="margin-top:8px">Selamat datang di Auto2000 Certified</p><p class="p">Passport mencatat perawatan ${s.car} sejak hari pertama. Setelah Certified Check tahun ke-3, Anda menerima e-Sertifikat yang ikut berpindah saat mobil dijual.</p></div>
+ <div class="card2" style="padding:14px 10px 10px">${journey()}</div>
+ <span class="lbl">Yang dicatat</span>
+ <div class="card2"><ol class="steps">
+  <li><b>Riwayat servis.</b> Tanggal, odometer, pekerjaan, dan nomor parts dari bengkel resmi.</li>
+  <li><b>Hasil pemeriksaan.</b> Hybrid Health Check, kondisi bodi, dan status recall.</li>
+  <li style="padding-bottom:0"><b>Status garansi.</b> T-CARE dan T-CARE XTRA.</li></ol></div>
+ <span class="lbl">Yang bisa melihat</span>
+ <div class="card2"><p class="p" style="margin:0">Hanya Anda dan bengkel resmi Toyota. Calon pembeli atau appraiser baru bisa melihat setelah Anda membagikan tautan. Izin bisa dicabut kapan saja di Akun.</p></div>
+ <div class="card2"><div class="item" style="padding:0;border:0"><div class="tx"><b>Pengingat servis lewat WhatsApp</b><span>Maksimal dua pesan per jadwal servis</span></div>${sw('wa','Pengingat WhatsApp')}</div></div>
+ <button class="btn" onclick="act('consent')">Setuju dan aktifkan</button>
+ <button class="btn ghost" onclick="back()">Nanti saja</button>
+</div>`});
+
+/* ---------- e-Sertifikat ---------- */
+S.sertifikat=()=>{if(!hasCert()){const left=[!s.consent&&'aktifkan Passport',!s.sbi&&'servis bulan pertama',s.svc7<7&&(7-s.svc7)+' servis gratis lagi',!s.hhc&&'Certified Check tahun ke-3'].filter(Boolean);return{bar:subBar('e-Sertifikat'),body:h`
+<div class="pad"><div class="card2 center"><div class="certmini lock" style="justify-content:center"><span class="seal"><div>${ui.award}</div></span></div><p class="h2" style="margin-top:10px">${ice()?'e-Sertifikat untuk mobil hybrid dan listrik':'e-Sertifikat belum terbit'}</p>
+ <p class="p">${ice()?'Pada tahap pilot, e-Sertifikat Auto2000 Certified berlaku untuk mobil elektrifikasi. Riwayat servis Avanza tetap tersimpan.':'e-Sertifikat terbit setelah mobil lulus Certified Check: Hybrid Health Check, cek bodi bebas tabrak berat dan banjir, dan recall tuntas.'}</p></div>
+ ${ice()?'':h`<div class="card2" style="padding:14px 10px 10px">${journey()}</div>
+ <div class="card2"><b style="font-size:13px">Yang tersisa</b><ol class="steps" style="margin-top:10px">${left.map((x,i)=>`<li ${i===left.length-1?'style="padding-bottom:0"':''}>${x[0].toUpperCase()+x.slice(1)}</li>`).join('')}</ol></div>
+ ${s.tier==='Bronze'?`<button class="btn" onclick="go('reentry')">Ikut Re-entry Inspection</button>`:`<button class="btn" onclick="go('${s.consent?'booking':'aktivasi'}')">${s.consent?'Jadwalkan servis berikutnya':'Aktifkan Passport'}</button>`}`}
+</div>`}}
+ return{bar:subBar('e-Sertifikat'),body:h`
+<div class="pad">
+ <div class="ecert">
+  <div class="band"><div><b>AUTO2000 CERTIFIED</b><span>Sertifikat riwayat dan kondisi kendaraan</span></div><span class="lg"><img src="${LOGO}" alt="Digiroom by Auto2000"></span></div>
+  <div class="bd">${shield(s.tier,40).replace('class="shield"','class="shield wm"')}
+   <div style="display:flex;justify-content:center">${shield(s.tier,54)}</div>
+   <h2>Tier ${s.tier}</h2><p class="sub">${s.car}, ${s.year}</p>
+   <div class="idbox"><div><span>ID Mobil</span><b>${s.id}</b></div><div><span>No. sertifikat</span><b>${s.certNo}</b></div></div>
+   <div class="checks">
+    <div>${ui.check}<span>${verCount()} servis terverifikasi di bengkel resmi${s.rep.length?', '+s.rep.length+' dilaporkan pemilik':''}</span></div>
+    <div>${ui.check}<span>Hybrid Health Check: Good (${s.hhc5||s.hhc})</span></div>
+    <div>${ui.check}<span>Bodi bebas tabrak berat dan banjir</span></div>
+    <div>${ui.check}<span>Recall dan kampanye servis tuntas</span></div>
+    <div>${ui.check}<span>Parts pengganti asli Toyota</span></div></div>
+   <div class="sig"><div class="s">Diterbitkan ${s.hhc5||s.hhc}, Auto2000 Sunter<b>Hendra W.</b>Kepala Bengkel</div>${qr(seed(),'qr')}</div>
+   <p class="note" style="margin-top:8px">Berlaku sampai Certified Check berikutnya. ${s.prev?'Pemilik ke-2, riwayat pemilik pertama tetap tercatat.':'Pemilik pertama.'}</p>
+  </div></div>
+ <div class="grid2" style="margin-top:12px">
+  <button class="act" onclick="toast('PDF e-Sertifikat diunduh')">${ui.doc}<b>Unduh PDF</b><span>Untuk dicetak atau dikirim</span></button>
+  <button class="act" onclick="go('bagikan')">${ui.share}<b>Bagikan</b><span>Tautan dan QR verifikasi</span></button></div>
+ <div class="card2" style="margin-top:12px;position:relative">${row(ui.key,'Pindah tangan dengan ID Mobil','Mobil dijual? e-Sertifikat dan tier ikut ke pemilik baru',"go('pindah')")}${NEW(1)}</div>
+ <p class="note">e-Sertifikat mencatat riwayat dan kondisi saat diperiksa. Harga jual tetap ditentukan inspeksi dan pasar.</p>
+</div>`}};
+
+S.pindah=()=>({bar:subBar('Pindah tangan'),body:h`
+<div class="pad">
+ <div class="card2"><p class="h2">e-Sertifikat ikut mobil, bukan pemilik</p><p class="p">Saat ${s.car} dijual, pembeli mengklaim e-Sertifikat dan riwayat servis dengan ID Mobil dan kode transfer. Tier dibekukan sampai pemilik baru mendaftar, lalu berlanjut.</p></div>
+ ${s.transfer?h`<div class="card2 center"><span class="lbl" style="margin:0">ID Mobil</span><div class="bigcode" style="font-size:20px">${s.id}</div>
+  <span class="lbl" style="margin-top:14px">Kode transfer</span><div class="bigcode">${s.transfer.code}</div>
+  <p class="note">Berlaku sampai ${s.transfer.until}. Kirim keduanya hanya ke pembeli.</p>
+  <button class="btn" onclick="toast('ID Mobil dan kode disalin')">Salin untuk pembeli</button>
+  <button class="btn ghost" onclick="act('transfer-batal')">Batalkan kode</button></div>
+  <button class="btn dark" onclick="act('transfer-klaim')">Lompat: pembeli sudah mengklaim</button><p class="note center">Tombol ini mempercepat alur untuk demo.</p>`:h`
+ <span class="lbl">Yang ikut pindah</span>
+ <div class="card2"><ol class="steps"><li>e-Sertifikat dan tier ${s.consent?s.tier:''}</li><li>Riwayat servis terverifikasi dan yang dilaporkan</li><li style="padding-bottom:0">Sisa garansi T-CARE XTRA sesuai ketentuan TAM</li></ol></div>
+ <span class="lbl">Yang tidak ikut pindah</span>
+ <div class="card2"><p class="p" style="margin:0">Nama, nomor telepon, alamat, poin, dan Certified Credit Anda. Credit dipakai saat Anda tukar tambah di Auto2000.</p></div>
+ <button class="btn" ${s.consent?'':'disabled'} onclick="act('transfer')">Buat kode transfer</button>
+ <button class="btn ghost" onclick="go('nilai')">Tukar tambah di Auto2000 saja</button>`}
+</div>`});
+
+/* ---------- Biaya, booking, hasil ---------- */
+function costItems(){const n=nextN();return [['Jasa servis berkala '+((n-1)*10)+'.000 km','Sesuai buku servis '+s.car,62e4,1],['Oli mesin 0W-16 dan filter oli','Diganti tiap 10.000 km atau 6 bulan',89e4,1],['Hybrid Health Check','Cek baterai hybrid, gratis untuk mobil usia 3 sampai 5 tahun',0,1],['Filter kabin','Mulai kotor pada pemeriksaan terakhir. Boleh ditunda.',285e3,0]]}
+S.cost=()=>{if(!paid()||ice())return S.booking();const it=costItems(),tot=it.reduce((a,[, ,p,w])=>a+(w||s.opt?p:0),0);return{bar:subBar('Estimasi biaya '+nextName()),body:h`
+<div class="pad">
+ <div class="card2">${it.map(([t,w,p,wajib])=>`<div class="item"><div class="tx"><b>${t}</b><span>${w}</span>${wajib?'':`<span class="tag k" style="margin-top:6px">Opsional</span>`}</div>${wajib?`<div class="amt">${p?rp(p):'Gratis'}</div>`:`<div style="text-align:right"><div class="amt" style="margin-bottom:6px;${s.opt?'':'text-decoration:line-through;color:#888'}">${rp(p)}</div>${sw('opt','Sertakan filter kabin')}</div>`}</div>`).join('')}
+  <div class="sum total"><span>Perkiraan total</span><b>${rp(tot)}</b></div></div>
+ <p class="note">Estimasi dari service advisor. Pekerjaan tambahan selalu menunggu persetujuan Anda.</p>
+ <span class="lbl">Yang Anda dapat</span>
+ <div class="card2">
+  <div class="sum"><span>Garansi T-CARE XTRA</span><b>${s.xstop?'Tidak bertambah':'+6 bulan ('+(s.xtra+1)+' dari 4)'}</b></div>
+  <div class="sum"><span>Certified Credit</span><b>+${rp(CREDIT)}</b></div>
+  <div class="sum"><span>Tier</span><b>${s.tier} dipertahankan</b></div></div>
+ <button class="btn" onclick="go('booking')">Setuju, pilih jadwal</button>
+ <button class="btn ghost" onclick="toast('Membuka WhatsApp service advisor')">Tanya service advisor</button>
+ <p class="center" style="margin-top:14px"><button class="lnk" onclick="go('nota')">Saya servis di bengkel lain</button></p>
+</div>`}};
+S.booking=()=>{const b=s.booking,sel=(k,v)=>`s.booking.${k}='${v}';save();render()`,nm=nextName()||'Servis berkala';return{bar:subBar('Booking servis'),body:h`
+<div class="pad"><div class="card2">
+ <span class="lbl">Kendaraan</span><div class="field" style="display:flex;align-items:center">${s.car}, ${s.plate}</div>
+ <span class="lbl">Jenis servis</span><div class="field" style="display:flex;align-items:center;justify-content:space-between">${nm}<span class="tag ${paid()?'k':'g'}">${paid()?'Berbayar':'Gratis'}</span></div>
+ <label class="lbl" for="cb">Cabang</label>
+ <select class="field" id="cb" onchange="s.booking.branch=this.value;save()">${branches.map(([n,a,d])=>`<option value="${n}" ${b.branch===n?'selected':''}>${n} (${d})</option>`).join('')}</select>
+ <span class="lbl">Tanggal</span>
+ <div class="chips">${['Sab, 28 Nov','Sen, 30 Nov','Sel, 1 Des','Rab, 2 Des'].map(x=>`<button class="chip ${b.date===x?'on':''}" aria-pressed="${b.date===x}" onclick="${sel('date',x)}">${x}</button>`).join('')}</div>
+ <span class="lbl">Jam</span>
+ <div class="slots">${['08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00'].map((x,i)=>i===3||i===6?`<button class="chip off" disabled aria-label="${x} penuh">${x}</button>`:`<button class="chip ${b.slot===x?'on':''}" aria-pressed="${b.slot===x}" onclick="${sel('slot',x)}">${x}</button>`).join('')}</div>
+ <label class="lbl" for="ct">Catatan untuk bengkel (opsional)</label>
+ <textarea class="field" id="ct" rows="2" placeholder="Misalnya: ada bunyi di roda depan"></textarea>
+</div><button class="btn" onclick="act('book')">Konfirmasi booking</button></div>`}};
+S['booking-ok']=()=>{const b=s.booking;return{bar:subBar('Booking berhasil'),body:h`
+<div class="pad"><div class="card2 center"><div class="ok">${ui.check}</div><p class="h2">Jadwal Anda tercatat</p><p class="p">Kode booking <b style="color:#111">BKG-2611-7781</b></p></div>
+<div class="card2"><div class="sum"><span>Servis</span><b>${s.order?s.order.name:'-'}</b></div><div class="sum"><span>Cabang</span><b>${b.branch}</b></div><div class="sum"><span>Jadwal</span><b>${b.date}, ${b.slot}</b></div></div>
+<button class="btn" onclick="go('tracking')">Lihat status</button><button class="btn ghost" onclick="go('home')">Ke beranda</button></div>`}};
+S.tracking=()=>({bar:subBar('Status servis'),body:s.order?h`
+<div class="pad"><div class="card2">${row(I.booking,s.order.name,'BKG-2611-7781, '+s.booking.branch)}</div>
+<div class="card2"><div class="tl">
+ <div class="ev done"><b>Booking diterima</b><span>Hari ini</span></div>
+ <div class="ev done"><b>Jadwal dikonfirmasi cabang</b><span>Hari ini</span></div>
+ <div class="ev next"><b>Menunggu kedatangan</b><span>${s.booking.date}, ${s.booking.slot}</span></div>
+ <div class="ev"><b>Mobil dikerjakan</b><span>Teknisi mengisi checklist dan mencatat parts</span></div>
+ <div class="ev"><b>Divalidasi kepala bengkel</b><span>Catatan masuk Passport</span></div></div></div>
+<button class="btn dark" onclick="act('selesai')">Lompat ke servis selesai</button>
+<p class="note center">Tombol ini mempercepat alur untuk demo.</p></div>`:`<div class="empty">${I.tracking}<br>Belum ada servis yang terjadwal.<br><button class="lnk" onclick="go('booking')">Booking servis</button></div>`});
+S.hasil=()=>{const d=s.done||{name:'Servis',paid:false};return{bar:subBar('Hasil servis'),body:h`
+<div class="pad"><div class="card2 center"><div class="ok">${ui.check}</div><p class="h2">${d.name} terverifikasi</p><p class="p">Catatan sudah masuk Passport ${s.car}.</p></div>
+<div class="card2">
+ <div class="item"><div class="tx"><b>Pekerjaan sesuai buku servis</b><span>Checklist lengkap, tidak ada kode gangguan</span></div><span class="tag g">${ui.check}Lolos</span></div>
+ <div class="item"><div class="tx"><b>Parts asli</b><span>${d.paid?'Oli mesin, filter oli'+(s.opt?', filter kabin':''):'Sesuai paket T-CARE'}</span></div><span class="tag g">${ui.check}Tercatat</span></div>
+ <div class="item"><div class="tx"><b>Odometer</b><span>Difoto dan cocok dengan catatan sebelumnya</span></div><span class="tag g">${ui.check}Cocok</span></div></div>
+${s.hhc==='hari ini'?`<div class="card2" style="position:relative"><button class="certmini" onclick="go('sertifikat')"><span class="seal"><div>${ui.award}</div></span><span style="flex:1"><b>e-Sertifikat Anda terbit</b><span>Tier ${s.tier}, ID Mobil ${s.id}</span></span>${ui.chev}</button>${NEW(1)}</div>`:''}
+<div class="card2">
+ <div class="sum"><span>Tier</span><b>${s.tier}${d.naik?' (naik)':''}</b></div>
+ ${ice()?'':d.paid?`<div class="sum"><span>T-CARE XTRA</span><b>${s.xtra} dari 4, garansi s.d. ${gar()}</b></div><div class="sum"><span>Certified Credit</span><b>${rp(s.credit)}</b></div>`:`<div class="sum"><span>Servis gratis T-CARE</span><b>${s.svc7} dari 7</b></div>`}</div>
+<button class="btn" onclick="go('passport')">Buka Passport</button></div>`}};
+
+/* ---------- Tier & bonus (tab Skema Trade-in) ---------- */
+S.tier=()=>({bar:subBar('Tier & bonus'),body:h`
+<div class="pad">
+ <div class="card2"><p class="h2">Rincian bonus per tier</p><p class="p">Bonus berlaku saat tukar tambah ke Toyota baru di Auto2000.</p>
+ <table class="tbl" style="margin-top:10px"><thead><tr><th>Tier</th><th>Bonus tier</th><th>Kredit servis</th><th>Upgrade HEV</th><th>Total maks.</th></tr></thead><tbody>
+ ${['Gold','Silver','Bronze','Tercatat'].map(t=>{const b=BONUS[t],tot=b[0]+b[1]+b[2],f=v=>v?(v/1e6).toLocaleString('id-ID')+' jt':'-';return`<tr class="${s.tier===t&&!ice()?'me':''}"><td><span class="t"><i style="background:${TC[t]}"></i>${t}</span></td><td>${f(b[0])}</td><td>${f(b[1])}</td><td>${f(b[2])}</td><td>${f(tot)}</td></tr>`}).join('')}
+ </tbody></table></div>
+ <span class="lbl">Syarat tiap tier</span>
+ ${[['Gold','Semua milestone tepat waktu di bengkel resmi Toyota, parts asli, Hybrid Health Check Good bila sudah memenuhi syarat, recall tuntas.'],['Silver','Minimal 80% milestone di bengkel resmi, paling banyak satu servis di luar, parts hybrid asli.'],['Bronze','Riwayat tidak lengkap tetapi lulus Re-entry Inspection. Belum dapat bonus tier.'],['Tercatat','Passport aktif. Servis di luar berlabel dilaporkan. Belum lolos inspeksi.']]
+  .map(([t,a])=>`<div class="card2 tiercard" style="--c:${TC[t]}"><h4>${t}${s.tier===t&&!ice()?'<span class="tag">Tier Anda</span>':''}</h4><p>${a}</p></div>`).join('')}
+ <span class="lbl">Cara Certified Credit terkumpul</span>
+ <div class="card2">
+  <div class="sum"><span>Servis awal dan HHC (M0 s.d. M3)</span><b>Cap riwayat, tanpa credit</b></div>
+  <div class="sum"><span>Servis berbayar ke-8 s.d. 11 (M4)</span><b>Rp250 rb per servis, maks. Rp1 jt</b></div>
+  <div class="sum"><span>Saat tukar tambah dan beli HEV baru</span><b>Bonus tier + credit + upgrade</b></div></div>
+ <span class="lbl">Naik dan turun</span>
+ <div class="card2"><ol class="steps">
+  <li>Gold turun ke Silver bila ada milestone terlewat atau servis di luar.</li>
+  <li>Silver turun ke Bronze bila di bawah 80% atau dua servis luar berturut-turut.</li>
+  <li>Bronze kembali ke Tercatat bila tidak ada Check lebih dari 12 bulan.</li>
+  <li style="padding-bottom:0">Naik lagi lewat Re-entry Inspection dan dua servis tepat waktu, maksimal satu tier per 12 bulan.</li></ol></div>
+ <span class="lbl">Aturan pencairan</span>
+ <div class="card2"><ol class="steps">
+  <li>Harga appraisal ditentukan Toyota TRUST atau OLXmobbi, terpisah dari tier.</li>
+  <li>Bonus dikunci saat SPK dan memotong uang muka setelah transaksi selesai. Bila batal, bonus kembali.</li>
+  <li>Satu kali per ID Mobil per siklus kepemilikan. Tidak bisa diuangkan.</li>
+  <li style="padding-bottom:0">Total insentif dibatasi 25% dari gross profit penjualan mobil baru.</li></ol></div>
+ <p class="note">Tier Certified berbeda dari tier loyalitas Digiroom (White sampai Platinum). Besaran bonus masih usulan tim.</p>
+</div>`});
+
+/* ---------- Nilai mobil ---------- */
+S.nilai=()=>{const b=bonus(),tot=btot(),yrs=Math.max(6,Math.ceil(s.age)+1),A=curve(ice()?DEP.Silver:DEP[s.tier],yrs),now=Math.min(Math.round(s.age),yrs),est=A[now];return{bar:subBar('Nilai mobil saya'),body:h`
+<div class="pad">
+ <div class="card2" style="padding:0;overflow:hidden"><div style="position:relative;height:150px;background:#1c2a38">${photo(s.ph,'Foto '+s.car).replace('class="fb"','class="fb" style="position:absolute;inset:0;width:100%;height:100%;padding:20px 80px"').replace('<img class=""','<img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"')}</div>
+  <div style="padding:14px 16px"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div><span style="font-size:12px;color:var(--muted)">Estimasi harga pasar sekarang</span><div style="font-size:24px;font-weight:800">${jt(est*.95)} s.d. ${jt(est*1.05)}</div></div>${shield(ice()?'Tercatat':s.tier,38)}</div>
+  <p class="note" style="margin-top:6px">Estimasi awal. Harga final dari appraiser setelah inspeksi.</p></div></div>
+ <span class="lbl">Benefit tukar tambah ${ice()?'':'tier '+s.tier}</span>
+ <div class="card2">
+  ${ice()?h`<div class="sum"><span>Bonus upgrade ke hybrid</span><b>Mengikuti promo cabang</b></div><p class="note">Avanza berstatus Tercatat. Riwayat servisnya mempercepat appraisal.</p>`:h`
+  <div class="sum"><span>Bonus tier ${s.tier}</span><b>${rp(b.tier)}</b></div>
+  <div class="sum"><span>Certified Credit (${Math.round(b.credit/CREDIT)} servis berbayar)</span><b>${rp(b.credit)}</b></div>
+  <div class="sum"><span>Bonus upgrade ke hybrid baru</span><b>${rp(b.up)}</b></div>
+  <div class="sum total"><span>Total benefit</span><b>${rp(tot)}</b></div>`}
+  <button class="lnk" onclick="go('tier')">Lihat rincian semua tier</button></div>
+ <div class="info"><b>Tier tidak mengubah harga appraisal.</b> Benefit memotong uang muka saat Anda membeli Toyota hybrid baru di Auto2000, setelah transaksi selesai.</div>
+ ${s.trade==='submitted'?h`<span class="lbl">Status pengajuan</span><div class="card2"><div class="tl">
+   <div class="ev done"><b>Pengajuan diterima</b><span>Riwayat dibagikan ke appraiser</span></div>
+   <div class="ev next"><b>Inspeksi appraiser</b><span>Menunggu jadwal</span></div>
+   <div class="ev"><b>Penawaran harga</b><span>Anda bebas menerima atau menolak</span></div>
+   <div class="ev"><b>Benefit dikunci saat SPK</b><span>Dicek sales dan finance</span></div>
+   <div class="ev"><b>Benefit memotong uang muka</b><span>Setelah transaksi selesai</span></div></div></div>
+  <button class="btn ghost" onclick="act('trade-batal')">Batalkan pengajuan</button>`:h`
+  <div class="card2"><label class="lbl" for="nm">Mobil baru yang diminati</label><select class="field" id="nm">${cars.filter(c=>c[1]!=='Bensin').map(c=>`<option>${c[0]}</option>`).join('')}</select>
+   <div class="item" style="border:0;padding:14px 0 0"><div class="tx"><b>Bagikan riwayat ke appraiser</b><span>Berlaku 30 hari atau 1.000 km</span></div>${sw('appr','Bagikan riwayat ke appraiser')}</div></div>
+  <button class="btn" ${s.appr&&s.consent?'':'disabled'} onclick="act('trade')">Ajukan tukar tambah</button>
+  ${s.appr?'':'<p class="note center">Aktifkan izin berbagi riwayat untuk mengajukan.</p>'}
+  <button class="btn ghost" onclick="go('${hasCert()?'pindah':'bagikan'}')">Jual sendiri</button>`}
+</div>`}};
+
+/* ---------- Lain-lain Certified ---------- */
+S.nota=()=>{const n=nextN(),can=!ice()&&s.svc7>=7&&n<=11&&s.consent;return{bar:subBar('Servis di bengkel lain'),body:h`
+<div class="pad">
+ <div class="card2"><p class="h2">${can?'Unggah nota servis ke-'+n:'Belum ada servis yang perlu dilaporkan'}</p><p class="p">Nota tersimpan di Passport dengan label dilaporkan pemilik, supaya riwayat mobil tetap utuh.</p></div>
+ ${can?h`<div class="card2">
+  <span class="lbl">Foto nota</span>
+  <button class="field" style="height:96px;border:1.5px dashed var(--red);color:var(--red-dark);font-weight:700;font-size:13px" onclick="toast('Foto nota dipilih')">Ambil atau pilih foto</button>
+  <label class="lbl" for="nb">Nama bengkel</label><input class="field" id="nb" placeholder="Misalnya: Bengkel Maju Jaya">
+  <label class="lbl" for="nk">Odometer saat servis</label><input class="field" id="nk" inputmode="numeric" placeholder="Misalnya: 70.150"></div>
+ <div class="info warn"><b>Setelah disimpan:</b> tier turun satu tingkat dan progres T-CARE XTRA berhenti. Tier bisa naik lagi lewat Re-entry Inspection.</div>
+ <button class="btn" onclick="act('nota')">Simpan nota</button>
+ <button class="btn ghost" onclick="go('cost')">Batal, servis di bengkel resmi</button>`:''}
+</div>`}};
+S.reentry=()=>({bar:subBar('Re-entry Inspection'),body:h`
+<div class="pad">
+ <div class="card2"><div class="tierrow" style="margin:0">${shield(s.tier)}<div class="col"><span style="color:var(--muted)">Tier sekarang</span><strong>${s.tier}</strong></div></div>
+  <p class="p">${s.reentry==='lulus'?'Mobil lulus inspeksi dan e-Sertifikat terbit. Dua servis tepat waktu berikutnya menaikkan tier satu tingkat.':'Teknisi memeriksa kondisi mobil saat ini. Setelah lulus, e-Sertifikat terbit dan dua servis tepat waktu menaikkan tier.'}</p></div>
+ <span class="lbl">Yang diperiksa</span>
+ <div class="card2"><ol class="steps"><li>Scan kode gangguan dan kondisi baterai hybrid</li><li>Bodi: bebas tabrak berat dan banjir</li><li>Recall yang belum dikerjakan</li><li style="padding-bottom:0">Odometer dibandingkan dengan catatan terakhir</li></ol></div>
+ <div class="card2"><div class="sum"><span>Biaya inspeksi</span><b>${rp(45e4)}</b></div><div class="sum"><span>Lama pemeriksaan</span><b>Sekitar 60 menit</b></div><div class="sum"><span>Servis tepat waktu setelah lulus</span><b>${s.reentry==='lulus'?Math.min(s.ontime,2):0} dari 2</b></div></div>
+ ${s.reentry==='none'?`<button class="btn" onclick="act('reentry')">Jadwalkan inspeksi</button>`:s.reentry==='booked'?`<div class="info">Inspeksi terjadwal di ${s.booking.branch}, ${s.booking.date} pukul ${s.booking.slot}.</div><button class="btn dark" onclick="act('reentry-lulus')">Lompat ke hasil inspeksi</button><p class="note center">Tombol ini mempercepat alur untuk demo.</p>`:`<button class="btn" onclick="go('sertifikat')">Lihat e-Sertifikat</button><button class="btn ghost" onclick="go('${paid()?'cost':'booking'}')">Jadwalkan ${nextName()||'servis'}</button>`}
+</div>`});
+S.bagikan=()=>({bar:subBar('Bagikan riwayat'),body:h`
+<div class="pad">
+ <div class="card2"><div class="item" style="padding:0;border:0"><div class="tx"><b>Tautan riwayat kendaraan</b><span>${s.share?'Aktif, berlaku 30 hari atau 1.000 km':'Nonaktif'}</span></div>${sw('share','Aktifkan tautan riwayat')}</div></div>
+ ${s.share?h`<div class="card2 center">${qr(seed()+7)}<p class="p">Calon pembeli atau dealer memindai kode ini untuk memeriksa riwayat ${s.car}.</p>
+  <button class="btn" onclick="toast('Tautan disalin')">Salin tautan</button><button class="btn ghost" onclick="go('verifikasi')">Lihat tampilan pembeli</button></div>`:''}
+ <span class="lbl">Yang terlihat</span>
+ <div class="card2"><ol class="steps"><li>Tier, e-Sertifikat, dan jumlah servis terverifikasi</li><li>Servis yang dilaporkan pemilik, dengan labelnya</li><li style="padding-bottom:0">Hasil Hybrid Health Check terakhir</li></ol></div>
+ <span class="lbl">Yang tidak terlihat</span>
+ <div class="card2"><p class="p" style="margin:0">Nama, nomor telepon, alamat, dan biaya servis Anda.</p></div>
+</div>`});
+S.verifikasi=()=>({bar:subBar('Tampilan pembeli'),body:h`
+<div class="pad">
+ <div class="card2 center">${shield(ice()?'Tercatat':s.tier,56)}<p class="h2" style="margin-top:8px">${s.car}</p><p class="p">${ice()?'Riwayat tercatat':'Tier '+s.tier}, diverifikasi Auto2000</p><span class="tag g" style="margin-top:8px">${ui.check}Tautan sah, berlaku 30 hari</span></div>
+ <div class="card2">
+  <div class="sum"><span>ID Mobil</span><b>${s.id}</b></div>
+  <div class="sum"><span>e-Sertifikat</span><b>${hasCert()?s.certNo:'Belum ada'}</b></div>
+  <div class="sum"><span>Servis terverifikasi</span><b>${ice()?s.visits.length:verCount()}</b></div>
+  <div class="sum"><span>Dilaporkan pemilik</span><b>${s.rep.length}</b></div>
+  <div class="sum"><span>Hybrid Health Check</span><b>${s.hhc?'Good, '+(s.hhc5||s.hhc):'Belum ada'}</b></div></div>
+ <p class="note">Data pribadi pemilik tidak ditampilkan.</p></div>`});
+S.odometer=()=>({bar:subBar('Update odometer'),body:h`
+<div class="pad"><div class="card2"><p class="h2">Foto dashboard, dapat 50 poin</p><p class="p">Owner hybrid jarang ke bengkel, jadi rapor tahunan bisa bolong. Update odometer sebulan sekali supaya hitungan jarak dan hemat BBM akurat.</p></div>
+ <div class="card2"><span class="lbl">Foto dashboard</span><button class="field" style="height:110px;border:1.5px dashed var(--red);color:var(--red-dark);font-weight:700;font-size:13px" onclick="toast('Foto dipilih')">Ambil foto odometer</button>
+ <label class="lbl" for="okm">Angka odometer</label><input class="field" id="okm" inputmode="numeric" value="${s.km.replace(' km','')}"></div>
+ <button class="btn" onclick="act('odo');back()">${s.odo?'Sudah diupdate bulan ini':'Simpan dan ambil 50 poin'}</button>
+ <p class="note">Opsional. Foto hanya dipakai membaca angka odometer.</p></div>`});
+
+/* ---------- Musik rapor (Web Audio, dibuat langsung di browser) ---------- */
+const MUS={ctx:null,on:true,timer:null,next:0,step:0,
+ start(){try{if(!this.on)return;const C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!this.ctx){this.ctx=new C();this.m=this.ctx.createGain();this.m.gain.value=0;const cp=this.ctx.createDynamicsCompressor();this.m.connect(cp);cp.connect(this.ctx.destination);const n=this.ctx.createBuffer(1,this.ctx.sampleRate*.2,this.ctx.sampleRate),d=n.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;this.nb=n}
+  this.ctx.resume();this.m.gain.cancelScheduledValues(this.ctx.currentTime);this.m.gain.linearRampToValueAtTime(.55,this.ctx.currentTime+1.2);
+  if(this.timer)return;this.next=this.ctx.currentTime+.1;this.step=0;this.timer=setInterval(()=>this.sched(),60)}catch(e){}},
+ stop(){if(!this.ctx||!this.timer)return;const t=this.ctx.currentTime;this.m.gain.cancelScheduledValues(t);this.m.gain.setValueAtTime(this.m.gain.value,t);this.m.gain.linearRampToValueAtTime(0,t+.5);clearInterval(this.timer);this.timer=null},
+ tone(f,t,dur,type,g,cut){const c=this.ctx,o=c.createOscillator(),a=c.createGain(),l=c.createBiquadFilter();o.type=type;o.frequency.value=f;l.type='lowpass';l.frequency.value=cut||2400;a.gain.setValueAtTime(0,t);a.gain.linearRampToValueAtTime(g,t+Math.min(.04,dur/4));a.gain.exponentialRampToValueAtTime(.0005,t+dur);o.connect(l);l.connect(a);a.connect(this.m);o.start(t);o.stop(t+dur+.05)},
+ kick(t){const c=this.ctx,o=c.createOscillator(),a=c.createGain();o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(42,t+.18);a.gain.setValueAtTime(.32,t);a.gain.exponentialRampToValueAtTime(.001,t+.32);o.connect(a);a.connect(this.m);o.start(t);o.stop(t+.35)},
+ hat(t,g){const c=this.ctx,b=c.createBufferSource(),f=c.createBiquadFilter(),a=c.createGain();b.buffer=this.nb;f.type='highpass';f.frequency.value=7500;a.gain.setValueAtTime(g,t);a.gain.exponentialRampToValueAtTime(.001,t+.06);b.connect(f);f.connect(a);a.connect(this.m);b.start(t);b.stop(t+.08)},
+ sched(){const c=this.ctx,sp=60/96/4,CH=[[57,60,64,67],[53,57,60,64],[48,52,55,59],[55,59,62,66]],hz=n=>440*Math.pow(2,(n-69)/12);
+  while(this.next<c.currentTime+.25){const st=this.step%16,bar=Math.floor(this.step/16)%4,ch=CH[bar],t=this.next;
+   if(st===0){ch.forEach(n=>{this.tone(hz(n),t,sp*16,'triangle',.035,900);this.tone(hz(n)*1.004,t,sp*16,'sawtooth',.012,700)});this.tone(hz(ch[0]-24),t,sp*7,'sine',.16,400)}
+   if(st===8)this.tone(hz(ch[0]-24),t,sp*7,'sine',.12,400);
+   if(st%4===0)this.kick(t);
+   if(st%2===1)this.hat(t,st%4===3?.05:.025);
+   if(st%3===0)this.tone(hz(ch[(st/3|0)%4]+12),t,sp*3,'sine',.045,3000);
+   this.next+=sp;this.step++}}};
+function openRapor(){s.rp=0;save();MUS.start();location.hash='rapor'}
+function closeRapor(){MUS.stop();go('home')}
+function toggleMus(){MUS.on=!MUS.on;if(MUS.on)MUS.start();else MUS.stop();render()}
+let RT=null;
+function rpGo(d){const R=RAPOR();const n=s.rp+d;if(n<0)return;if(n>=R.length){closeRapor();return}s.rp=n;save();render()}
+
+/* ---------- Isi rapor ---------- */
+const BBM=10000;
+function RAPOR(){
+ const km=s.kmYear||0,hy=!ice(),nm=s.car.replace('Kijang Innova ','').replace('Toyota ','');
+ const lB=km/(hy?12:13),lH=km/(hy?19:20),hemat=Math.round(lB-lH),rpH=hemat*BBM,co2=Math.round(hemat*2.3),pohon=Math.round(co2/22);
+ const sp=s.spend||{servis:0,parts:0,bp:0},tot=sp.servis+sp.parts+sp.bp,perkm=km?Math.round((tot+(hy?lH:lB)*BBM)/km):0,perkmB=km?Math.round((tot+lB*BBM)/km):0,perkmH=km?Math.round((tot+lH*BBM)/km):0;
+ const yrs=Math.max(6,Math.ceil(s.age)+1),A=curve(hy?DEP[s.tier]:DEP.Tercatat,yrs),B=curve(DEP.Tercatat,yrs),n=Math.min(Math.round(s.age),yrs);
+ const vis=s.visits.length,res=s.visits.filter(v=>!/dilaporkan/.test(v[1])).length;
+ const persona=km>20000?'Penjelajah Antarkota':res===vis&&vis?'Si Paling Tepat Waktu':'Penjelajah Weekend';
+ const mon=s.visits.map(v=>BLN.indexOf(v[0].split(' ')[1]));
+ if(!km)return[{bg:'#141e28',h:`<div class="rv r-empty"><span class="eb">Rapor 2026</span><h2>Rapor ${nm} mulai terisi setelah servis pertama.</h2><p>Update odometer tiap bulan supaya kartu jarak dan hemat BBM langsung jalan.</p><button class="pill" onclick="go('odometer')">Update odometer, dapat 50 poin</button></div>`}];
+ const ctas=[];
+ if(hy&&!s.hhc)ctas.push(['Cek baterai gratis','Saat servis berkala berikutnya','booking']);
+ if(s.nextDate&&s.nextDate!=='-')ctas.push(['Book servis, poin 2x','Jatuh tempo '+s.nextDate,paid()&&hy?'cost':'booking']);
+ if(s.age>=3)ctas.push([hy?'Bonus tukar tambah Certified':'Upgrade ke hybrid',hy?'Sampai '+short(btot())+' untuk tier '+s.tier:'Cek nilai '+nm+' kamu','nilai']);
+ if(km>20000)ctas.push(['Paket perawatan atau Home Service','Jarak tempuhmu di atas rata-rata','paket']);
+ if(!hy)ctas.push(['Coba Veloz Hybrid bareng owner','Tanya langsung soal irit dan baterainya','trial']);
+ const cards=[
+ {bg:'#0f1a26',h:`<div class="rv r-intro"><span class="eb tr">Rapor 2026</span><div class="carx">${photo(s.ph,'')}</div><h1><span>Halo,</span><span>${s.user}.</span></h1><p>Tahun ke-${Math.max(1,Math.ceil(s.age))} kamu bareng ${nm}. Ketuk kanan untuk lanjut.</p></div>`},
+ {bg:'#d4111b',h:`<div class="rv r-km"><div class="vert" data-count="${km}">${km.toLocaleString('id-ID')}</div><div class="side"><span class="eb">km setahun</span><p class="lead">Rata-rata ${Math.round(km/365)} km sehari.</p><svg viewBox="0 0 200 120" class="route" aria-hidden="true"><path d="M14 100 C60 20 140 110 186 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="5 6"/><circle cx="14" cy="100" r="6" fill="#fff"/><circle cx="186" cy="24" r="6" fill="#fff"/><text x="14" y="118" fill="#fff" font-size="11">Jakarta</text><text x="186" y="14" fill="#fff" font-size="11" text-anchor="end">Bali</text></svg><p>Cukup buat <b>${Math.max(1,Math.round(km/2300))} kali</b> Jakarta-Bali pulang pergi.</p>${s.odo?'':`<button class="pill" onclick="go('odometer')">Update odometer, dapat 50 poin</button>`}</div></div>`},
+ hy?{bg:'#0c3b24',h:`<div class="rv r-fuel"><svg viewBox="0 0 200 110" class="gauge" aria-hidden="true"><path d="M20 100a80 80 0 0 1 160 0" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="14" stroke-linecap="round"/><path class="garc" d="M20 100a80 80 0 0 1 160 0" fill="none" stroke="#7be0a4" stroke-width="14" stroke-linecap="round" pathLength="100"/><line class="needle" x1="100" y1="100" x2="100" y2="34" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="8" fill="#fff"/></svg><span class="eb">Bensin yang tidak kamu beli</span><div class="mega">${hemat.toLocaleString('id-ID')}<small>liter</small></div><p class="right">Sekitar <b>${rp(rpH)}</b> dibanding ${nm} versi bensin. Juga ${co2.toLocaleString('id-ID')} kg CO2 lebih sedikit.</p><div class="trees" aria-label="${pohon} pohon">${Array.from({length:Math.min(pohon,30)},()=>'<i></i>').join('')}</div><p class="tiny">Setara serapan ${pohon} pohon setahun. Estimasi: 12 vs 19 km/l, BBM Rp10.000/l.</p></div>`}
+ :{bg:'#0c3b24',h:`<div class="rv r-fuel"><span class="eb">Kalau tahun ini pakai hybrid</span><div class="mega">${rp(rpH).replace('Rp','Rp ')}</div><p class="right">Dengan ${km.toLocaleString('id-ID')} km setahun, Veloz Hybrid menghemat sekitar ${hemat.toLocaleString('id-ID')} liter dibanding ${nm}.</p><p class="tiny">Estimasi: 13 vs 20 km/l, BBM Rp10.000/l.</p><button class="pill" onclick="go('trial')">Coba bareng owner Veloz Hybrid</button></div>`},
+ {bg:'#f4f1ea',dark:1,h:`<div class="rv r-svc"><h2>${vis} kali ke bengkel.<br><em>${res===vis?'Semua di bengkel resmi.':res+' di bengkel resmi.'}</em></h2><div class="months">${BLN.map((b,i)=>`<div class="${mon.includes(i)?'on':''}"><i></i><span>${b[0]}</span></div>`).join('')}</div><div class="spend"><div><span>Servis</span><b>${short(sp.servis)}</b></div><div><span>Parts</span><b>${short(sp.parts)}</b></div><div><span>Bodi & cat</span><b>${short(sp.bp)}</b></div></div><p class="cap">${s.visits.map(v=>v[2]).filter((v,i,a)=>a.indexOf(v)===i).join(', ')}</p></div>`},
+ {bg:'#141e28',h:`<div class="rv r-perkm"><span class="eb">Biaya per km</span><h2>Mobilmu cuma makan <b>${rp(perkm)}</b> tiap km.</h2><div class="bars"><div><span>${hy?nm:'Versi hybrid'}</span><i style="--w:${Math.round(perkmH/perkmB*100)}%"></i><b>${rp(perkmH)}</b></div><div class="g"><span>${hy?'Bensin sekelas':nm}</span><i style="--w:100%"></i><b>${rp(perkmB)}</b></div></div><p class="tiny">Servis plus BBM, dibagi jarak tempuh.</p></div>`},
+ hy?{bg:'#1d2b3a',h:`<div class="rv r-bat"><div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/><circle class="rarc" cx="60" cy="60" r="52" fill="none" stroke="${s.hhc?'#7be0a4':'#f7d98a'}" stroke-width="10" stroke-linecap="round" pathLength="100" style="--p:${s.hhc?92:12}"/></svg><b>${s.hhc?'Good':'?'}</b></div><div class="txt"><span class="eb">Baterai hybrid</span><h2>${s.hhc?'Sehat, tercatat di e-Sertifikat.':'Belum pernah dicek.'}</h2><p>${s.hhc?'Hybrid Health Check terakhir '+(s.hhc5||s.hhc)+'.':'Cek gratis untuk mobil usia 3 sampai 5 tahun.'}</p><button class="pill" onclick="go('${s.hhc?'sertifikat':'booking'}')">${s.hhc?'Lihat e-Sertifikat':'Jadwalkan cek'}</button></div></div>`}:null,
+ {bg:'#d4111b',h:`<div class="rv r-price"><h2>Kalau terus dirawat, ${nm} kamu masih bernilai</h2><div class="mega">${jt(A[n])}</div><svg viewBox="0 0 300 120" class="draw" aria-hidden="true"><path d="${A.map((v,i)=>(i?'L':'M')+(10+280*i/yrs)+' '+(10+100*(1-(v-B[yrs])/(s.newPrice-B[yrs])))).join(' ')}" fill="none" stroke="#fff" stroke-width="3" pathLength="100"/><path d="${B.map((v,i)=>(i?'L':'M')+(10+280*i/yrs)+' '+(10+100*(1-(v-B[yrs])/(s.newPrice-B[yrs])))).join(' ')}" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-dasharray="4 5"/></svg><p class="right">${hy?'Selisih sekitar <b>'+jt(A[n]-B[n])+'</b> dibanding mobil tanpa riwayat lengkap.':'Riwayat servis resmi mempercepat appraisal.'}</p><p class="tiny">Estimasi depresiasi 10-15% per tahun. Harga final dari appraiser.</p></div>`},
+ {bg:'#f4f1ea',dark:1,h:`<div class="rv r-gift"><div class="tix"><div><span>Diskon servis</span><b>Rp520 rb</b></div><div><span>Promo aksesoris</span><b>Rp330 rb</b></div><div><span>Certified Credit</span><b>${short(s.credit)}</b></div></div><h2>Digiroom balikin <b>${rp(85e4+s.credit)}</b> ke kamu tahun ini.</h2><p class="cap">Plus 1.240 poin loyalitas yang belum dipakai.</p></div>`},
+ {bg:'#0f1a26',h:`<div class="rv r-persona"><div class="marq" aria-hidden="true">${[0,1,2,3,4,5].map(i=>`<div style="--d:${i%2?-1:1}">${(persona+' ').repeat(4)}</div>`).join('')}</div><div class="badge3"><span class="eb">Persona nyetir</span><h2>${persona}</h2><p>${km>20000?'Jarak tempuhmu di atas rata-rata owner Auto2000.':'Servis selalu sesuai jadwal.'}</p><div class="tog"><span>Tampilkan peringkat kota</span>${sw('rank','Peringkat kota')}</div>${s.rank?`<p class="rk">Top 10% paling irit di ${s.city}.</p>`:''}</div></div>`},
+ {bg:'#3a1015',h:`<div class="rv r-moment"><svg viewBox="0 0 300 200" class="map" aria-hidden="true"><path d="M40 150 Q120 60 250 70" fill="none" stroke="#ff8a8f" stroke-width="2.5" stroke-dasharray="4 7" pathLength="100"/><circle cx="40" cy="150" r="7" fill="#fff"/><circle cx="250" cy="70" r="9" fill="#ff5a60"/><text x="40" y="178" fill="#fff" font-size="12" text-anchor="middle">Jakarta</text><text x="250" y="52" fill="#fff" font-size="12" text-anchor="middle">${s.visits.some(v=>/Semarang/.test(v[2]))?'Semarang':s.city}</text></svg><h2>${s.visits.some(v=>/Semarang/.test(v[2]))?'Servis terjauhmu: Auto2000 Semarang, waktu mudik Lebaran.':'Semua servismu tahun ini di '+s.city+'.'}</h2><p>Di cabang mana pun, catatannya masuk ke satu Passport.</p></div>`},
+ {bg:'#141e28',h:`<div class="rv r-share"><span class="eb">Siap dipamerkan</span><div class="sc"><b>${nm}, 2026</b><div class="sg2"><div><span>Jarak</span><b>${km.toLocaleString('id-ID')} km</b></div><div><span>${hy?'Hemat BBM':'Potensi hemat'}</span><b>${short(rpH)}</b></div><div><span>Baterai</span><b>${hy?(s.hhc?'Good':'Belum dicek'):'-'}</b></div><div><span>Persona</span><b>${persona}</b></div></div><div class="sg2 ${s.sharev?'blur':''}"><div><span>Total biaya</span><b>${short(tot)}</b></div><div><span>Harga jual</span><b>${jt(A[n])}</b></div></div></div><div class="tog"><span>Sembunyikan biaya dan harga jual</span>${sw('sharev','Versi share')}</div><button class="pill" onclick="toast('${s.sharev?'Dibagikan ke Instagram Story':'Aktifkan sembunyikan data dulu'}')">Bagikan ke IG Story atau WhatsApp</button></div>`},
+ {bg:'#f4f1ea',dark:1,h:`<div class="rv r-cta"><h2>Buat tahun depan,<br>${ctas.length>1?'dua hal ini dulu.':'satu hal ini dulu.'}</h2>${ctas.slice(0,2).map((c,i)=>`<button class="ct" style="--r:${i?1.5:-1.5}deg" onclick="MUS.stop();go('${c[2]}')"><b>${c[0]}</b><span>${c[1]}</span></button>`).join('')}<p class="cap">Ketuk kanan untuk selesai.</p></div>`}];
+ return cards.filter(Boolean)}
+S.rapor=()=>{const R=RAPOR(),i=Math.min(s.rp,R.length-1),c=R[i];return{story:true,body:h`
+<div class="story3 ${c.dark?'lt':''}" style="background:${c.bg}">
+ <div class="bars" aria-hidden="true">${R.map((_,k)=>`<i class="${k<i?'on':k===i?'cur':''}"></i>`).join('')}</div>
+ <div class="tophd"><span>${s.car.replace('Kijang Innova ','')}, ${i+1}/${R.length}</span><span class="tb"><button onclick="toggleMus()" aria-pressed="${MUS.on}" aria-label="${MUS.on?'Matikan musik':'Nyalakan musik'}">${MUS.on?'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>':'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>'}</button><button onclick="closeRapor()" aria-label="Tutup rapor">${ui.close}</button></span></div>
+ <button class="tz l" onclick="rpGo(-1)" aria-label="Kartu sebelumnya"></button><button class="tz r" onclick="rpGo(1)" aria-label="${i<R.length-1?'Kartu berikutnya':'Selesai'}"></button>
+ <div class="stage" key="${i}">${c.h}</div>
+</div>`}};
+function storyTimer(){clearTimeout(RT);if((location.hash||'').slice(1)!=='rapor')return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const st=$('.story3');if(!st)return;let paused=false;
+ st.onpointerdown=e=>{if(e.target.closest('.stage button,.stage .sw'))return;paused=true;st.classList.add('hold')};st.onpointerup=st.onpointercancel=()=>{paused=false;st.classList.remove('hold')};
+ const t0=Date.now(),dur=8000;let el=0,last=t0;(function tick(){const now=Date.now();if(!paused)el+=now-last;last=now;if(el>=dur){const R=RAPOR();if(s.rp<R.length-1)rpGo(1);return}RT=setTimeout(tick,100)})();
+ const c=$('.r-km .vert');if(c){const tgt=+c.dataset.count;let k=0;(function up(){k+=Math.max(1,tgt/30);c.textContent=Math.min(tgt,Math.round(k)).toLocaleString('id-ID');if(k<tgt)requestAnimationFrame(up)})()}}
+document.addEventListener('keydown',e=>{if((location.hash||'').slice(1)!=='rapor')return;if(e.key==='ArrowRight')rpGo(1);if(e.key==='ArrowLeft')rpGo(-1);if(e.key==='Escape')closeRapor()});
+
+/* ---------- GTM 3: Toyota Trustworthy Trial ---------- */
+const DUTA=[
+ {n:'Budi',m:'Zenix Hybrid',y:3,km:'90.000 km',sk:92,p:'Penjelajah Antarkota',r:4.9,lv:'Silver',a:'Jakarta Utara',A:true,c:'#d4111b',slots:['Sab 09:00','Sab 13:00']},
+ {n:'Yoga',m:'Zenix Hybrid',y:4,km:'112.000 km',sk:89,p:'Pejuang Tol Cipali',r:4.7,lv:'Gold',a:'Jakarta Selatan',A:false,c:'#141e28',slots:['Min 09:00']},
+ {n:'Sari',m:'Yaris Cross Hybrid',y:2,km:'38.000 km',sk:96,p:'Si Paling Tepat Waktu',r:4.8,lv:'Bronze',a:'Bandung',A:true,c:'#b98a1e',slots:['Sab 10:00','Min 15:00']},
+ {n:'Dewi',m:'Veloz Hybrid',y:1,km:'14.500 km',sk:98,p:'Raja Irit Bekasi',r:4.9,lv:'Bronze',a:'Bekasi',A:false,c:'#5b6b7c',slots:['Sab 15:00']}];
+const LV=[['Bronze',0,'Badge di profil dan Rapor Hybrid-ku'],['Silver',3,'Prioritas slot booking servis dan 1x Home Service gratis'],['Gold',6,'2x Home Service gratis, test drive model EV baru duluan, undangan event Toyota']];
+const KAT=[['Servis berkala','Jasa servis',1500],['Spooring dan balancing','Jasa servis',350],['Oli mesin dan filter','Spare parts',900],['Poles bodi','Body & paint',1200],['Dashcam resmi','Aksesoris',1800],['Home Service','Servis di rumah',600]];
+const dutaOK=()=>!ice()&&s.consent&&!!s.hhc&&(s.tier==='Gold'||s.tier==='Silver');
+const lvNow=()=>s.duta.spk>=6?'Gold':s.duta.spk>=3?'Silver':'Bronze';
+const avatar=(d,sz=48)=>`<span class="ava" style="width:${sz}px;height:${sz}px;background:${d.c};font-size:${sz*.4}px" aria-hidden="true">${d.n[0]}</span>`;
+function tact(a,x){const t=s.trial,d=s.duta;
+ if(a==='f')t.f=x;
+ else if(a==='pick'){t.d=+x;t.mode='B';t.slot=DUTA[+x].slots[0];t.ktp=false;go('trial-book');save();return}
+ else if(a==='mode')t.mode=x;
+ else if(a==='slot')t.slot=x;
+ else if(a==='book'){if(t.mode==='A'&&!t.ktp){toast('Verifikasi KTP dan SIM dulu untuk menyetir mobil duta');return}t.st='booked';t.code='TTT-'+(4000+t.d*137);go('trial-ok');save();return}
+ else if(a==='done'){t.st='done'}
+ else if(a==='rate'){t.rate=+x;toast('Terima kasih. Rating terkirim')}
+ else if(a==='cancel'){t.st='none';toast('Sesi dibatalkan')}
+ else if(a==='join'){d.st='active';d.poin+=100;toast('Kamu resmi jadi duta. +100 Poin Duta');go('duta');save();return}
+ else if(a==='slotd')d.slots[x]=!d.slots[x];
+ else if(a==='modeA')d.modeA=!d.modeA;
+ else if(a==='inc'){if(x==='done'){d.inc='done';d.sesi++;d.poin+=100;toast('Sesi selesai. +100 Poin Duta')}else if(x==='spk'){d.inc='spk';toast('Rina SPK. 3.000 poin menunggu serah terima')}else if(x==='cair'){d.inc='cair';d.spk++;d.poin+=3500;toast('Serah terima selesai. +3.000 poin dan +500 bonus tukar tambah')}}
+ else if(a==='redeem'){const k=KAT[+x];if(d.poin<k[2])return;d.poin-=k[2];toast(k[0]+' ditukar. Voucher masuk ke Order')}
+ save();render()}
+S.trial=()=>{const t=s.trial,list=DUTA.filter(d=>t.f==='Semua'||d.m===t.f);return{bar:subBar('Coba bareng owner'),body:h`
+<div class="trhead"><div class="av">${DUTA.map(d=>avatar(d,36)).join('')}</div><h2>Tanya langsung yang sudah pakai, bukan sales.</h2><p>Pilih owner hybrid di dekatmu. Sales Auto2000 ikut di setiap sesi, jadi soal harga dan kredit tetap ada yang jawab.</p></div>
+<div class="pad" style="padding-top:12px">
+ ${t.st==='booked'?`<div class="card3" style="margin-bottom:12px">${row(I.trial,'Sesi kamu dengan '+DUTA[t.d].n,t.slot+', '+DUTA[t.d].a,"go('trial-ok')")}</div>`:''}
+ <div class="chips" role="group" aria-label="Filter model">${['Semua','Zenix Hybrid','Yaris Cross Hybrid','Veloz Hybrid'].map(x=>`<button class="chip ${t.f===x?'on':''}" aria-pressed="${t.f===x}" onclick="tact('f','${x}')">${x}</button>`).join('')}</div>
+ ${list.map(d=>{const i=DUTA.indexOf(d);return`<div class="duta"><div class="dtop">${avatar(d)}<div class="dn"><b>${d.n}, ${d.m}</b><span>${d.y} tahun pakai, ${d.km}</span></div><span class="lv lv-${d.lv}">${d.lv}</span></div>
+  <div class="dst"><div><span>Baterai</span><b>${d.sk}/100</b></div><div><span>Rating</span><b>${d.r.toLocaleString('id-ID')}</b></div><div><span>Area</span><b>${d.a}</b></div></div>
+  <p class="dp">“${d.p}”${d.A?' ':''}${d.A?'<span>Boleh pakai mobilnya</span>':''}</p>
+  <button class="btn" onclick="tact('pick',${i})">Pilih ${d.n}</button></div>`}).join('')}
+ <p class="note">Profil diambil dari data servis Auto2000, bukan diisi sendiri. Nomor HP dan alamat tidak dibagikan.</p>
+</div>`}};
+S['trial-book']=()=>{const t=s.trial,d=DUTA[t.d||0];return{bar:subBar('Atur sesi'),body:h`
+<div class="pad">
+ <div class="card3"><div class="dtop">${avatar(d)}<div class="dn"><b>${d.n}, ${d.m}</b><span>Baterai ${d.sk}/100, ${d.km}</span></div></div></div>
+ <span class="lbl">Cara test drive</span>
+ <div class="seg">
+  <button class="opt ${t.mode==='B'?'on':''}" aria-pressed="${t.mode==='B'}" onclick="tact('mode','B')"><span class="rd"></span><span><b>Ngobrol dan pakai unit dealer</b><span>${d.n} ikut duduk dan cerita pengalamannya</span></span></button>
+  ${d.A?`<button class="opt ${t.mode==='A'?'on':''}" aria-pressed="${t.mode==='A'}" onclick="tact('mode','A')"><span class="rd"></span><span><b>Setir mobil ${d.n}</b><span>Wajib verifikasi KTP dan SIM. Rute ditentukan dealer</span></span></button>`:''}</div>
+ ${t.mode==='A'?`<div class="card3" style="margin-top:10px"><div class="item" style="border:0;padding:0"><div class="tx"><b>KTP dan SIM terverifikasi</b><span>Dicek sebelum sesi</span></div><button class="sw" role="switch" aria-checked="${!!t.ktp}" aria-label="Verifikasi KTP dan SIM" onclick="s.trial.ktp=!s.trial.ktp;save();render()"></button></div></div>`:''}
+ <span class="lbl">Jadwal</span>
+ <div class="chips">${d.slots.map(x=>`<button class="chip ${t.slot===x?'on':''}" aria-pressed="${t.slot===x}" onclick="tact('slot','${x}')">${x}</button>`).join('')}</div>
+ <span class="lbl">Lokasi</span>
+ <div class="card3"><div class="sum"><span>Tempat</span><b>Auto2000 ${d.a.replace('Jakarta ','')}</b></div><div class="sum"><span>Didampingi</span><b>Sales Auto2000</b></div></div>
+ <button class="btn" onclick="tact('book')">Book sesi</button>
+ <p class="note">Gratis. Harga, promo, dan kredit dijelaskan sales, bukan duta.</p>
+</div>`}};
+S['trial-ok']=()=>{const t=s.trial,d=DUTA[t.d||0];if(t.st==='none')return S.trial();return{bar:subBar(t.st==='done'?'Setelah sesi':'Sesi terjadwal'),body:t.st!=='done'?h`
+<div class="pad"><div class="card3 center"><div class="ok">${ui.check}</div><p class="h2">Ketemu ${d.n} ${t.slot}</p><p class="p">Kode booking <b style="color:#111">${t.code}</b>. Tunjukkan ke sales saat datang.</p></div>
+ <div class="card3"><div class="sum"><span>Cara</span><b>${t.mode==='A'?'Setir mobil '+d.n:'Unit dealer'}</b></div><div class="sum"><span>Lokasi</span><b>Auto2000 ${d.a.replace('Jakarta ','')}</b></div><div class="sum"><span>Chat dengan duta</span><b>Di dalam aplikasi</b></div></div>
+ <button class="btn dark" onclick="tact('done')">Lompat: sesi selesai</button><p class="note center">Tombol ini mempercepat alur untuk demo.</p>
+ <button class="btn ghost" onclick="tact('cancel')">Batalkan sesi</button></div>`:h`
+<div class="pad"><div class="card3 center">${avatar(d,56)}<p class="h2" style="margin-top:8px">Gimana ngobrol sama ${d.n}?</p>
+ <div class="stars" role="group" aria-label="Beri rating">${[1,2,3,4,5].map(k=>`<button aria-label="${k} bintang" aria-pressed="${t.rate>=k}" class="${t.rate>=k?'on':''}" onclick="tact('rate',${k})"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6L3.2 9.4l6.1-.8z"/></svg></button>`).join('')}</div></div>
+ <span class="lbl">Langkah berikutnya</span>
+ <div class="card3">${row(I.coin,'Simulasi kredit','Hitung cicilan '+d.m,"toast('Membuka simulasi kredit')")}</div>
+ <div class="card3">${row(I.tradein,'Valuasi tukar tambah','Berapa nilai mobil lamamu',"go('nilai')")}</div>
+ <div class="card3">${row(I.wheel,'Test drive lagi','Pilih model lain',"go('test-drive')")}</div></div>`}};
+S.duta=()=>{const d=s.duta;if(!dutaOK())return{bar:subBar('Jadi duta'),body:h`
+<div class="pad"><div class="card3"><p class="h2">Belum bisa jadi duta</p><p class="p">Duta Toyota Trustworthy Trial harus owner hybrid yang rajin servis dan sudah punya hasil cek baterai Certified.</p>
+ <div class="checks" style="margin-top:12px">${[['Mobil hybrid atau listrik',!ice()],['Passport aktif',s.consent],['Hasil cek baterai Certified',!!s.hhc],['Tier Gold atau Silver (servis rutin)',s.tier==='Gold'||s.tier==='Silver']].map(([l,ok])=>`<div style="${ok?'':'color:var(--muted)'}">${ok?ui.check:ui.close.replace('<svg','<svg style="stroke:#999"')}<span>${l}</span></div>`).join('')}</div></div>
+ ${s.tier==='Bronze'?`<button class="btn" onclick="go('reentry')">Naikkan tier lewat Re-entry Inspection</button>`:''}</div>`};
+ if(d.st!=='active')return{bar:subBar('Jadi duta'),body:h`
+<div class="trhead"><div class="av">${shield(s.tier,34)}</div><h2>Ceritakan pengalamanmu. Dapat Poin Duta.</h2><p>Calon pembeli book sesi lewat Digiroom. Kamu ngobrol, sales Auto2000 yang urus transaksi.</p></div>
+<div class="pad">
+ <div class="card3"><p class="h2" style="font-size:14px">Poin yang kamu dapat</p>
+  <div class="sum"><span>Lolos verifikasi</span><b>100 poin</b></div><div class="sum"><span>Tiap sesi selesai (rating 4+)</span><b>100 poin</b></div><div class="sum"><span>Calon pembeli SPK dalam 60 hari</span><b>3.000 poin</b></div><div class="sum"><span>Plus tukar tambah</span><b>+500 poin</b></div>
+  <p class="note">1 poin = Rp1.000 di layanan Auto2000. Tidak bisa diuangkan, berlaku 12 bulan.</p></div>
+ <span class="lbl">Briefing 10 menit</span>
+ <div class="card3"><ol class="steps"><li><b>Cerita pengalaman,</b> bukan jualan.</li><li><b>Harga, promo, dan kredit</b> wewenang sales.</li><li><b>Sesi di dealer</b> atau titik publik yang ditentukan Auto2000.</li><li style="padding-bottom:0"><b>Nomor HP dan alamatmu</b> tidak dibagikan. Chat lewat aplikasi.</li></ol></div>
+ <button class="btn" onclick="tact('join')">Saya paham, daftar jadi duta</button></div>`};
+ const lv=lvNow(),nx=LV.find(x=>x[1]>d.spk);return{bar:subBar('Dasbor duta'),body:h`
+<div class="pad">
+ <div class="poin"><span>Poin Duta</span><b>${d.poin.toLocaleString('id-ID')}</b><small>Setara ${rp(d.poin*1000)} di Auto2000</small><span class="lv lv-${lv}" style="position:absolute;top:16px;right:16px">${lv}</span>
+  <div class="bar"><i style="width:${nx?d.spk/nx[1]*100:100}%"></i></div><small>${nx?d.spk+' dari '+nx[1]+' SPK menuju '+nx[0]:'Level tertinggi'}</small></div>
+ <div class="grid2" style="margin-top:12px"><button class="act" onclick="go('duta-katalog')">${ui.gift}<b>Tukar poin</b><span>Servis, parts, aksesoris</span></button><button class="act" onclick="go('duta-aturan')">${ui.list}<b>Aturan</b><span>Poin, level, batas sesi</span></button></div>
+ <span class="lbl">Jadwal kosong</span>
+ <div class="chips">${Object.keys(d.slots).map(k=>`<button class="chip ${d.slots[k]?'on':''}" aria-pressed="${d.slots[k]}" onclick="tact('slotd','${k}')">${k}</button>`).join('')}</div>
+ <div class="card3" style="margin-top:12px"><div class="item" style="border:0;padding:0"><div class="tx"><b>Izinkan mobilku dipakai test drive</b><span>Opsional. Calon pembeli wajib verifikasi KTP dan SIM</span></div><button class="sw" role="switch" aria-checked="${d.modeA}" aria-label="Izinkan mobil dipakai" onclick="tact('modeA')"></button></div></div>
+ <span class="lbl">Booking masuk</span>
+ <div class="card3"><div class="dtop">${avatar({n:'Rina',c:'#7a3a8c'},44)}<div class="dn"><b>Rina, cari MPV hybrid</b><span>Sab 09:00, Auto2000 Sunter, unit dealer</span></div></div>
+  <div class="tl" style="margin-top:12px">
+   <div class="ev ${d.inc!=='none'?'done':'next'}"><b>Sesi</b><span>${d.inc==='none'?'Menunggu hari H':'Selesai, rating 5'}</span></div>
+   <div class="ev ${d.inc==='spk'?'next':d.inc==='cair'?'done':''}"><b>SPK</b><span>${d.inc==='spk'?'3.000 poin menunggu serah terima':d.inc==='cair'?'Cair 3.500 poin':'Dihitung jika SPK dalam 60 hari'}</span></div></div>
+  ${d.inc==='none'?`<button class="btn dark" onclick="tact('inc','done')">Lompat: sesi selesai</button>`:d.inc==='done'?`<button class="btn dark" onclick="tact('inc','spk')">Lompat: Rina SPK</button>`:d.inc==='spk'?`<button class="btn dark" onclick="tact('inc','cair')">Lompat: serah terima</button>`:''}
+ </div>
+ <p class="note">Maksimal 4 sesi berpoin per bulan. Poin SPK cair setelah serah terima.</p></div>`}};
+S['duta-katalog']=()=>({bar:subBar('Tukar Poin Duta'),body:h`
+<div class="pad"><div class="poin" style="padding:14px 16px"><span>Saldo</span><b style="font-size:24px">${s.duta.poin.toLocaleString('id-ID')} poin</b></div>
+${KAT.map(([n,c,p],i)=>`<div class="card3 kat"><div class="tx"><b>${n}</b><span>${c}</span></div><button class="chip ${s.duta.poin>=p?'on':''}" ${s.duta.poin>=p?'':'disabled'} onclick="tact('redeem',${i})">${p.toLocaleString('id-ID')} poin</button></div>`).join('')}
+<p class="note">Poin hanya untuk layanan purna jual Auto2000. Tidak berlaku untuk potongan harga mobil.</p></div>`});
+S['duta-aturan']=()=>({bar:subBar('Aturan duta'),body:h`
+<div class="pad"><span class="lbl" style="margin-top:0">Level per tahun</span>
+${LV.map(([l,n,b])=>`<div class="card3"><div class="item" style="border:0;padding:0"><div class="tx"><b>${l}</b><span>${b}</span></div><span class="lv lv-${l}">${n?n+' SPK':'Verifikasi'}</span></div></div>`).join('')}
+<span class="lbl">Supaya adil</span>
+<div class="card3"><ol class="steps"><li>Maksimal 4 sesi berpoin per bulan.</li><li>Satu calon pembeli dihitung sekali per 90 hari.</li><li>Keluarga serumah dan diri sendiri tidak dihitung.</li><li>SPK batal, poin tidak keluar.</li><li style="padding-bottom:0">Duta dinonaktifkan jika rating rata-rata di bawah 3,5.</li></ol></div></div>`});
+
+/* ---------- Tab lain ---------- */
+S.privasi=()=>({bar:subBar('Privasi dan data'),body:h`
+<div class="pad"><div class="card2">
+ <div class="item"><div class="tx"><b>Catat riwayat servis di Passport</b><span>Wajib selama Passport aktif</span></div><span class="tag g">${s.consent?'Aktif':'Belum'}</span></div>
+ <div class="item"><div class="tx"><b>Pengingat lewat WhatsApp</b><span>Maksimal dua pesan per jadwal servis</span></div>${sw('wa','Pengingat WhatsApp')}</div>
+ <div class="item"><div class="tx"><b>Bagikan riwayat ke appraiser</b><span>Toyota TRUST dan OLXmobbi, saat tukar tambah</span></div>${sw('appr','Bagikan ke appraiser')}</div>
+ <div class="item"><div class="tx"><b>Tautan riwayat untuk calon pembeli</b><span>Berlaku 30 hari</span></div>${sw('share','Tautan riwayat')}</div>
+ <div class="item"><div class="tx"><b>Peringkat kota di rapor</b><span>Anonim</span></div>${sw('rank','Peringkat kota')}</div></div>
+<p class="note">Rapor hanya memakai data yang sudah dimiliki Auto2000: servis, pembelian, dan loyalitas. Foto odometer dan peringkat kota bersifat opsional.</p>
+<button class="btn ghost" onclick="act('cabut')">Cabut semua izin berbagi</button></div>`});
+S.kategori=()=>{const g=a=>a.map(([i,l,r,n])=>`<button onclick="go('${r}')"><span class="box" aria-hidden="true">${I[i]}</span>${l}${n?NEW(1):''}</button>`).join('');return{bar:mainBar(),tab:'kategori',body:h`
+<div class="sec"><div class="hd"><h3>Certified</h3></div><div class="card2"><div class="svc">${g([['doc','e-Sertifikat','sertifikat',1],['nilai','Nilai mobil saya','nilai',1],['share','Bagikan riwayat','bagikan',1],['shield','Tier & bonus','tier',1],['bengkel','Re-entry Inspection','reentry'],['gauge','Update odometer','odometer',1],['rapor','Rapor tahunan','rapor',1],['key','Pindah tangan','pindah',1],['trial','Coba bareng owner','trial',1],['coin','Jadi duta','duta',1]])}</div></div></div>
+<div class="sec"><div class="hd"><h3>Purna jual</h3></div><div class="card2"><div class="svc">${g([['booking','Booking servis','booking'],['home','Home service','home-service'],['body','Bodi & Cat','bodi-cat'],['parts','Aksesoris','aksesoris'],['paket','Paket servis','paket'],['sos','Darurat','emergency']])}</div></div></div>
+<div class="sec" style="padding-bottom:26px"><div class="hd"><h3>Mobil</h3></div><div class="card2"><div class="svc">${g([['newcar','Mobil baru','mobil-baru'],['used','Mobil bekas','mobil-bekas'],['wheel','Test drive','test-drive'],['pin','Cari cabang','cabang']])}</div></div></div>`}};
+S.orders=()=>{const t=s.orderTab;return{bar:mainBar(),tab:'orders',body:h`
+<div class="tabs" role="tablist"><button role="tab" aria-selected="${t==='aktif'}" class="${t==='aktif'?'on':''}" onclick="s.orderTab='aktif';render()">Aktif</button><button role="tab" aria-selected="${t==='riwayat'}" class="${t==='riwayat'?'on':''}" onclick="s.orderTab='riwayat';render()">Riwayat</button></div>
+<div class="pad">${t==='aktif'?(s.order||s.reentry==='booked'||s.trade==='submitted'?
+ (s.order?`<div class="card2">${row(I.booking,s.order.name,s.booking.branch+', '+s.booking.date+' '+s.booking.slot,"go('tracking')")}</div>`:'')+
+ (s.reentry==='booked'?`<div class="card2">${row(I.bengkel,'Re-entry Inspection',s.booking.branch,"go('reentry')")}</div>`:'')+
+ (s.trade==='submitted'?`<div class="card2">${row(I.tradein,'Tukar tambah '+s.car,'Menunggu jadwal appraiser',"go('nilai')")}</div>`:'')
+ :`<div class="empty">${I.booking}<br>Belum ada order aktif.</div>`):
+ (s.visits.length?s.visits.map(v=>`<div class="card2">${row(I.bengkel,v[1],v[0]+', '+v[2])}</div>`).join(''):`<div class="empty">${I.doc}<br>Riwayat masih kosong.</div>`)}
+</div>`}};
+S.akun=()=>({bar:mainBar(),tab:'akun',body:h`
+<div class="profile"><div class="avatar" aria-hidden="true">${s.user[0]}</div><div><b style="font-size:16px">${s.user}</b><div style="font-size:12px;color:#c9d0d8;margin-top:2px">${s.cars.length} mobil di garasi</div></div></div>
+<div class="pad"><div class="card2 menu">
+ ${[[ui.car,'Garasi saya',s.cars.map(c=>c.car.replace('Kijang Innova ','')).join(', '),"go('garasi')"],[ui.award,'e-Sertifikat',hasCert()?s.certNo:'Belum terbit',"go('sertifikat')"],[ui.lock,'Privasi dan data','Atur izin berbagi',"go('privasi')"],[ui.gift,'Poin Digiroom','Tier loyalitas White',"go('benefit')"],[ui.list,'Skenario demo',SC[s.scn].label,"go('skenario')"],[ui.help,'Tentang aplikasi ini','',"go('tentang')"]]
+   .map(([i,t,d,a])=>row(i,t,d,a)).join('')}
+ <div class="item" style="border:0"><div class="tx"><b>Tandai fitur baru</b><span>Label BARU di fitur Auto2000 Certified</span></div>${sw('shownew','Tandai fitur baru')}</div>
+</div></div>`});
+S.skenario=()=>({bar:subBar('Skenario demo'),body:h`
+<div class="pad"><p class="p" style="margin:0 0 12px">Pilih titik perjalanan pemilik yang ingin ditunjukkan.</p>
+${Object.entries(SC).map(([k,v])=>`<div class="card2">${row(shield(v.cars[0].tier,30),v.label+', '+v.user,v.desc+'. '+v.cars.length+' mobil.',`act('scn','${k}')`)}${s.scn===k?'<div style="margin-top:8px"><span class="tag">Sedang dipakai</span></div>':''}</div>`).join('')}
+<p class="note">Untuk mencoba klaim mobil bekas: Garasi, Tambah mobil, Mobil bekas bersertifikat.</p></div>`});
+S.tentang=()=>({bar:subBar('Tentang'),body:h`
+<div class="pad"><div class="card2"><p class="h2">Digiroom Certified</p><p class="p">Prototipe konsep buatan tim untuk IBSC 2026. Ini bukan aplikasi resmi Auto2000 atau Toyota.</p><p class="p">Nama pemilik, harga, biaya, konsumsi BBM, dan besaran bonus adalah ilustrasi. Tidak ada data yang dikirim ke server.</p></div>
+<div class="card2"><p class="h2" style="font-size:14px">Foto kendaraan</p><p class="p">Wikimedia Commons, lisensi bebas. Penulis dan lisensi tiap foto ada di halaman filenya:</p>${Object.values(PH).map(f=>`<p class="note" style="margin-top:6px"><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f.replace(/ /g,'_'))}" target="_blank" rel="noopener" style="color:var(--red-dark)">${f}</a></p>`).join('')}</div></div>`});
+S.benefit=()=>({bar:subBar('Poin Digiroom'),body:h`
+<div class="pad"><div class="card2" style="background:var(--hero);color:#fff"><span style="font-size:12px;color:#c9d0d8">Tier loyalitas</span><div style="font-size:18px;font-weight:700">White</div><div class="bar" style="background:#2c3a49;margin-top:12px"><i style="width:20%"></i></div><div style="font-size:12px;color:#c9d0d8;margin-top:6px">1.240 poin</div></div>
+<div class="info">Tier loyalitas mengikuti transaksi Anda. Tier Certified mengikuti riwayat perawatan mobil. Keduanya terpisah.</div></div>`});
+S.notif=()=>{s.notif=0;save();const n=[];
+ if(!s.consent)n.push([I.doc,'Passport '+s.car+' siap diaktifkan','Sales membantu saat serah terima','aktivasi']);
+ else{n.push([I.promo,'Rapor tahunan '+s.car.replace('Kijang Innova ','')+' sudah siap','Lihat hemat BBM dan persona nyetirmu','rapor']);
+  if(!ice()&&(nextN()<=11||!s.sbi))n.push([I.bell,nextName()+' jatuh tempo '+s.nextDate,paid()?'Lihat estimasi biaya sebelum datang':'Gratis. Pilih jadwal',paid()?'cost':'booking']);
+  if(hasCert())n.push([I.doc,'e-Sertifikat '+s.certNo+' aktif','Tier '+s.tier+', ID Mobil '+s.id,'sertifikat']);
+  if(s.tier==='Bronze'&&s.reentry==='none')n.push([I.bengkel,'Naikkan lagi tier '+s.car,'Re-entry Inspection memeriksa kondisi mobil saat ini','reentry']);
+  n.push([I.battery,'Update odometer bulan ini','Dapat 50 poin dan rapor lebih akurat','odometer']);}
+ return{bar:subBar('Notifikasi'),body:`<div class="pad">${n.map(([i,t,d,r])=>`<div class="card2">${row(i,t,d,`go('${r}')`)}</div>`).join('')}</div>`}};
+S.emergency=()=>({bar:subBar('Bantuan darurat'),body:h`
+<div class="pad"><div class="sos"><b>Butuh bantuan sekarang?</b><p>Tim siaga 24 jam untuk mogok, ban kempis, dan kecelakaan.</p><button class="btn" onclick="toast('Menghubungi layanan darurat')">Hubungi sekarang</button></div>
+ <span class="lbl" style="margin-top:20px">Jenis bantuan</span>
+ <div class="card2">${row(I.sos,'Mobil mogok','Teknisi datang ke lokasi Anda',"toast('Permintaan dikirim')")}</div>
+ <div class="card2">${row(I.tire,'Ban kempis','Ganti ban di tempat',"toast('Permintaan dikirim')")}</div>
+ <div class="card2">${row(I.body,'Kecelakaan','Derek dan klaim ke Bodi & Cat',"go('bodi-cat')")}</div></div>`});
+S['mobil-baru']=()=>({bar:subBar('Mobil baru'),body:h`
+<div class="pad"><div class="card3" style="margin-bottom:12px">${row(I.trial,'Ragu soal hybrid? Tanya owner-nya','Toyota Trustworthy Trial',"go('trial')")}</div>${s.consent&&btot()?`<div class="info" style="margin:0 0 12px">Tukar tambah ${s.car}: benefit Certified ${rp(btot())}. <button class="lnk" onclick="go('nilai')">Rincian</button></div>`:''}
+${[['Kijang Innova Zenix Hybrid','Hybrid','zenixq'],['Yaris Cross Hybrid','Hybrid','yaris'],['Avanza','Bensin','avanza']].map(([n,t,p])=>`<div class="card2" style="padding:0;overflow:hidden"><div style="position:relative;height:150px;background:#eee">${photo(p,'Foto '+n).replace('class="fb"','class="fb" style="position:absolute;inset:0;width:100%;height:100%;padding:20px 80px"').replace('<img class=""','<img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"')}</div><div style="padding:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b style="font-size:14px">${n}</b><span class="tag ${t==='Bensin'?'k':''}">${t}</span></div><div style="display:flex;gap:8px"><button class="btn ghost" style="margin-top:12px" onclick="go('test-drive')">Test drive</button><button class="btn" style="margin-top:12px" onclick="toast('Sales akan menghubungi Anda')">Minta penawaran</button></div></div></div>`).join('')}</div>`});
+S['mobil-bekas']=()=>({bar:subBar('Mobil bekas'),body:h`
+<div class="pad">${[['Kijang Innova Zenix Hybrid 2023','32.000 km, Jakarta','Gold','zenixv'],['Yaris Cross Hybrid 2024','15.000 km, Tangerang','Silver','yaris'],['Avanza 2021','48.000 km, Bekasi','','avanza']]
+ .map(([n,d,t,p])=>`<div class="card2 garage" style="display:flex;gap:12px;align-items:center"><span class="pic">${photo(p,'',' ',300)}</span><span style="flex:1"><b style="font-size:13.5px;display:block">${n}</b><span style="font-size:12px;color:var(--muted)">${d}</span>${t?`<span style="display:flex;gap:6px;margin-top:6px"><span class="tag g">${ui.check}e-Sertifikat ${t}</span></span>`:''}</span></div>`).join('')}</div>`});
+S['test-drive']=()=>({bar:subBar('Test drive'),body:h`
+<div class="pad"><div class="card2">
+ <label class="lbl" for="tm">Model</label><select class="field" id="tm">${cars.map(c=>`<option ${/Veloz/.test(c[0])&&ice()?'selected':''}>${c[0]}</option>`).join('')}</select>
+ <label class="lbl" for="tc">Cabang</label><select class="field" id="tc">${branches.map(([n])=>`<option>${n}</option>`).join('')}</select>
+ <label class="lbl" for="td">Tanggal</label><select class="field" id="td"><option>Sab, 21 Nov</option><option>Min, 22 Nov</option><option>Sen, 23 Nov</option></select>
+</div><button class="btn" onclick="toast('Jadwal test drive terkirim')">Ajukan test drive</button></div>`});
+S.aksesoris=()=>({bar:subBar('Produk purnajual'),body:h`
+<div class="pad"><div class="prod">${[['oil','Oli Mesin 0W-16 4L',52e4],['battery','Aki 12V',135e4],['mat','Karpet Dasar',75e4],['tire','Ban 17 inci',145e4],['cam','Kamera Dasbor',18e5],['parts','Filter Udara',165e3]]
+ .map(([i,n,p])=>`<div class="card"><div class="img" aria-hidden="true">${I[i]}</div><b>${n}</b><div class="price" style="margin-bottom:8px">${rp(p)}</div><button class="btn" onclick="toast('Masuk keranjang')">Tambah</button></div>`).join('')}</div></div>`});
+S['home-service']=()=>({bar:subBar('Home service'),body:h`
+<div class="pad"><div class="card2">
+ <label class="lbl" for="ha">Alamat</label><textarea class="field" id="ha" rows="2" placeholder="Alamat lengkap"></textarea>
+ <label class="lbl" for="hs">Jenis servis</label><select class="field" id="hs"><option>Servis berkala</option><option>Ganti oli</option><option>Hybrid Health Check</option></select>
+</div><p class="note">Servis di rumah oleh teknisi resmi tetap tercatat sebagai terverifikasi di Passport.</p><button class="btn" onclick="toast('Permintaan home service terkirim')">Pesan home service</button></div>`});
+S['bodi-cat']=()=>({bar:subBar('Bodi & Cat'),body:h`
+<div class="pad"><div class="card2"><span class="lbl">Foto kerusakan</span><button class="field" style="height:96px;border:1.5px dashed var(--red);color:var(--red-dark);font-weight:700;font-size:13px" onclick="toast('Foto dipilih')">Ambil atau pilih foto</button>
+ <label class="lbl" for="bb">Bagian yang rusak</label><select class="field" id="bb"><option>Bumper depan</option><option>Bumper belakang</option><option>Pintu</option><option>Lainnya</option></select></div>
+<button class="btn" onclick="toast('Permintaan estimasi terkirim')">Minta estimasi</button></div>`});
+S.paket=()=>({bar:subBar('Paket servis'),body:h`
+<div class="pad">${[['Paket servis ke-8 s.d. 11','Empat servis berbayar dengan harga tetap. Menjaga tier dan menambah garansi T-CARE XTRA.'],['Certified Check tahunan','Untuk mobil di atas 5 tahun. Memperbarui e-Sertifikat.'],['Re-entry Inspection','Untuk mobil dengan riwayat tidak lengkap.']]
+ .map(([n,d],i)=>`<div class="card2">${row(I.paket,n,d,i===2?"go('reentry')":"toast('Service advisor akan mengirim penawaran')")}</div>`).join('')}</div>`});
+S.cabang=()=>({bar:subBar('Cari cabang'),body:h`<div class="pad">${branches.map(([n,a,d])=>`<div class="card2">${row(I.pin,n,a+', '+d,"toast('Membuka peta')")}</div>`).join('')}</div>`});
+
+/* ---------- Router ---------- */
+function fit(){const k=innerWidth>=500?Math.min(1,(innerHeight-56)/880,(innerWidth-56)/420):1;document.documentElement.style.setProperty('--k',k)}
+addEventListener('resize',fit);fit();
+document.body.insertAdjacentHTML('afterbegin',DEFS3);
+function render(){
+  const r=(location.hash||'#home').slice(1);
+  if(r!=='rapor')MUS.stop();
+  const v=(S[r]||S.home)();
+  const ph=$('#phone');ph.classList.toggle('hidenew',!s.shownew);
+  $('#top').innerHTML=v.story?'':v.bar;
+  $('#screen').innerHTML=v.story?'':v.body;
+  let st=$('#storybox');if(!st){st=document.createElement('div');st.id='storybox';ph.appendChild(st)}
+  st.innerHTML=v.story?v.body:'';
+  const tb=$('#tabbar');
+  tb.style.display=v.tab&&!v.story?'grid':'none';
+  ph.classList.toggle('notab',!v.tab);
+  if(v.tab)tb.innerHTML=tabbar(v.tab);
+  document.querySelectorAll('#screen svg:not([role]),#storybox svg:not([role])').forEach(e=>e.setAttribute('aria-hidden','true'));
+  if(v.story)storyTimer();
+}
+window.addEventListener('hashchange',()=>{render();$('#screen').scrollTop=0});
+render();
+</script>
+</body>
+</html>
